@@ -1,0 +1,11 @@
+[book]
+authors = ["praydog"]
+language = "en"
+multilingual = false
+src = "src"
+title = "UnrealVR Documentation"
+
+[output.html]
+site-url = "/uuevr-docs/"
+git-repository-url = "https://github.com/praydog/uuevr-docs"
+edit-url-template = "https://github.com/praydog/uuevr-docs/edit/main/{path}"
