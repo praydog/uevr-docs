@@ -7,5 +7,5 @@ title = "UnrealVR Documentation"
 
 [output.html]
 site-url = "/uuevr-docs/"
-git-repository-url = "https://github.com/praydog/uuevr-docs"
-edit-url-template = "https://github.com/praydog/uuevr-docs/edit/main/{path}"
+git-repository-url = "https://github.com/praydog/uuvr-docs"
+edit-url-template = "https://github.com/praydog/uuvr-docs/edit/main/{path}"
