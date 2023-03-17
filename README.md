@@ -1,3 +1,3 @@
-# uuevr-docs
+# uuvr-docs
 
-https://praydog.github.io/uuevr-docs
+https://praydog.github.io/uuvr-docs
