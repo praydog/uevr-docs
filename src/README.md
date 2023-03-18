@@ -16,12 +16,13 @@ Welcome to UnrealVR! This powerful tool will transform your favorite Unreal Engi
 
 ## Getting Started
 
-1. Launch the frontend GUI
-2. Choose a process to inject into
-3. Select your desired runtime (OpenVR/OpenXR)
-4. Toggle existing VR plugin nullification (if necessary)
-5. Configure pre-injection settings
-6. Inject
+1. Launch the frontend GUI (UnrealVR.exe)
+2. Launch the target game
+3. Locate the game in the process dropdown list
+4. Select your desired runtime (OpenVR/OpenXR)
+5. Toggle existing VR plugin nullification (if necessary)
+6. Configure pre-injection settings
+7. Inject
 
 ## In-Game Menu
 
