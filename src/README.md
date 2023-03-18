@@ -8,6 +8,7 @@ Welcome to UnrealVR! This powerful tool will transform your favorite Unreal Engi
 - Supports OpenVR and OpenXR runtimes
 - Native UE4/UE5 stereo rendering system for a truly immersive VR experience
 - 3 rendering modes: Native Stereo, Synchronized Sequential, and Alternating/AFR
+- Automatic handling of most in-game UI so it is projected into 3D space
 - In-game menu with shortcuts for adjusting settings
 - Access to various CVars for fixing broken shaders/effects
 - Optional depth buffer integration for improved latency on some headsets
