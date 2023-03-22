@@ -143,12 +143,13 @@
                         <h1 id="unrealvr-plugin-development"><a class="header" href="#unrealvr-plugin-development">UnrealVR: Plugin Development</a></h1>
 <p>This section covers the basics of developing plugins for UnrealVR. If you're looking for information on how to use UnrealVR, check out the <a href="../usage/overview.html">Usage</a> section.</p>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
-<p>Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind them to other languages, or even just write them in C. </p>
+<p>Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. </p>
 <p>The API header is located in <code>include/uevr/API.h</code>. </p>
 <p>The C++ API header is in <code>include/uevr/API.hpp</code>.</p>
 <p>The base C++ plugin header is in <code>include/uevr/Plugin.hpp</code>.</p>
 <h2 id="plugin-installation"><a class="header" href="#plugin-installation">Plugin Installation</a></h2>
 <p>In the frontend, click the &quot;Open Global Dir&quot; button. Locate the corresponding game directory, and place the DLL in the <code>plugins</code> folder.</p>
+<p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UnrealVR.</p>
 <h2 id="plugin-lifecycle"><a class="header" href="#plugin-lifecycle">Plugin Lifecycle</a></h2>
 <p>Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:</p>
 <ol>
