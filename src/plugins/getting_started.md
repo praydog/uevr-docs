@@ -4,7 +4,7 @@ This section covers the basics of developing plugins for UnrealVR. If you're loo
 
 ## Overview
 
-Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind them to other languages, or even just write them in C. 
+Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. 
 
 The API header is located in `include/uevr/API.h`. 
 
@@ -15,6 +15,8 @@ The base C++ plugin header is in `include/uevr/Plugin.hpp`.
 ## Plugin Installation
 
 In the frontend, click the "Open Global Dir" button. Locate the corresponding game directory, and place the DLL in the `plugins` folder.
+
+During plugin development, you many want to create a symbolic link from the `plugins` dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UnrealVR.
 
 ## Plugin Lifecycle
 
