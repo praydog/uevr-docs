@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -229,6 +229,82 @@
 <li>Consider upgrading your system for the best experience with high-end AAA titles</li>
 </ul>
 <p>Further tweaks can be done by modifying the game's INI files, using UUU, UE4SS, or other external tools. Various tweaks that have been made for the normal version of the games can be applied to the VR version as well.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-plugin-development"><a class="header" href="#unrealvr-plugin-development">UnrealVR: Plugin Development</a></h1>
+<p>This section covers the basics of developing plugins for UnrealVR. If you're looking for information on how to use UnrealVR, check out the <a href="plugins/../usage/overview.html">Usage</a> section.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind them to other languages, or even just write them in C. </p>
+<p>The API header is located in <code>include/uevr/API.h</code>. </p>
+<p>The C++ API header is in <code>include/uevr/API.hpp</code>.</p>
+<p>The base C++ plugin header is in <code>include/uevr/Plugin.hpp</code>.</p>
+<h2 id="plugin-installation"><a class="header" href="#plugin-installation">Plugin Installation</a></h2>
+<p>In the frontend, click the &quot;Open Global Dir&quot; button. Locate the corresponding game directory, and place the DLL in the <code>plugins</code> folder.</p>
+<h2 id="plugin-lifecycle"><a class="header" href="#plugin-lifecycle">Plugin Lifecycle</a></h2>
+<p>Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:</p>
+<ol>
+<li>UnrealVR starts its initialization process</li>
+<li>UnrealVR initially loads all plugins, and calls their <code>DLLMain</code> functions
+<ul>
+<li>If the plugin is a C++ plugin, the DLLMain function will call the <code>on_dllmain</code> function of the plugin</li>
+</ul>
+</li>
+<li>UnrealVR begins initializing the rest of its own components</li>
+<li>After initialization, UnrealVR calls the <code>on_initialize</code> function of each plugin</li>
+<li>During its execution loop, UnrealVR will call the various <code>on_*</code> functions of each plugin</li>
+<li>The user can choose to unload all plugins, and reload them at will at runtime</li>
+</ol>
+<h2 id="the-easy-way"><a class="header" href="#the-easy-way">The easy way</a></h2>
+<p><code>Plugin.hpp</code> provides a class that can be inherited from to create a plugin. This class provides a number of virtual functions that can be overridden to implement the plugin's functionality.</p>
+<p>The way it is structured is also how you would use the API in C++ using the API.h and API.hpp headers.</p>
+<p><code>Plugin.hpp</code> also implements a DLLMain for you, so you don't have to worry about that. All you need to worry about is overriding the virtual functions.</p>
+<p>The project must be compiled as a DLL.</p>
+<h3 id="a-simple-example"><a class="header" href="#a-simple-example">A simple example</a></h3>
+<pre><code class="language-cpp">#include &lt;memory&gt;
+
+#include &quot;uevr/Plugin.hpp&quot;
+
+using namespace uevr;
+
+#define PLUGIN_LOG_ONCE(...) \
+    static bool _logged_ = false; \
+    if (!_logged_) { \
+        _logged_ = true; \
+        API::get()-&gt;log_info(__VA_ARGS__); \
+    }
+
+class ExamplePlugin : public uevr::Plugin {
+public:
+    ExamplePlugin() = default;
+
+    void on_dllmain() override {}
+
+    void on_initialize() override {
+        // Logs to the appdata UnrealVRMod log.txt file
+        API::get()-&gt;log_error(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;error&quot;);
+        API::get()-&gt;log_warn(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;warning&quot;);
+        API::get()-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
+    }
+
+    void on_pre_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+        PLUGIN_LOG_ONCE(&quot;Pre Engine Tick: %f&quot;, delta);
+    }
+
+    void on_post_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+        PLUGIN_LOG_ONCE(&quot;Post Engine Tick: %f&quot;, delta);
+    }
+
+    void on_pre_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+        PLUGIN_LOG_ONCE(&quot;Pre Slate Draw Window&quot;);
+    }
+
+    void on_post_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+        PLUGIN_LOG_ONCE(&quot;Post Slate Draw Window&quot;);
+    }
+};
+
+// Actually creates the plugin. Very important that this global is created.
+// The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
+std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
+</code></pre>
 
                     </main>
 
