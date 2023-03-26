@@ -13,6 +13,12 @@ The frontend GUI provides an intuitive interface for injecting VR functionality 
 
 ![Frontend GUI Screenshot Placeholder](images/frontend-gui.png)
 
+## OpenVR or OpenXR?
+
+OpenVR usually has the highest compatibility, but OpenXR usually gives higher performance when it works, especially if the headset has a native OpenXR runtime.
+
+OpenVR requires SteamVR to be installed. OpenXR requires a valid OpenXR runtime for the headset, but can also run through SteamVR if SteamVR is set as the active runtime.
+
 ## Pre-Injection Settings
 
 Before injecting, you can customize the following settings:
