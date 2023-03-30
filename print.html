@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">3.</strong> Lua API</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -308,6 +308,108 @@ public:
 // Actually creates the plugin. Very important that this global is created.
 // The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
 std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-lua-api"><a class="header" href="#unrealvr-lua-api">UnrealVR: Lua API</a></h1>
+<p>UnrealVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.</p>
+<p>It is intended to be used within UE4SS, but can technically be used in any Lua environment.</p>
+<p>This API is in its infancy, and is subject to change.</p>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
+<pre><code class="language-lua">local LuaVR = require(&quot;LuaVR&quot;)
+
+local function vr_print(text)
+    print(&quot;[LuaVR Script] &quot; .. text .. &quot;\n&quot;)
+end
+
+local params = LuaVR.params
+local callbacks = params.sdk.callbacks
+
+local total_t = 0.0
+
+-- Example usage of callbacks
+callbacks.on_pre_engine_tick(function(engine, delta)
+    total_t = total_t + delta
+end)
+
+-- Modifies the camera position
+callbacks.on_post_calculate_stereo_view_offset(function(device, view_index, world_to_meters, position, rotation, is_double)
+    position.z = position.z + 100.0
+    position.y = position.y - 100.0
+end)
+
+
+
+-- UEVR_PluginInitializeParam
+
+-- UEVR_PluginVersion
+vr_print(&quot;Major: &quot; .. tostring(params.version.major))
+vr_print(&quot;Minor: &quot; .. tostring(params.version.minor))
+vr_print(&quot;Patch: &quot; .. tostring(params.version.patch))
+
+-- UEVR_PluginFunctions
+vr_print(&quot;Is drawing ui: &quot; .. tostring(params.functions.is_drawing_ui()))
+params.functions.log_info(&quot;Hello from LuaVR!&quot;)
+params.functions.log_warn(&quot;Hello from LuaVR!&quot;)
+params.functions.log_error(&quot;Hello from LuaVR!&quot;)
+
+-- UEVR_VRData
+vr_print(&quot;Runtime ready state: &quot; .. tostring(params.vr.is_runtime_ready()))
+vr_print(&quot;Is OpenVR: &quot; .. tostring(params.vr.is_openvr()))
+vr_print(&quot;Is OpenXR: &quot; .. tostring(params.vr.is_openxr()))
+vr_print(&quot;Is HMD Active: &quot; .. tostring(params.vr.is_hmd_active()))
+
+local standing_origin = UEVR_Vector3f.new()
+params.vr.get_standing_origin(standing_origin)
+vr_print(&quot;Standing Origin: &quot; .. tostring(standing_origin.x) .. &quot;, &quot; .. tostring(standing_origin.y) .. &quot;, &quot; .. tostring(standing_origin.z))
+
+local rotation_offset = UEVR_Vector3f.new()
+params.vr.get_rotation_offset(rotation_offset)
+vr_print(&quot;Rotation Offset: &quot; .. tostring(rotation_offset.x) .. &quot;, &quot; .. tostring(rotation_offset.y) .. &quot;, &quot; .. tostring(rotation_offset.z))
+
+local hmd_index = params.vr.get_hmd_index()
+vr_print(&quot;HMD Index: &quot; .. tostring(hmd_index))
+
+local left_controller_index = params.vr.get_left_controller_index()
+vr_print(&quot;Left Controller Index: &quot; .. tostring(left_controller_index))
+
+local right_controller_index = params.vr.get_right_controller_index()
+vr_print(&quot;Right Controller Index: &quot; .. tostring(right_controller_index))
+
+local hmd_position = UEVR_Vector3f.new()
+local hmd_rotation = UEVR_Quaternionf.new()
+params.vr.get_pose(hmd_index, hmd_position, hmd_rotation)
+
+vr_print(&quot;HMD Position: &quot; .. tostring(hmd_position.x) .. &quot;, &quot; .. tostring(hmd_position.y) .. &quot;, &quot; .. tostring(hmd_position.z))
+vr_print(&quot;HMD Rotation: &quot; .. tostring(hmd_rotation.x) .. &quot;, &quot; .. tostring(hmd_rotation.y) .. &quot;, &quot; .. tostring(hmd_rotation.z) .. &quot;, &quot; .. tostring(hmd_rotation.w))
+
+if left_controller_index ~= -1 then
+    local left_controller_position = UEVR_Vector3f.new()
+    local left_controller_rotation = UEVR_Quaternionf.new()
+    params.vr.get_pose(left_controller_index, left_controller_position, left_controller_rotation)
+
+    vr_print(&quot;Left Controller Position: &quot; .. tostring(left_controller_position.x) .. &quot;, &quot; .. tostring(left_controller_position.y) .. &quot;, &quot; .. tostring(left_controller_position.z))
+    vr_print(&quot;Left Controller Rotation: &quot; .. tostring(left_controller_rotation.x) .. &quot;, &quot; .. tostring(left_controller_rotation.y) .. &quot;, &quot; .. tostring(left_controller_rotation.z) .. &quot;, &quot; .. tostring(left_controller_rotation.w))        
+end
+
+if right_controller_index ~= -1 then
+    local right_controller_position = UEVR_Vector3f.new()
+    local right_controller_rotation = UEVR_Quaternionf.new()
+    params.vr.get_pose(right_controller_index, right_controller_position, right_controller_rotation)
+
+    vr_print(&quot;Right Controller Position: &quot; .. tostring(right_controller_position.x) .. &quot;, &quot; .. tostring(right_controller_position.y) .. &quot;, &quot; .. tostring(right_controller_position.z))
+    vr_print(&quot;Right Controller Rotation: &quot; .. tostring(right_controller_rotation.x) .. &quot;, &quot; .. tostring(right_controller_rotation.y) .. &quot;, &quot; .. tostring(right_controller_rotation.z) .. &quot;, &quot; .. tostring(right_controller_rotation.w))        
+end
+
+local left_eye_offset = UEVR_Vector3f.new()
+local right_eye_offset = UEVR_Vector3f.new()
+
+params.vr.get_eye_offset(0, left_eye_offset)
+params.vr.get_eye_offset(1, right_eye_offset)
+
+vr_print(&quot;Left Eye Offset: &quot; .. tostring(left_eye_offset.x) .. &quot;, &quot; .. tostring(left_eye_offset.y) .. &quot;, &quot; .. tostring(left_eye_offset.z))
+vr_print(&quot;Right Eye Offset: &quot; .. tostring(right_eye_offset.x) .. &quot;, &quot; .. tostring(right_eye_offset.y) .. &quot;, &quot; .. tostring(right_eye_offset.z))
+
+local is_using_controllers = params.vr.is_using_controllers()
+vr_print(&quot;Is Using Controllers: &quot; .. tostring(is_using_controllers))
 </code></pre>
 
                     </main>
