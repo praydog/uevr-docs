@@ -8,3 +8,4 @@
 
 # Plugin Development
 - [Getting Started](plugins/getting_started.md)
+- [Lua API](plugins/lua.md)
