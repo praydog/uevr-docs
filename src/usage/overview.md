@@ -75,7 +75,7 @@ Plugins can be installed in the `plugins` folder in the game's configuration dir
 
 ## Troubleshooting & Optimization
 
-For optimal performance and compatibility:
+### Optimal performance and compatibility
 
 - Tweak graphical settings in-game to reduce load
 - Experiment with different rendering methods if you encounter rendering bugs or crashes
@@ -84,3 +84,7 @@ For optimal performance and compatibility:
 - Consider upgrading your system for the best experience with high-end AAA titles
 
 Further tweaks can be done by modifying the game's INI files, using UUU, UE4SS, or other external tools. Various tweaks that have been made for the normal version of the games can be applied to the VR version as well.
+
+### For those with motion sickness
+
+Enable "Decoupled Pitch" under the VR options. This will stop the camera from rolling or moving vertically.
