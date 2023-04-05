@@ -59,7 +59,7 @@ Use the in-game menu to access and modify various CVars for fixing broken shader
 
 ## Depth Buffer Integration
 
-While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR. To enable depth buffer integration, adjust the `VR_EnableDepth` setting.
+While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, adjust the `VR_EnableDepth` setting.
 
 ![Depth Buffer Integration Screenshot](images/depth-buffer-integration.png)
 
