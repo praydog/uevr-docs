@@ -179,6 +179,8 @@
 <p>Fully synchronized eye rendering. Game world does not advance time between frames.</p>
 <p>Looks normal but temporal effects like TAA will have ghosting/doubling effect. Motion blur will need to be turned off.</p>
 <p>This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.</p>
+<p><strong>Skip Draw</strong> skips the viewport draw on the next engine tick. Usually works the best but sometimes particle effects may not play at the correct speed.</p>
+<p><strong>Skip Tick</strong> skips the next engine tick entirely. Usually buggy but does fix particle effects and sometimes brings higher performance.</p>
 <h3 id="afr"><a class="header" href="#afr">AFR</a></h3>
 <p>Alternated Frame Rendering. Renders each eye on separate frames in an alternating fashion, with the game world advancing time in between frames. Causes eye desyncs and usually nausea along with it.</p>
 <p>Not synchronized. Generally should not be used unless the other two are unusable in some way.</p>
