@@ -43,7 +43,7 @@ Fully synchronized eye rendering. Works with the majority of games. Uses the act
 
 ### Synchronized Sequential
 
-A form of AFR. Can fix many rendering bugs that are introduced with Native Stereo.
+A form of AFR. Can fix many rendering bugs that are introduced with Native Stereo. Renders two frames **sequentially** in a **synchronized** fashion on the same engine tick.
 
 Fully synchronized eye rendering. Game world does not advance time between frames.
 
