@@ -51,6 +51,10 @@ Looks normal but temporal effects like TAA will have ghosting/doubling effect. M
 
 This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.
 
+**Skip Draw** skips the viewport draw on the next engine tick. Usually works the best but sometimes particle effects may not play at the correct speed.
+
+**Skip Tick** skips the next engine tick entirely. Usually buggy but does fix particle effects and sometimes brings higher performance.
+
 ### AFR
 
 Alternated Frame Rendering. Renders each eye on separate frames in an alternating fashion, with the game world advancing time in between frames. Causes eye desyncs and usually nausea along with it.
