@@ -53,7 +53,7 @@ This is the first alternative option that should be used if Native Stereo is not
 
 ### AFR
 
-Alternate Frame Rendering. Renders each eye on separate frames, with the game world advancing time in between frames, causing desyncs and usually nausea along with it.
+Alternated Frame Rendering. Renders each eye on separate frames in an alternating fashion, with the game world advancing time in between frames. Causes eye desyncs and usually nausea along with it.
 
 Not synchronized. Generally should not be used unless the other two are unusable in some way.
 
