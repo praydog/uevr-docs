@@ -39,7 +39,7 @@ When it works, it looks the best, performs the best (usually). Can cause crashes
 
 Temporal effects like TAA are fully intact. DLSS/FSR2 usually work completely fine with no ghosting in this mode.
 
-Fully synchronized eye rendering. Works with the majority of games.
+Fully synchronized eye rendering. Works with the majority of games. Uses the actual stereo rendering pipeline in the Unreal Engine to achieve a stereoscopic image.
 
 ### Synchronized Sequential
 
