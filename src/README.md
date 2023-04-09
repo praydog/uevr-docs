@@ -41,7 +41,7 @@ Temporal effects like TAA are fully intact. DLSS/FSR2 usually work completely fi
 
 Fully synchronized eye rendering. Works with the majority of games.
 
-## Synchronized Sequential
+### Synchronized Sequential
 
 A form of AFR. Can fix many rendering bugs that are introduced with Native Stereo.
 
@@ -51,7 +51,7 @@ Looks normal but temporal effects like TAA will have ghosting/doubling effect. M
 
 This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.
 
-## AFR
+### AFR
 
 Alternate Frame Rendering. Renders each eye on separate frames, with the game world advancing time in between frames, causing desyncs and usually nausea along with it.
 
