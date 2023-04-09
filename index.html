@@ -165,6 +165,25 @@
 <li>Configure pre-injection settings</li>
 <li>Inject</li>
 </ol>
+<h2 id="to-dos-before-injection"><a class="header" href="#to-dos-before-injection">To-dos before injection</a></h2>
+<ol>
+<li>Disable HDR (it will still work without it, but the game will be darker than usual if it is)</li>
+<li>Start as administrator if the game is not visible in the list</li>
+<li>Pass -nohmd to the command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins</li>
+</ol>
+<h2 id="quick-overview-of-rendering-methods"><a class="header" href="#quick-overview-of-rendering-methods">Quick overview of rendering methods</a></h2>
+<h3 id="native-stereo"><a class="header" href="#native-stereo">Native Stereo</a></h3>
+<p>When it works, it looks the best, performs the best (usually). Can cause crashes or graphical bugs if the game does not play well with it.</p>
+<p>Temporal effects like TAA are fully intact. DLSS/FSR2 usually work completely fine with no ghosting in this mode.</p>
+<p>Fully synchronized eye rendering. Works with the majority of games.</p>
+<h2 id="synchronized-sequential"><a class="header" href="#synchronized-sequential">Synchronized Sequential</a></h2>
+<p>A form of AFR. Can fix many rendering bugs that are introduced with Native Stereo.</p>
+<p>Fully synchronized eye rendering. Game world does not advance time between frames.</p>
+<p>Looks normal but temporal effects like TAA will have ghosting/doubling effect. Motion blur will need to be turned off.</p>
+<p>This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.</p>
+<h2 id="afr"><a class="header" href="#afr">AFR</a></h2>
+<p>Alternate Frame Rendering. Renders each eye on separate frames, with the game world advancing time in between frames, causing desyncs and usually nausea along with it.</p>
+<p>Not synchronized. Generally should not be used unless the other two are unusable in some way.</p>
 <h2 id="in-game-menu"><a class="header" href="#in-game-menu">In-Game Menu</a></h2>
 <p>Press the <strong>Insert</strong> key or <strong>L3+R3</strong> on a controller to access the in-game menu, which opens by default at startup. With the menu open, hold <strong>RT</strong> for various shortcuts:</p>
 <ul>
