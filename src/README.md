@@ -29,7 +29,7 @@ Welcome to UnrealVR! This powerful tool will transform your favorite Unreal Engi
 
 1. Disable HDR (it will still work without it, but the game will be darker than usual if it is)
 2. Start as administrator if the game is not visible in the list
-3. Pass -nohmd to the command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins
+3. Pass `-nohmd` to the game's command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins
 
 ## Quick overview of rendering methods
 
