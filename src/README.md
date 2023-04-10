@@ -74,3 +74,33 @@ Press the **Insert** key or **L3+R3** on a controller to access the in-game menu
 ## Additional information
 
 Read the [Detailed overview](usage/overview.md) for a comprehensive guide on how to fine-tune your VR experience.
+
+## Special thanks
+
+* [TheNewJavaman](https://github.com/TheNewJavaman) - Developer of the previous Unreal VR project.
+
+To all the testers. These include:
+
+* [Brian Tate](https://twitter.com/Flat2VR) - Founder of the Flat2VR community. He is the catalyst that kicked off this project. He was digging around and found out that most of the stereo pipeline is left in the engine.
+
+* [Alex G/Virtual Insider](https://www.youtube.com/c/VirtualInsider) - A tester from the start. Has helped find many bugs and issues. Has also provided many helpful suggestions and ideas.
+
+* [Alex/Waifu Enjoyer](https://www.youtube.com/@waifu_enjoyer) - One of the most prolific testers. Has tested hundreds of games and has helped find many bugs and issues. Has also provided many helpful suggestions and ideas. Has provided helpful statistics on game compatibility.
+
+* [Alchemist](https://github.com/NicolasAubinet/) - DRG VR developer.
+
+* [Jay Fullerton](https://www.youtube.com/@jayfullerton6981) - Has tested many games, and stands out as one of the testers with a lower end system. This has helped get an idea of how the tool performs on lower end hardware.
+
+* Kitt - Mechwarrior 5 VR developer.
+
+* Lance McCary - Has helped find many bugs and issues. Has also provided many helpful suggestions and ideas. Helped coordinate with Matthieu Bucchianeri to get eye tracked foveated rendering working in OpenXR Toolkit.
+
+* Kalth Streil - Has helped find many bugs and issues.
+
+* [Matthieu Bucchianeri](https://github.com/mbucchia) - Creator of OpenXR Toolkit. Has helped figure out what needed to be changed to get eye tracked foveated rendering working. Has also provided many helpful technical insights into the OpenXR API and VR development in general.
+
+* [Narknon](https://github.com/narknon) - UE4SS developer. Provided a lot of helpful information about the Unreal Engine in general.
+
+* [PinkMilkProductions](https://github.com/PinkMilkProductions) - DRG VR developer.
+
+* [webhead](https://www.reddit.com/user/webheadVR)
