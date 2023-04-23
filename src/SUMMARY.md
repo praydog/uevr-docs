@@ -8,4 +8,5 @@
 
 # Plugin Development
 - [Getting Started](plugins/getting_started.md)
+- [Blueprint API](plugins/blueprint.md)
 - [Lua API](plugins/lua.md)
