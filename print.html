@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">3.</strong> Lua API</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/blueprint.html"><strong aria-hidden="true">3.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">4.</strong> Lua API</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -377,6 +377,17 @@ public:
 // The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
 std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-blueprint-api"><a class="header" href="#unrealvr-blueprint-api">UnrealVR: Blueprint API</a></h1>
+<p>UnrealVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UnrealVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.</p>
+<p>This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.</p>
+<p>At the moment, only confirmed to work perfectly on 4.27. More testing and development is needed to support other versions.</p>
+<h2 id="implemented-functions"><a class="header" href="#implemented-functions">Implemented functions</a></h2>
+<p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a></p>
+<h3 id="head-mounted-display-get-device-pose"><a class="header" href="#head-mounted-display-get-device-pose">Head Mounted Display: Get Device Pose</a></h3>
+<p>This one only works for the HMD for now. Bit of a hacky implementation, but it works.</p>
+<h3 id="head-mounted-display-get-motion-controller-data"><a class="header" href="#head-mounted-display-get-motion-controller-data">Head Mounted Display: Get Motion Controller Data</a></h3>
+<p>Only works for left and right controller. </p>
+<p><code>Valid</code>, <code>Aim Position</code>, <code>Aim Rotation</code>, <code>Grip Position</code>, <code>Grip Rotation</code> are implemented.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-lua-api"><a class="header" href="#unrealvr-lua-api">UnrealVR: Lua API</a></h1>
 <p>UnrealVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.</p>
 <p>It is intended to be used within UE4SS, but can technically be used in any Lua environment.</p>
