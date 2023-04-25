@@ -151,6 +151,19 @@
 <h3 id="head-mounted-display-get-motion-controller-data"><a class="header" href="#head-mounted-display-get-motion-controller-data">Head Mounted Display: Get Motion Controller Data</a></h3>
 <p>Only works for left and right controller. </p>
 <p><code>Valid</code>, <code>Aim Position</code>, <code>Aim Rotation</code>, <code>Grip Position</code>, <code>Grip Rotation</code> are implemented.</p>
+<h3 id="head-mounted-display-get-xrsystem-flags"><a class="header" href="#head-mounted-display-get-xrsystem-flags">Head Mounted Display: Get XRSystem Flags</a></h3>
+<p>Metadata used to inform blueprint about certain things.</p>
+<pre><code class="language-cpp">enum ECustomSystemFlags : int32_t {
+    SYSTEMFLAG_NONE = 0,
+    SYSTEMFLAG_HMD_ACTIVE = 1 &lt;&lt; 0,
+    SYSTEMFLAG_DECOUPLED_PITCH = 1 &lt;&lt; 1,
+    SYSTEMFLAG_OPENXR = 1 &lt;&lt; 2,
+    SYSTEMFLAG_OPENVR = 1 &lt;&lt; 3,
+    SYSTEMFLAG_MOTION_CONTROLLERS_ACTIVE = 1 &lt;&lt; 4,
+    SYSTEMFLAG_LEFT_THUMBREST_ACTIVE = 1 &lt;&lt; 5,
+    SYSTEMFLAG_RIGHT_THUMBREST_ACTIVE = 1 &lt;&lt; 6,
+};
+</code></pre>
 
                     </main>
 
