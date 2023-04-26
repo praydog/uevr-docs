@@ -36,3 +36,7 @@ enum ECustomSystemFlags : int32_t {
     SYSTEMFLAG_RIGHT_THUMBREST_ACTIVE = 1 << 6,
 };
 ```
+
+### Head Mounted Display: Get HMDData
+
+Untested.
