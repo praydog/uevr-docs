@@ -10,6 +10,10 @@ At the moment, only confirmed to work perfectly on 4.27. More testing and develo
 
 For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/)
 
+### Head Mounted Display: Is Head Mounted Display Enabled
+
+Only tested on < 4.18. Turned off for now on > 4.18 due to some bugs seen. More testing is needed to turn it on past 4.18.
+
 ### Head Mounted Display: Get Device Pose
 
 This one only works for the HMD for now. Bit of a hacky implementation, but it works.
