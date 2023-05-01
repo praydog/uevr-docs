@@ -384,6 +384,8 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <p>At the moment, only confirmed to work perfectly on 4.27. More testing and development is needed to support other versions.</p>
 <h2 id="implemented-functions"><a class="header" href="#implemented-functions">Implemented functions</a></h2>
 <p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a></p>
+<h3 id="head-mounted-display-is-head-mounted-display-enabled"><a class="header" href="#head-mounted-display-is-head-mounted-display-enabled">Head Mounted Display: Is Head Mounted Display Enabled</a></h3>
+<p>Only tested on &lt; 4.18. Turned off for now on &gt; 4.18 due to some bugs seen. More testing is needed to turn it on past 4.18.</p>
 <h3 id="head-mounted-display-get-device-pose"><a class="header" href="#head-mounted-display-get-device-pose">Head Mounted Display: Get Device Pose</a></h3>
 <p>This one only works for the HMD for now. Bit of a hacky implementation, but it works.</p>
 <h3 id="head-mounted-display-get-motion-controller-data"><a class="header" href="#head-mounted-display-get-motion-controller-data">Head Mounted Display: Get Motion Controller Data</a></h3>
