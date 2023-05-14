@@ -31,6 +31,7 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 1. Disable HDR (it will still work without it, but the game will be darker than usual if it is)
 2. Start as administrator if the game is not visible in the list
 3. Pass `-nohmd` to the game's command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins
+4. Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)
 
 ## Quick overview of rendering methods
 
