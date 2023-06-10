@@ -1,10 +1,10 @@
-# UnrealVR: Plugin Development
+# UEVR: Plugin Development
 
-This section covers the basics of developing plugins for UnrealVR. If you're looking for information on how to use UnrealVR, check out the [Usage](../usage/overview.md) section.
+This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the [Usage](../usage/overview.md) section.
 
 ## Overview
 
-Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. 
+Plugins in UEVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. 
 
 The API header is located in `include/uevr/API.h`. 
 
@@ -16,18 +16,18 @@ The base C++ plugin header is in `include/uevr/Plugin.hpp`.
 
 In the frontend, click the "Open Global Dir" button. Locate the corresponding game directory, and place the DLL in the `plugins` folder.
 
-During plugin development, you many want to create a symbolic link from the `plugins` dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UnrealVR.
+During plugin development, you many want to create a symbolic link from the `plugins` dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UEVR.
 
 ## Plugin Lifecycle
 
 Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:
 
-1. UnrealVR starts its initialization process
-2. UnrealVR initially loads all plugins, and calls their `DLLMain` functions
+1. UEVR starts its initialization process
+2. UEVR initially loads all plugins, and calls their `DLLMain` functions
    * If the plugin is a C++ plugin, the DLLMain function will call the `on_dllmain` function of the plugin
-3. UnrealVR begins initializing the rest of its own components
-4. After initialization, UnrealVR calls the `on_initialize` function of each plugin
-5. During its execution loop, UnrealVR will call the various `on_*` functions of each plugin
+3. UEVR begins initializing the rest of its own components
+4. After initialization, UEVR calls the `on_initialize` function of each plugin
+5. During its execution loop, UEVR will call the various `on_*` functions of each plugin
 6. The user can choose to unload all plugins, and reload them at will at runtime
 
 ## The easy way

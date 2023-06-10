@@ -1,6 +1,6 @@
-# UnrealVR: Blueprint API
+# UEVR: Blueprint API
 
-UnrealVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UnrealVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.
+UEVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UEVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.
 
 This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.
 

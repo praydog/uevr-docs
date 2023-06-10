@@ -1,6 +1,6 @@
-# UnrealVR: Lua API
+# UEVR: Lua API
 
-UnrealVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.
+UEVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.
 
 It is intended to be used within UE4SS, but can technically be used in any Lua environment.
 

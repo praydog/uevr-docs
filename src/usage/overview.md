@@ -1,6 +1,6 @@
-# UnrealVR: In-Depth Guide
+# UEVR: In-Depth Guide
 
-Dive deeper into the UnrealVR and learn how to fine-tune your VR experience with this comprehensive guide. We'll explore various settings, configurations, and troubleshooting tips to help you get the most out of your favorite Unreal Engine games in VR.
+Dive deeper into the UEVR and learn how to fine-tune your VR experience with this comprehensive guide. We'll explore various settings, configurations, and troubleshooting tips to help you get the most out of your favorite Unreal Engine games in VR.
 
 ## Frontend GUI
 
@@ -65,7 +65,7 @@ While depth buffer integration is disabled by default, enabling it can greatly i
 
 ## Configurations
 
-All configurations are stored on a per-game basis in the `%APPDATA%/UnrealVRMod` directory. You can modify settings directly in the UI or through the `config.txt` file. This directory can be accessed in the frontend GUI by clicking the "Open Global Dir" button.
+All configurations are stored on a per-game basis in the `%APPDATA%/UEVRMod` directory. You can modify settings directly in the UI or through the `config.txt` file. This directory can be accessed in the frontend GUI by clicking the "Open Global Dir" button.
 
 ![Configurations Screenshot](images/configurations.png)
 
