@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Getting Started - UnrealVR Documentation</title>
+        <title>Getting Started - UEVR Documentation</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="../usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="../plugins/getting_started.html" class="active"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../plugins/blueprint.html"><strong aria-hidden="true">3.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="../plugins/lua.html"><strong aria-hidden="true">4.</strong> Lua API</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="../usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded "><a href="../usage/vr_controller_bindings.html"><strong aria-hidden="true">2.</strong> VR Controller Bindings</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="../plugins/getting_started.html" class="active"><strong aria-hidden="true">3.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../plugins/blueprint.html"><strong aria-hidden="true">4.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="../plugins/lua.html"><strong aria-hidden="true">5.</strong> Lua API</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -104,7 +104,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">UnrealVR Documentation</h1>
+                    <h1 class="menu-title">UEVR Documentation</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -140,28 +140,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="unrealvr-plugin-development"><a class="header" href="#unrealvr-plugin-development">UnrealVR: Plugin Development</a></h1>
-<p>This section covers the basics of developing plugins for UnrealVR. If you're looking for information on how to use UnrealVR, check out the <a href="../usage/overview.html">Usage</a> section.</p>
+                        <h1 id="uevr-plugin-development"><a class="header" href="#uevr-plugin-development">UEVR: Plugin Development</a></h1>
+<p>This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the <a href="../usage/overview.html">Usage</a> section.</p>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
-<p>Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. </p>
+<p>Plugins in UEVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. </p>
 <p>The API header is located in <code>include/uevr/API.h</code>. </p>
 <p>The C++ API header is in <code>include/uevr/API.hpp</code>.</p>
 <p>The base C++ plugin header is in <code>include/uevr/Plugin.hpp</code>.</p>
 <h2 id="plugin-installation"><a class="header" href="#plugin-installation">Plugin Installation</a></h2>
 <p>In the frontend, click the &quot;Open Global Dir&quot; button. Locate the corresponding game directory, and place the DLL in the <code>plugins</code> folder.</p>
-<p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UnrealVR.</p>
+<p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UEVR.</p>
 <h2 id="plugin-lifecycle"><a class="header" href="#plugin-lifecycle">Plugin Lifecycle</a></h2>
 <p>Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:</p>
 <ol>
-<li>UnrealVR starts its initialization process</li>
-<li>UnrealVR initially loads all plugins, and calls their <code>DLLMain</code> functions
+<li>UEVR starts its initialization process</li>
+<li>UEVR initially loads all plugins, and calls their <code>DLLMain</code> functions
 <ul>
 <li>If the plugin is a C++ plugin, the DLLMain function will call the <code>on_dllmain</code> function of the plugin</li>
 </ul>
 </li>
-<li>UnrealVR begins initializing the rest of its own components</li>
-<li>After initialization, UnrealVR calls the <code>on_initialize</code> function of each plugin</li>
-<li>During its execution loop, UnrealVR will call the various <code>on_*</code> functions of each plugin</li>
+<li>UEVR begins initializing the rest of its own components</li>
+<li>After initialization, UEVR calls the <code>on_initialize</code> function of each plugin</li>
+<li>During its execution loop, UEVR will call the various <code>on_*</code> functions of each plugin</li>
 <li>The user can choose to unload all plugins, and reload them at will at runtime</li>
 </ol>
 <h2 id="the-easy-way"><a class="header" href="#the-easy-way">The easy way</a></h2>
@@ -222,7 +222,7 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../usage/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../usage/vr_controller_bindings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                             <a rel="next" href="../plugins/blueprint.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
@@ -234,7 +234,7 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../usage/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../usage/vr_controller_bindings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                     <a rel="next" href="../plugins/blueprint.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">

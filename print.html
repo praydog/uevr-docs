@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>UnrealVR Documentation</title>
+        <title>UEVR Documentation</title>
         <meta name="robots" content="noindex" />
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/blueprint.html"><strong aria-hidden="true">3.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">4.</strong> Lua API</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded "><a href="usage/vr_controller_bindings.html"><strong aria-hidden="true">2.</strong> VR Controller Bindings</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">3.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/blueprint.html"><strong aria-hidden="true">4.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">5.</strong> Lua API</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -105,7 +105,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">UnrealVR Documentation</h1>
+                    <h1 class="menu-title">UEVR Documentation</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -242,8 +242,8 @@
 <p><a href="https://www.reddit.com/user/webheadVR">webhead</a></p>
 </li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-in-depth-guide"><a class="header" href="#unrealvr-in-depth-guide">UnrealVR: In-Depth Guide</a></h1>
-<p>Dive deeper into the UnrealVR and learn how to fine-tune your VR experience with this comprehensive guide. We'll explore various settings, configurations, and troubleshooting tips to help you get the most out of your favorite Unreal Engine games in VR.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-in-depth-guide"><a class="header" href="#uevr-in-depth-guide">UEVR: In-Depth Guide</a></h1>
+<p>Dive deeper into the UEVR and learn how to fine-tune your VR experience with this comprehensive guide. We'll explore various settings, configurations, and troubleshooting tips to help you get the most out of your favorite Unreal Engine games in VR.</p>
 <h2 id="frontend-gui"><a class="header" href="#frontend-gui">Frontend GUI</a></h2>
 <p>The frontend GUI provides an intuitive interface for injecting VR functionality into your chosen game. Here, you can:</p>
 <ol>
@@ -286,7 +286,7 @@
 <p>While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, adjust the <code>VR_EnableDepth</code> setting.</p>
 <p><img src="usage/images/depth-buffer-integration.png" alt="Depth Buffer Integration Screenshot" /></p>
 <h2 id="configurations"><a class="header" href="#configurations">Configurations</a></h2>
-<p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UnrealVRMod</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. This directory can be accessed in the frontend GUI by clicking the &quot;Open Global Dir&quot; button.</p>
+<p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UEVRMod</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. This directory can be accessed in the frontend GUI by clicking the &quot;Open Global Dir&quot; button.</p>
 <p><img src="usage/images/configurations.png" alt="Configurations Screenshot" /></p>
 <h3 id="plugins"><a class="header" href="#plugins">Plugins</a></h3>
 <p>Plugins can be installed in the <code>plugins</code> folder in the game's configuration directory. Simply drop the plugin dll into it.</p>
@@ -302,28 +302,84 @@
 <p>Further tweaks can be done by modifying the game's INI files, using UUU, UE4SS, or other external tools. Various tweaks that have been made for the normal version of the games can be applied to the VR version as well.</p>
 <h3 id="for-those-with-motion-sickness"><a class="header" href="#for-those-with-motion-sickness">For those with motion sickness</a></h3>
 <p>Enable &quot;Decoupled Pitch&quot; under the VR options. This will stop the camera from rolling or moving vertically.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-plugin-development"><a class="header" href="#unrealvr-plugin-development">UnrealVR: Plugin Development</a></h1>
-<p>This section covers the basics of developing plugins for UnrealVR. If you're looking for information on how to use UnrealVR, check out the <a href="plugins/../usage/overview.html">Usage</a> section.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-default-vr-controller-bindings"><a class="header" href="#uevr-default-vr-controller-bindings">UEVR: Default VR Controller Bindings</a></h1>
+<p>UEVR implements (or attempts to implement) 1:1 mappings from a default Xbox controller to a VR controller.</p>
+<h2 id="default-bindings"><a class="header" href="#default-bindings">Default Bindings</a></h2>
+<ul>
+<li>
+<p>Left thumbstick: Move</p>
+</li>
+<li>
+<p>Right thumbstick: Rotate</p>
+</li>
+<li>
+<p>Left Grip: LB</p>
+</li>
+<li>
+<p>Right Grip: RB</p>
+</li>
+<li>
+<p>Left Trigger: LT</p>
+</li>
+<li>
+<p>Right Trigger: RT</p>
+</li>
+<li>
+<p>Left Thumbstick Click: L3</p>
+</li>
+<li>
+<p>Right Thumbstick Click: R3</p>
+</li>
+<li>
+<p>Left System Button: Start/Pause</p>
+</li>
+<li>
+<p>Left A Button: B/Circle</p>
+</li>
+<li>
+<p>Left B Button: Y/Triangle</p>
+</li>
+<li>
+<p>Right A Button: A/X</p>
+</li>
+<li>
+<p>Right B Button: X/Square</p>
+</li>
+</ul>
+<h2 id="special-default-bindings"><a class="header" href="#special-default-bindings">Special Default Bindings</a></h2>
+<ul>
+<li>Left System Button (Long Press): Select/View</li>
+</ul>
+<h2 id="oculus-special-bindings"><a class="header" href="#oculus-special-bindings">Oculus Special Bindings</a></h2>
+<ul>
+<li>Right Thumbrest + Left thumbstick: DPad
+<ul>
+<li>This can be disabled if you want to use the thumbrest for something else or the thumbrest has issues</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-plugin-development"><a class="header" href="#uevr-plugin-development">UEVR: Plugin Development</a></h1>
+<p>This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the <a href="plugins/../usage/overview.html">Usage</a> section.</p>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
-<p>Plugins in UnrealVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. </p>
+<p>Plugins in UEVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. </p>
 <p>The API header is located in <code>include/uevr/API.h</code>. </p>
 <p>The C++ API header is in <code>include/uevr/API.hpp</code>.</p>
 <p>The base C++ plugin header is in <code>include/uevr/Plugin.hpp</code>.</p>
 <h2 id="plugin-installation"><a class="header" href="#plugin-installation">Plugin Installation</a></h2>
 <p>In the frontend, click the &quot;Open Global Dir&quot; button. Locate the corresponding game directory, and place the DLL in the <code>plugins</code> folder.</p>
-<p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UnrealVR.</p>
+<p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UEVR.</p>
 <h2 id="plugin-lifecycle"><a class="header" href="#plugin-lifecycle">Plugin Lifecycle</a></h2>
 <p>Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:</p>
 <ol>
-<li>UnrealVR starts its initialization process</li>
-<li>UnrealVR initially loads all plugins, and calls their <code>DLLMain</code> functions
+<li>UEVR starts its initialization process</li>
+<li>UEVR initially loads all plugins, and calls their <code>DLLMain</code> functions
 <ul>
 <li>If the plugin is a C++ plugin, the DLLMain function will call the <code>on_dllmain</code> function of the plugin</li>
 </ul>
 </li>
-<li>UnrealVR begins initializing the rest of its own components</li>
-<li>After initialization, UnrealVR calls the <code>on_initialize</code> function of each plugin</li>
-<li>During its execution loop, UnrealVR will call the various <code>on_*</code> functions of each plugin</li>
+<li>UEVR begins initializing the rest of its own components</li>
+<li>After initialization, UEVR calls the <code>on_initialize</code> function of each plugin</li>
+<li>During its execution loop, UEVR will call the various <code>on_*</code> functions of each plugin</li>
 <li>The user can choose to unload all plugins, and reload them at will at runtime</li>
 </ol>
 <h2 id="the-easy-way"><a class="header" href="#the-easy-way">The easy way</a></h2>
@@ -379,8 +435,8 @@ public:
 // The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
 std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-blueprint-api"><a class="header" href="#unrealvr-blueprint-api">UnrealVR: Blueprint API</a></h1>
-<p>UnrealVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UnrealVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-blueprint-api"><a class="header" href="#uevr-blueprint-api">UEVR: Blueprint API</a></h1>
+<p>UEVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UEVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.</p>
 <p>This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.</p>
 <p>At the moment, only confirmed to work perfectly on 4.27. More testing and development is needed to support other versions.</p>
 <h2 id="implemented-functions"><a class="header" href="#implemented-functions">Implemented functions</a></h2>
@@ -407,8 +463,8 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 </code></pre>
 <h3 id="head-mounted-display-get-hmddata"><a class="header" href="#head-mounted-display-get-hmddata">Head Mounted Display: Get HMDData</a></h3>
 <p>Untested.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="unrealvr-lua-api"><a class="header" href="#unrealvr-lua-api">UnrealVR: Lua API</a></h1>
-<p>UnrealVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-lua-api"><a class="header" href="#uevr-lua-api">UEVR: Lua API</a></h1>
+<p>UEVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.</p>
 <p>It is intended to be used within UE4SS, but can technically be used in any Lua environment.</p>
 <p>This API is in its infancy, and is subject to change.</p>
 <h2 id="example"><a class="header" href="#example">Example</a></h2>
