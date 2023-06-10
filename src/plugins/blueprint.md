@@ -6,6 +6,8 @@ This should be more familiar to modders, and easier to use than the C++ API. Nor
 
 At the moment, only confirmed to work perfectly on 4.27. More testing and development is needed to support other versions.
 
+"Load Blueprint Code" in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
+
 ## Implemented functions
 
 For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/)
