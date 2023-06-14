@@ -73,10 +73,6 @@ Press the **Insert** key or **L3+R3** on a controller to access the in-game menu
 - RT + Y: Recenter view
 - RT + X: Reset standing origin
 
-## Additional help
-
-Head over to the [Flat2VR Discord](http://flat2vr.com).
-
 ## Overview of basic injection and control methods
 
 [![video](https://img.youtube.com/vi/AJjg8qUNaN4/0.jpg)](https://www.youtube.com/watch?v=AJjg8qUNaN4)
@@ -84,6 +80,8 @@ Head over to the [Flat2VR Discord](http://flat2vr.com).
 ## Additional information
 
 Read the [Detailed overview](usage/overview.md) for a comprehensive guide on how to fine-tune your VR experience.
+
+Head over to the [Flat2VR Discord](http://flat2vr.com).
 
 ## Special thanks
 
