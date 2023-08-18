@@ -110,6 +110,8 @@ To all the testers. These include:
 
 * [Narknon](https://github.com/narknon) - UE4SS developer. Provided a lot of helpful information about the Unreal Engine in general.
 
+* [PanterA](https://www.youtube.com/@PanterACFH) - Joined late into development, but tested a good amount of games and provided good feedback. Located games that were causing crashes after code changes.
+
 * [PinkMilkProductions](https://github.com/PinkMilkProductions) - DRG VR developer.
 
 * [webhead](https://www.reddit.com/user/webheadVR)
