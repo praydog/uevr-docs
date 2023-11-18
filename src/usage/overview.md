@@ -19,6 +19,8 @@ OpenVR usually has the highest compatibility, but OpenXR usually gives higher pe
 
 OpenVR requires SteamVR to be installed. OpenXR requires a valid OpenXR runtime for the headset, but can also run through SteamVR if SteamVR is set as the active runtime.
 
+When using Virtual Desktop, you must use OpenXR to avoid rotation lag when moving your head.
+
 ## Pre-Injection Settings
 
 Before injecting, you can customize the following settings:
@@ -36,6 +38,8 @@ After injection, the rest of the options will populate automatically. You can mo
 The in-game menu offers additional configuration options and shortcuts for adjusting settings on the fly. Access the menu by pressing the **Insert** key or **L3+R3** on a controller.
 
 The in-game menu can be accessed either inside the VR headset, or you can use the desktop view to adjust settings without having to put on a headset.
+
+As of recent updates, the menu can be controlled as well by pointing your motion controller at it to emulate a mouse.
 
 ![In-Game Menu Screenshot 1](images/in-game-menu-1.png)
 
@@ -65,7 +69,7 @@ While depth buffer integration is disabled by default, enabling it can greatly i
 
 ## Configurations
 
-All configurations are stored on a per-game basis in the `%APPDATA%/UEVRMod` directory. You can modify settings directly in the UI or through the `config.txt` file. This directory can be accessed in the frontend GUI by clicking the "Open Global Dir" button.
+All configurations are stored on a per-game basis in the `%APPDATA%/UnrealVRMod` directory. You can modify settings directly in the UI or through the `config.txt` file. This directory can be accessed in the frontend GUI by clicking the "Open Global Dir" button.
 
 ![Configurations Screenshot](images/configurations.png)
 
