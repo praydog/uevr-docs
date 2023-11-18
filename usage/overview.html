@@ -154,6 +154,7 @@
 <h2 id="openvr-or-openxr"><a class="header" href="#openvr-or-openxr">OpenVR or OpenXR?</a></h2>
 <p>OpenVR usually has the highest compatibility, but OpenXR usually gives higher performance when it works, especially if the headset has a native OpenXR runtime.</p>
 <p>OpenVR requires SteamVR to be installed. OpenXR requires a valid OpenXR runtime for the headset, but can also run through SteamVR if SteamVR is set as the active runtime.</p>
+<p>When using Virtual Desktop, you must use OpenXR to avoid rotation lag when moving your head.</p>
 <h2 id="pre-injection-settings"><a class="header" href="#pre-injection-settings">Pre-Injection Settings</a></h2>
 <p>Before injecting, you can customize the following settings:</p>
 <ul>
@@ -166,6 +167,7 @@
 <h2 id="in-game-menu"><a class="header" href="#in-game-menu">In-Game Menu</a></h2>
 <p>The in-game menu offers additional configuration options and shortcuts for adjusting settings on the fly. Access the menu by pressing the <strong>Insert</strong> key or <strong>L3+R3</strong> on a controller.</p>
 <p>The in-game menu can be accessed either inside the VR headset, or you can use the desktop view to adjust settings without having to put on a headset.</p>
+<p>As of recent updates, the menu can be controlled as well by pointing your motion controller at it to emulate a mouse.</p>
 <p><img src="images/in-game-menu-1.png" alt="In-Game Menu Screenshot 1" /></p>
 <p><img src="images/in-game-menu-2.png" alt="In-Game Menu Screenshot 2" /></p>
 <h3 id="in-game-shortcuts"><a class="header" href="#in-game-shortcuts">In-Game Shortcuts</a></h3>
@@ -184,7 +186,7 @@
 <p>While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, adjust the <code>VR_EnableDepth</code> setting.</p>
 <p><img src="images/depth-buffer-integration.png" alt="Depth Buffer Integration Screenshot" /></p>
 <h2 id="configurations"><a class="header" href="#configurations">Configurations</a></h2>
-<p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UEVRMod</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. This directory can be accessed in the frontend GUI by clicking the &quot;Open Global Dir&quot; button.</p>
+<p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UnrealVRMod</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. This directory can be accessed in the frontend GUI by clicking the &quot;Open Global Dir&quot; button.</p>
 <p><img src="images/configurations.png" alt="Configurations Screenshot" /></p>
 <h3 id="plugins"><a class="header" href="#plugins">Plugins</a></h3>
 <p>Plugins can be installed in the <code>plugins</code> folder in the game's configuration directory. Simply drop the plugin dll into it.</p>
