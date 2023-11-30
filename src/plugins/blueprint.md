@@ -4,7 +4,7 @@ UEVR implements some functions within the Unreal Engine's existing VR Blueprint 
 
 This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.
 
-At the moment, only confirmed to work perfectly on 4.27. More testing and development is needed to support other versions.
+Tested and confirmed working on 4.27 and 5.0.3
 
 "Load Blueprint Code" in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
 
