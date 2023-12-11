@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded "><a href="usage/vr_controller_bindings.html"><strong aria-hidden="true">2.</strong> VR Controller Bindings</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">3.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/blueprint.html"><strong aria-hidden="true">4.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">5.</strong> Lua API</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded "><a href="usage/vr_controller_bindings.html"><strong aria-hidden="true">2.</strong> VR Controller Bindings</a></li><li class="chapter-item expanded "><a href="usage/adding_6dof.html"><strong aria-hidden="true">3.</strong> Adding 6DoF with UObjectHook</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="plugins/getting_started.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="plugins/blueprint.html"><strong aria-hidden="true">5.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="plugins/lua.html"><strong aria-hidden="true">6.</strong> Lua API</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -248,6 +248,8 @@
 <p><a href="https://www.reddit.com/user/webheadVR">webhead</a></p>
 </li>
 </ul>
+<h2 id="disclaimer"><a class="header" href="#disclaimer">Disclaimer</a></h2>
+<p>UEVR is not affiliated with, endorsed by, or connected to Epic Games, Unreal Engine, or any of their affiliates. All trademarks are the property of their respective owners.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-in-depth-guide"><a class="header" href="#uevr-in-depth-guide">UEVR: In-Depth Guide</a></h1>
 <p>Dive deeper into the UEVR and learn how to fine-tune your VR experience with this comprehensive guide. We'll explore various settings, configurations, and troubleshooting tips to help you get the most out of your favorite Unreal Engine games in VR.</p>
 <h2 id="frontend-gui"><a class="header" href="#frontend-gui">Frontend GUI</a></h2>
@@ -366,6 +368,34 @@
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-uobjecthook"><a class="header" href="#uevr-uobjecthook">UEVR: UObjectHook</a></h1>
+<h2 id="what-is-uobjecthook"><a class="header" href="#what-is-uobjecthook">What is UObjectHook?</a></h2>
+<p>UObjectHook is an extra part of UEVR that can be used to do many things, such as:</p>
+<ul>
+<li>Attach the camera to any object or component in the game</li>
+<li>Add 6DoF motion controls by attaching any components to the motion controllers
+<ul>
+<li>This is usually contingent on the 3DoF motion controls working in the first place</li>
+</ul>
+</li>
+<li>Modify and view any property of any active UObject in the game</li>
+<li>Toggle the visibility of any component in the game</li>
+<li>Save the state of all of the above for persistence across sessions</li>
+</ul>
+<h2 id="attaching-the-camera-to-an-object"><a class="header" href="#attaching-the-camera-to-an-object">Attaching the camera to an object</a></h2>
+<video width="640" height="480" controls>
+<source src="videos/camera_attach.mp4" type="video/mp4">
+</video>
+<p>In this example, we'll attach the camera to the local player/pawn.</p>
+<ol>
+<li>Open the in-game menu and enable advanced options if not already enabled</li>
+<li>Navigate to UObjectHook on the left side</li>
+<li>Go to &quot;Common Objects&quot;</li>
+<li>Go to &quot;Acknowledged Pawn&quot;</li>
+<li>Click &quot;Attach Camera to&quot; (click &quot;Attach Camera to (Relative)&quot; if the game is already first-person)</li>
+<li>Click &quot;Save State&quot;</li>
+</ol>
+<p>Doing this allows you to turn third person games into first person games. If done in a first person game, this removes unwanted camera movement that should not be there in VR.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-plugin-development"><a class="header" href="#uevr-plugin-development">UEVR: Plugin Development</a></h1>
 <p>This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the <a href="plugins/../usage/overview.html">Usage</a> section.</p>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
