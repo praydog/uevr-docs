@@ -116,3 +116,7 @@ To all the testers. These include:
 * [PinkMilkProductions](https://github.com/PinkMilkProductions) - DRG VR developer.
 
 * [webhead](https://www.reddit.com/user/webheadVR)
+
+## Disclaimer
+
+UEVR is not affiliated with, endorsed by, or connected to Epic Games, Unreal Engine, or any of their affiliates. All trademarks are the property of their respective owners.
