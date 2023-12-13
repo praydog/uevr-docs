@@ -382,6 +382,8 @@
 <li>Toggle the visibility of any component in the game</li>
 <li>Save the state of all of the above for persistence across sessions</li>
 </ul>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>In the following examples, we'll be using the &quot;First Person Template&quot; from the Unreal Engine.</p>
 <h2 id="attaching-the-camera-to-an-object"><a class="header" href="#attaching-the-camera-to-an-object">Attaching the camera to an object</a></h2>
 <video width="640" height="480" controls>
 <source src="videos/camera_attach.mp4" type="video/mp4">
@@ -396,6 +398,29 @@
 <li>Click &quot;Save State&quot;</li>
 </ol>
 <p>Doing this allows you to turn third person games into first person games. If done in a first person game, this removes unwanted camera movement that should not be there in VR.</p>
+<h2 id="attaching-components-to-motion-controllers"><a class="header" href="#attaching-components-to-motion-controllers">Attaching components to motion controllers</a></h2>
+<video width="640" height="480" controls>
+<source src="videos/component_attach.mp4" type="video/mp4">
+</video>
+<p>In this example, we'll attach a component(s) to the motion controllers.</p>
+<ol>
+<li>Open the in-game menu and enable advanced options if not already enabled</li>
+<li>Navigate to UObjectHook on the left side</li>
+<li>Go to &quot;Common Objects&quot;</li>
+<li>Go to &quot;Acknowledged Pawn&quot;</li>
+<li>Go to &quot;Components&quot;</li>
+<li>Click &quot;SkeletalMeshComponent Mesh2P&quot; and uncheck &quot;Visible&quot;</li>
+<li>Click &quot;SkeletalMeshComponent FP_Gun&quot;</li>
+<li>Click &quot;Attach right&quot; or &quot;Attach left&quot; depending on which controller you want to attach to</li>
+<li>Click &quot;Adjust&quot;</li>
+<li>The menu will close, move your controller so that it lines up with the gun in-game</li>
+<li>Open the menu again, and the weapon should be attached to the controller with the correct offset</li>
+<li>Now click &quot;Permanent Change&quot;, this will allow the projectiles to fire from the correct location</li>
+<li>Click &quot;Save State&quot;</li>
+<li>Navigate to &quot;Input&quot; on the left side</li>
+<li>Change the &quot;Aim Method&quot; to &quot;Left Controller&quot; or &quot;Right Controller&quot; depending on which controller you attached the weapon to</li>
+<li>You should now have full 6DoF motion controls for the weapon</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-plugin-development"><a class="header" href="#uevr-plugin-development">UEVR: Plugin Development</a></h1>
 <p>This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the <a href="plugins/../usage/overview.html">Usage</a> section.</p>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
