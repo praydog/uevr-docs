@@ -11,6 +11,10 @@ UObjectHook is an extra part of UEVR that can be used to do many things, such as
 * Toggle the visibility of any component in the game
 * Save the state of all of the above for persistence across sessions
 
+## Examples
+
+In the following examples, we'll be using the "First Person Template" from the Unreal Engine.
+
 ## Attaching the camera to an object
 
 <video width="640" height="480" controls>
@@ -27,3 +31,28 @@ In this example, we'll attach the camera to the local player/pawn.
 6. Click "Save State"
 
 Doing this allows you to turn third person games into first person games. If done in a first person game, this removes unwanted camera movement that should not be there in VR.
+
+## Attaching components to motion controllers
+
+<video width="640" height="480" controls>
+<source src="videos/component_attach.mp4" type="video/mp4">
+</video>
+
+In this example, we'll attach a component(s) to the motion controllers.
+
+1. Open the in-game menu and enable advanced options if not already enabled
+2. Navigate to UObjectHook on the left side
+3. Go to "Common Objects"
+4. Go to "Acknowledged Pawn"
+5. Go to "Components"
+5. Click "SkeletalMeshComponent Mesh2P" and uncheck "Visible"
+6. Click "SkeletalMeshComponent FP_Gun"
+7. Click "Attach right" or "Attach left" depending on which controller you want to attach to
+8. Click "Adjust"
+9. The menu will close, move your controller so that it lines up with the gun in-game
+10. Open the menu again, and the weapon should be attached to the controller with the correct offset
+11. Now click "Permanent Change", this will allow the projectiles to fire from the correct location
+11. Click "Save State"
+12. Navigate to "Input" on the left side
+13. Change the "Aim Method" to "Left Controller" or "Right Controller" depending on which controller you attached the weapon to
+14. You should now have full 6DoF motion controls for the weapon
