@@ -20,6 +20,10 @@ Only tested on < 4.18. Turned off for now on > 4.18 due to some bugs seen. More 
 
 This one only works for the HMD for now. Bit of a hacky implementation, but it works.
 
+### Head Mounted Display: Get Orientation And Position
+
+Gets data about the HMD transform.
+
 ### Head Mounted Display: Get Motion Controller Data
 
 Only works for left and right controller. 
