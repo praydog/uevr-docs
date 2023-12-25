@@ -175,6 +175,22 @@
 <li>Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)</li>
 <li>Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation</li>
 </ol>
+<h2 id="quick-troubleshooting"><a class="header" href="#quick-troubleshooting">Quick troubleshooting</a></h2>
+<ul>
+<li>If there are major graphical bugs or crashing, change the rendering method to Synced Sequential and check if the issue goes away</li>
+<li>If there is still crashing, there are various Compatibility options that can be enabled (Advanced View shows them, or can be seen in the frontend)
+<ul>
+<li>Do not enable Extreme Compatibility Mode, only as a last resort</li>
+</ul>
+</li>
+<li>If there are still graphical bugs present, enable Advanced View and tweak the CVars
+<ul>
+<li>INI tweaks can work here as well</li>
+</ul>
+</li>
+<li>If the game is locked to 60 FPS (even in flat), disable ASW/motion smoothing so the game doesn't slow down due to the runtime halving the framerate</li>
+<li>If the game is running poorly, lower the in-game settings, lower the resolution in the UEVR interface or SteamVR</li>
+</ul>
 <h2 id="quick-overview-of-rendering-methods"><a class="header" href="#quick-overview-of-rendering-methods">Quick overview of rendering methods</a></h2>
 <h3 id="native-stereo"><a class="header" href="#native-stereo">Native Stereo</a></h3>
 <p>When it works, it looks the best, performs the best (usually). Can cause crashes or graphical bugs if the game does not play well with it.</p>
