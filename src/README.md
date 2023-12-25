@@ -35,6 +35,16 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 4. Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)
 5. Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation
 
+## Quick troubleshooting
+
+* If there are major graphical bugs or crashing, change the rendering method to Synced Sequential and check if the issue goes away
+* If there is still crashing, there are various Compatibility options that can be enabled (Advanced View shows them, or can be seen in the frontend)
+  * Do not enable Extreme Compatibility Mode, only as a last resort
+* If there are still graphical bugs present, enable Advanced View and tweak the CVars
+  * INI tweaks can work here as well
+* If the game is locked to 60 FPS (even in flat), disable ASW/motion smoothing so the game doesn't slow down due to the runtime halving the framerate
+* If the game is running poorly, lower the in-game settings, lower the resolution in the UEVR interface or SteamVR
+
 ## Quick overview of rendering methods
 
 ### Native Stereo
