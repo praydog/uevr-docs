@@ -35,6 +35,8 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 4. Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)
 5. Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation
 
+### Double check that the game you are injecting into has no Anti-Cheat mechanisms. If you are not sure, assume that all multiplayer games have Anti-Cheat, and do not attempt to inject into them.
+
 ## Quick troubleshooting
 
 * If there are major graphical bugs or crashing, change the rendering method to Synced Sequential and check if the issue goes away
