@@ -15,7 +15,7 @@ UObjectHook is an extra part of UEVR that can be used to do many things, such as
 
 In the following examples, we'll be using the "First Person Template" from the Unreal Engine.
 
-These are just the simplest examples possible. There are games that will have differently named components, sometimes you'll need to go through multiple componennt lists, children, or properties. You'll usually want to be on the lookout for SkeletalMeshComponent components.
+These are just the simplest examples possible. There are games that will have differently named components. Sometimes you'll need to go through multiple component lists, children, or properties. You'll usually want to be on the lookout for SkeletalMeshComponent components for attachments.
 
 ## Attaching the camera to an object
 
