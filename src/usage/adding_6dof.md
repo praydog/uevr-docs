@@ -11,6 +11,12 @@ UObjectHook is an extra part of UEVR that can be used to do many things, such as
 * Toggle the visibility of any component in the game
 * Save the state of all of the above for persistence across sessions
 
+## Important information
+
+UObjectHook is not enabled by default. When giving out profiles, ensure you have "Enabled at Startup" enabled under UObjectHook's config tab.
+
+If a profile received does not work, it is likely because of the above. UObjectHook is not enabled by default, so you need to manually open the UObjectHook menu to enable it if this is the case.
+
 ## Examples
 
 In the following examples, we'll be using the "First Person Template" from the Unreal Engine.
