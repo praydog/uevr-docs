@@ -87,9 +87,9 @@ Press the **Insert** key or **L3+R3** on a controller to access the in-game menu
 - RT + Y: Recenter view
 - RT + X: Reset standing origin
 
-## Overview of basic injection and control methods
+## Overview of UEVR usage
 
-[![video](https://img.youtube.com/vi/AJjg8qUNaN4/0.jpg)](https://www.youtube.com/watch?v=AJjg8qUNaN4)
+[![video](https://i.ytimg.com/vi/G8HHjTjbQFE/hqdefault.jpg)](https://www.youtube.com/watch?v=CW60zLLo2fw&list=PLyE0aREJRIBLMQREfAFXKSQydoI-h4Vfh)
 
 ## Additional information
 
