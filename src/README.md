@@ -27,6 +27,14 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 6. Configure pre-injection settings
 7. Inject
 
+## Help! What games are Unreal Engine?
+
+Use tools like [Rai Pal](https://github.com/Raicuparta/rai-pal/). 
+
+Rai Pal is a tool by [Raicuparta](https://github.com/Raicuparta) that can go through your entire library of games and attempt to tell you what engine, and what version of that engine they are using. 
+
+It also has some level of support for UEVR for automatic launching, as well as displaying user scores given to the VR compatibility of a given game.
+
 ## To-dos before injection
 
 1. Disable HDR (it will still work without it, but the game will be darker than usual if it is)
