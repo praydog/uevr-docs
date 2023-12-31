@@ -4,10 +4,6 @@ UEVR implements some functions within the Unreal Engine's existing VR Blueprint 
 
 This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.
 
-Tested and confirmed working on 4.27 and 5.0.3
-
-"Load Blueprint Code" in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
-
 ## Automatically handled components
 
 ### Motion Controller components
@@ -19,6 +15,10 @@ This means you can make `Motion Controller` components in Blueprint and UEVR wil
 You must correctly set the Motion Source name to either `Left` or `Right`. Case sensitive. Or modify the `Hand` property on older UE versions.
 
 ## Implemented functions
+
+Tested and confirmed working on 4.27 and 5.0.3
+
+"Load Blueprint Code" in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
 
 For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/)
 
