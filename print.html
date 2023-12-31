@@ -529,8 +529,6 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-blueprint-api"><a class="header" href="#uevr-blueprint-api">UEVR: Blueprint API</a></h1>
 <p>UEVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UEVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.</p>
 <p>This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.</p>
-<p>Tested and confirmed working on 4.27 and 5.0.3</p>
-<p>&quot;Load Blueprint Code&quot; in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.</p>
 <h2 id="automatically-handled-components"><a class="header" href="#automatically-handled-components">Automatically handled components</a></h2>
 <h3 id="motion-controller-components"><a class="header" href="#motion-controller-components">Motion Controller components</a></h3>
 <h3 id="when-uobjecthook-is-activated"><a class="header" href="#when-uobjecthook-is-activated">When UObjectHook is activated</a></h3>
@@ -538,6 +536,8 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <p>This means you can make <code>Motion Controller</code> components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook.</p>
 <p>You must correctly set the Motion Source name to either <code>Left</code> or <code>Right</code>. Case sensitive. Or modify the <code>Hand</code> property on older UE versions.</p>
 <h2 id="implemented-functions"><a class="header" href="#implemented-functions">Implemented functions</a></h2>
+<p>Tested and confirmed working on 4.27 and 5.0.3</p>
+<p>&quot;Load Blueprint Code&quot; in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.</p>
 <p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a></p>
 <h3 id="head-mounted-display-is-head-mounted-display-enabled"><a class="header" href="#head-mounted-display-is-head-mounted-display-enabled">Head Mounted Display: Is Head Mounted Display Enabled</a></h3>
 <p>Only tested on &lt; 4.18. Turned off for now on &gt; 4.18 due to some bugs seen. More testing is needed to turn it on past 4.18.</p>
