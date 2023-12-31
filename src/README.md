@@ -20,6 +20,12 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 - Per-game configurations
 - Plugin system/Blueprint support for modders to add additional features like motion controls
 
+## Reporting a bug
+
+Click "Open Global Dir" in the frontend. Browse to the corresponding game folder that is having an issue and zip up the folder and upload it for us.
+
+You can then describe the issue and upload the file for us on the [Issues](https://github.com/praydog/UEVR/issues).
+
 ## Getting Started
 
 1. Launch the frontend GUI (UEVRInjector.exe)
