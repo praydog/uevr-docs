@@ -12,6 +12,7 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 - 3 rendering modes: Native Stereo, Synchronized Sequential, and Alternating/AFR
 - Optional 3DOF motion controls in many games, essentially emulating a semi-native VR experience
 - Optional roomscale movement in many games, moving the player character itself in 3D space along with the headset
+- User-authored UI-based system for adding motion controls and first person to games that don't support them
 - Automatic handling of most in-game UI so it is projected into 3D space
 - In-game menu with shortcuts for adjusting settings
 - Access to various CVars for fixing broken shaders/effects
