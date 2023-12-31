@@ -27,23 +27,15 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 6. Configure pre-injection settings
 7. Inject
 
-## Help! What games are Unreal Engine?
-
-Use tools like [Rai Pal](https://github.com/Raicuparta/rai-pal/). 
-
-Rai Pal is a tool by [Raicuparta](https://github.com/Raicuparta) that can go through your entire library of games and attempt to tell you what engine, and what version of that engine they are using. 
-
-It also has some level of support for UEVR for automatic launching, as well as displaying user scores given to the VR compatibility of a given game.
-
 ## To-dos before injection
+
+### Double check that the game you are injecting into has no Anti-Cheat mechanisms. If you are not sure, assume that all multiplayer games have Anti-Cheat, and do not attempt to inject into them.
 
 1. Disable HDR (it will still work without it, but the game will be darker than usual if it is)
 2. Start as administrator if the game is not visible in the list
 3. Pass `-nohmd` to the game's command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins
 4. Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)
 5. Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation
-
-### Double check that the game you are injecting into has no Anti-Cheat mechanisms. If you are not sure, assume that all multiplayer games have Anti-Cheat, and do not attempt to inject into them.
 
 ## Quick troubleshooting
 
@@ -54,6 +46,14 @@ It also has some level of support for UEVR for automatic launching, as well as d
   * INI tweaks can work here as well
 * If the game is locked to 60 FPS (even in flat), disable ASW/motion smoothing so the game doesn't slow down due to the runtime halving the framerate
 * If the game is running poorly, lower the in-game settings, lower the resolution in the UEVR interface or SteamVR
+
+## Help! What games are Unreal Engine?
+
+Use tools like [Rai Pal](https://github.com/Raicuparta/rai-pal/). 
+
+Rai Pal is a tool by [Raicuparta](https://github.com/Raicuparta) that can go through your entire library of games and attempt to tell you what engine, and what version of that engine they are using. 
+
+It also has some level of support for UEVR for automatic launching, as well as displaying user scores given to the VR compatibility of a given game.
 
 ## Quick overview of rendering methods
 
