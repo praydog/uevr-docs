@@ -95,7 +95,7 @@ Press the **Insert** key or **L3+R3** on a controller to access the in-game menu
 - RT + Y: Recenter view
 - RT + X: Reset standing origin
 
-## Overview of UEVR usage
+## Overview of UEVR usage by Alex
 
 [![video](https://i.ytimg.com/vi/G8HHjTjbQFE/hqdefault.jpg)](https://www.youtube.com/watch?v=CW60zLLo2fw&list=PLyE0aREJRIBLMQREfAFXKSQydoI-h4Vfh)
 
