@@ -40,6 +40,8 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 
 ## Quick troubleshooting
 
+There are some games that work pretty much perfectly out of the box, and others will need tinkering.
+
 * If there are major graphical bugs or crashing, change the rendering method to Synced Sequential and check if the issue goes away
 * If there is still crashing, there are various Compatibility options that can be enabled (Advanced View shows them, or can be seen in the frontend)
   * Do not enable Extreme Compatibility Mode, only as a last resort
