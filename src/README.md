@@ -48,6 +48,8 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 * If the game is locked to 60 FPS (even in flat), disable ASW/motion smoothing so the game doesn't slow down due to the runtime halving the framerate
 * If the game is running poorly, lower the in-game settings, lower the resolution in the UEVR interface or SteamVR
 
+If all fails, someone may have came up with a config for the game or can help you on the [Flat2VR Discord](http://flat2vr.com).
+
 ## Help! What games are Unreal Engine?
 
 Use tools like [Rai Pal](https://github.com/Raicuparta/rai-pal/). 
