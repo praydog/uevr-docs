@@ -104,6 +104,8 @@ Press the **Insert** key or **L3+R3** on a controller to access the in-game menu
 
 [![video](https://i.ytimg.com/vi/G8HHjTjbQFE/hqdefault.jpg)](https://www.youtube.com/watch?v=CW60zLLo2fw&list=PLyE0aREJRIBLMQREfAFXKSQydoI-h4Vfh)
 
+[Getting started spreadsheet by Alex](https://docs.google.com/spreadsheets/d/1ZcjCQwzPOltaRZnpYU5_HPihEDareZq_0Ww1DZQ4USw/edit#gid=0)
+
 ## Additional information
 
 Read the [Detailed overview](usage/overview.md) for a comprehensive guide on how to fine-tune your VR experience.
