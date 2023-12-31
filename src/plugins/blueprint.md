@@ -8,6 +8,16 @@ Tested and confirmed working on 4.27 and 5.0.3
 
 "Load Blueprint Code" in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
 
+## Automatically handled components
+
+### Motion Controller components
+### When UObjectHook is activated
+All `UMotionControllerComponent` ("`Motion Controller`") components will have their location and rotation set correctly to the world transform of the user's motion controllers.
+
+This means you can make `Motion Controller` components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook.
+
+You must correctly set the Motion Source name to either `Left` or `Right`. Case sensitive. Or modify the `Hand` property on older UE versions.
+
 ## Implemented functions
 
 For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/)
