@@ -10,7 +10,7 @@ This should be more familiar to modders, and easier to use than the C++ API. Nor
 ### When UObjectHook is activated
 All `UMotionControllerComponent` ("`Motion Controller`") components will have their location and rotation set correctly to the world transform of the user's motion controllers.
 
-This means you can make `Motion Controller` components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook.
+This means you can make `Motion Controller` components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook. You can then do any logic you wish with the Motion Controller transforms, like parenting a weapon mesh to one of them.
 
 You must correctly set the `Motion Source` name to either `Left` or `Right`. Case sensitive. Or modify the `Hand` property on older UE versions.
 
