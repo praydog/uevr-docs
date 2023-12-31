@@ -8,6 +8,7 @@ UObjectHook is an extra part of UEVR that can be used to do many things, such as
 * Add 6DoF motion controls by attaching any components to the motion controllers
     * This is usually contingent on the 3DoF motion controls working in the first place
 * Modify and view any property of any active UObject in the game
+  * This can be saved by right clicking the property
 * Toggle the visibility of any component in the game
 * Save the state of all of the above for persistence across sessions
 
