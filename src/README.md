@@ -58,7 +58,7 @@ Rai Pal is a tool by [Raicuparta](https://github.com/Raicuparta) that can go thr
 
 It also has some level of support for UEVR for automatic launching, as well as displaying user scores given to the VR compatibility of a given game.
 
-Alex also has made a [spreadsheet of supported games](https://docs.google.com/spreadsheets/d/1ZcjCQwzPOltaRZnpYU5_HPihEDareZq_0Ww1DZQ4USw/edit#gid=1224938259) and how well they function, and various other metrics.
+Alex also has made a [spreadsheet of supported games](https://docs.google.com/spreadsheets/d/1ZcjCQwzPOltaRZnpYU5_HPihEDareZq_0Ww1DZQ4USw/edit#gid=0) and how well they function, and various other metrics.
 
 ## Quick overview of rendering methods
 
