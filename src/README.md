@@ -4,6 +4,8 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 
 ## Features
 
+- Full 6DOF support out of the box
+- Full stereoscopic 3D out of the box
 - Frontend GUI for easy process injection
 - Supports OpenVR and OpenXR runtimes
 - Native UE4/UE5 stereo rendering system for a truly immersive VR experience
