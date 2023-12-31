@@ -533,7 +533,7 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <h3 id="motion-controller-components"><a class="header" href="#motion-controller-components">Motion Controller components</a></h3>
 <h3 id="when-uobjecthook-is-activated"><a class="header" href="#when-uobjecthook-is-activated">When UObjectHook is activated</a></h3>
 <p>All <code>UMotionControllerComponent</code> (&quot;<code>Motion Controller</code>&quot;) components will have their location and rotation set correctly to the world transform of the user's motion controllers.</p>
-<p>This means you can make <code>Motion Controller</code> components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook.</p>
+<p>This means you can make <code>Motion Controller</code> components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook. You can then do any logic you wish with the Motion Controller transforms, like parenting a weapon mesh to one of them.</p>
 <p>You must correctly set the <code>Motion Source</code> name to either <code>Left</code> or <code>Right</code>. Case sensitive. Or modify the <code>Hand</code> property on older UE versions.</p>
 <h2 id="implemented-functions"><a class="header" href="#implemented-functions">Implemented functions</a></h2>
 <p>Tested and confirmed working on 4.27 and 5.0.3</p>
