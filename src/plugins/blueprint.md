@@ -12,7 +12,7 @@ All `UMotionControllerComponent` ("`Motion Controller`") components will have th
 
 This means you can make `Motion Controller` components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook.
 
-You must correctly set the Motion Source name to either `Left` or `Right`. Case sensitive. Or modify the `Hand` property on older UE versions.
+You must correctly set the `Motion Source` name to either `Left` or `Right`. Case sensitive. Or modify the `Hand` property on older UE versions.
 
 ## Implemented functions
 
