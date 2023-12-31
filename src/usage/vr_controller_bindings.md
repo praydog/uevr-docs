@@ -2,6 +2,12 @@
 
 UEVR implements (or attempts to implement) 1:1 mappings from a default Xbox controller to a VR controller.
 
+These can be rebound in a few ways:
+
+1. If using OpenXR, you can modify the bindings under Runtime
+2. If using SteamVR/OpenVR, they can be remapped like a normal VR game
+3. If using Steam with any runtime, Steam Input can be used to remap the buttons as well
+
 ## Default Bindings
 
 * Left thumbstick: Move
