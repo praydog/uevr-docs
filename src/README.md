@@ -19,7 +19,7 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 
 ## Getting Started
 
-1. Launch the frontend GUI (UnrealVR.exe)
+1. Launch the frontend GUI (UEVRInjector.exe)
 2. Launch the target game
 3. Locate the game in the process dropdown list
 4. Select your desired runtime (OpenVR/OpenXR)
