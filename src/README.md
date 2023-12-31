@@ -36,6 +36,7 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 3. Pass `-nohmd` to the game's command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins
 4. Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)
 5. Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation
+6. Consider disabling `Hardware Accelerated GPU Scheduling` in your Windows `Graphics settings`
 
 ## Quick troubleshooting
 
