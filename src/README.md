@@ -44,8 +44,8 @@ You can then describe the issue and upload the file for us on the [Issues](https
 2. Start as administrator if the game is not visible in the list
 3. Pass `-nohmd` to the game's command line and/or delete VR plugins from the game directory if the game contains any existing VR plugins
 4. Disable any overlays that may conflict and cause crashes (Rivatuner, ASUS software, Razer software, Overwolf, etc...)
-5. Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation
-6. Consider disabling `Hardware Accelerated GPU Scheduling` in your Windows `Graphics settings`
+6. Disable graphical options in-game that may cause crashes or severe issues like DLSS Frame Generation
+7. Consider disabling `Hardware Accelerated GPU Scheduling` in your Windows `Graphics settings`
 
 ## Quick troubleshooting
 
@@ -59,6 +59,7 @@ There are some games that work pretty much perfectly out of the box, and others 
 * If the game is locked to 60 FPS (even in flat), disable ASW/motion smoothing so the game doesn't slow down due to the runtime halving the framerate
 * If the game is running poorly, lower the in-game settings, lower the resolution in the UEVR interface or SteamVR
 * If there is rapid flickering or extreme lag, this likely indicates that DLSS Frame Generation is enabled, turn it off or disable `Hardware Accelerated GPU Scheduling` in your Windows `Graphics settings`.
+* OpenXR Toolkit may also need to be disabled if there is even more crashing or lag
 
 If all fails, someone may have came up with a config for the game or can help you on the [Flat2VR Discord](http://flat2vr.com).
 
