@@ -22,7 +22,7 @@ Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine g
 
 ## Reporting a bug
 
-Click "Open Global Dir" in the frontend. Browse to the corresponding game folder that is having an issue and zip up the folder and upload it for us.
+Click "Open Global Dir" in the frontend. Browse to the corresponding game folder that is having an issue and zip up the folder and upload it for us. Clicking "Export Config" is an alternative here to do this automatically.
 
 You can then describe the issue and upload the file for us on the [Issues](https://github.com/praydog/UEVR/issues).
 
