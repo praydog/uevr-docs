@@ -58,7 +58,7 @@ There are some games that work pretty much perfectly out of the box, and others 
   * INI tweaks can work here as well
 * If the game is locked to 60 FPS (even in flat), disable ASW/motion smoothing so the game doesn't slow down due to the runtime halving the framerate
 * If the game is running poorly, lower the in-game settings, lower the resolution in the UEVR interface or SteamVR
-* If there is rapid flickering, this likely indicates that DLSS Frame Generation is enabled, turn it off or disable `Hardware Accelerated GPU Scheduling` in your Windows `Graphics settings`.
+* If there is rapid flickering or extreme lag, this likely indicates that DLSS Frame Generation is enabled, turn it off or disable `Hardware Accelerated GPU Scheduling` in your Windows `Graphics settings`.
 
 If all fails, someone may have came up with a config for the game or can help you on the [Flat2VR Discord](http://flat2vr.com).
 
