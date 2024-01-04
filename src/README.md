@@ -2,6 +2,10 @@
 
 Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine games into 6DOF VR experiences with minimal effort.
 
+## Supported Engine Versions
+
+- Unreal Engine 4.8 - 5.3
+
 ## Features
 
 - Full 6DOF support out of the box (HMD movement)
