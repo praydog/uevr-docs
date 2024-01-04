@@ -1,6 +1,6 @@
 # UEVR
 
-Welcome to UEVR! This powerful tool will transform your favorite Unreal Engine games into 6DOF VR experiences with minimal effort.
+Welcome to [UEVR](https://github.com/praydog/UEVR)! This powerful tool will transform your favorite Unreal Engine games into 6DOF VR experiences with minimal effort.
 
 ## Supported Engine Versions
 
