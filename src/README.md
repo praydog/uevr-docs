@@ -89,13 +89,13 @@ Fully synchronized eye rendering. Works with the majority of games. Uses the act
 
 ### Synchronized Sequential
 
+This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.
+
 A form of AFR. Can fix many rendering bugs that are introduced with Native Stereo. Renders two frames **sequentially** in a **synchronized** fashion on the same engine tick.
 
 Fully synchronized eye rendering. Game world does not advance time between frames.
 
 Looks normal but temporal effects like TAA will have ghosting/doubling effect. Motion blur will need to be turned off.
-
-This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.
 
 **Skip Draw** skips the viewport draw on the next engine tick. Usually works the best but sometimes particle effects may not play at the correct speed.
 
