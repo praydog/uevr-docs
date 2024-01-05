@@ -4,6 +4,8 @@ UEVR implements some functions within the Unreal Engine's existing VR Blueprint 
 
 This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.
 
+It should be noted that generating the uproject for interacting with these games is out of UEVR's scope. There are other tools to assist in this, and others may have already generated one somewhere.
+
 ## Automatically handled components
 
 ### Motion Controller components
