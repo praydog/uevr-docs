@@ -89,7 +89,7 @@ Fully synchronized eye rendering. Works with the majority of games. Uses the act
 
 ### Synchronized Sequential
 
-This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs.
+This is the first alternative option that should be used if Native Stereo is not working as expected or you are encountering graphical bugs. It should be noted that this mode gives worse performance than Native Stereo.
 
 A form of AFR. Can fix many rendering bugs that are introduced with Native Stereo. Renders two frames **sequentially** in a **synchronized** fashion on the same engine tick.
 
