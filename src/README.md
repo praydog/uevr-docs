@@ -22,7 +22,7 @@ Welcome to [UEVR](https://github.com/praydog/UEVR)! This powerful tool will tran
 - Access to various CVars for fixing broken shaders/effects
 - Optional depth buffer integration for improved latency on some headsets
 - Per-game configurations
-- Plugin system/Blueprint support for modders to add additional features like motion controls
+- [C++ Plugin system](https://praydog.github.io/uevr-docs/plugins/getting_started.html) and [Blueprint support](https://praydog.github.io/uevr-docs/plugins/blueprint.html) for modders to add additional features like motion controls
 
 ## Reporting a bug
 
