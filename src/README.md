@@ -32,6 +32,8 @@ You can then describe the issue and upload the file for us on the [Issues](https
 
 ## Getting Started
 
+Before launching, ensure you have installed .NET 6.0. It should tell you where to install it upon first open, but if not, you can [download it from here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+
 1. Launch the frontend GUI (UEVRInjector.exe)
 2. Launch the target game
 3. Locate the game in the process dropdown list
