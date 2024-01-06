@@ -45,7 +45,7 @@ Anti-viruses may delete files required to run from UEVR at this time. You may ne
 
 ## To-dos before injection
 
-### Double check that the game you are injecting into has no Anti-Cheat mechanisms. If you are not sure, assume that all multiplayer games have Anti-Cheat, and do not attempt to inject into them.
+### Double check that the game you are injecting into has no Anti-Cheat mechanisms. If you are not sure, assume that all multiplayer games have Anti-Cheat, and do not attempt to inject into them. The exception here is if it can be disabled in some way to play offline.
 
 1. Disable HDR (it will still work without it, but the game will be darker than usual if it is)
 2. Start as administrator if the game is not visible in the list
