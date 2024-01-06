@@ -2,6 +2,8 @@
 
 This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the [Usage](../usage/overview.md) section.
 
+If you are unfamiliar with C/C++, you can try the [Blueprint API](blueprint.md).
+
 ## Overview
 
 Plugins in UEVR are developed primarily in C++. However, the API header is written in C. This means it's possible to bind it to other languages, or even just write them in C. 
