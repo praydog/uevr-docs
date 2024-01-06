@@ -51,12 +51,12 @@ The project must be compiled as a DLL.
 
 using namespace uevr;
 
-#define PLUGIN_LOG_ONCE(...) \
+#define PLUGIN_LOG_ONCE(...) {\
     static bool _logged_ = false; \
     if (!_logged_) { \
         _logged_ = true; \
         API::get()->log_info(__VA_ARGS__); \
-    }
+    }}
 
 class ExamplePlugin : public uevr::Plugin {
 public:
