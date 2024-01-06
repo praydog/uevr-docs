@@ -40,9 +40,8 @@ Anti-viruses may delete files required to run from UEVR at this time. You may ne
 2. Launch the target game
 3. Locate the game in the process dropdown list
 4. Select your desired runtime (OpenVR/OpenXR)
-5. Toggle existing VR plugin nullification (if necessary)
-6. Configure pre-injection settings
-7. Inject
+5. Configure pre-injection settings
+6. Inject
 
 ## To-dos before injection
 
