@@ -148,6 +148,8 @@ To all the testers. These include:
 
 * Ashok - Has helped find many bugs and issues. Has also provided many helpful suggestions and ideas. Has poked around various specific games making mods to fix issues with them and add things like Oculus controller prompts. Experimented a lot with UObjectHook to fix games and find issues/pain points with this feature.
 
+* Igoreso
+
 * [Jay Fullerton](https://www.youtube.com/@jayfullerton6981) - Has tested many games, and stands out as one of the testers with a lower end system. This has helped get an idea of how the tool performs on lower end hardware.
 
 * Kitt - Mechwarrior 5 VR developer.
@@ -163,6 +165,8 @@ To all the testers. These include:
 * [PanterA](https://www.youtube.com/@PanterACFH) - Joined late into development, but tested a good amount of games and provided good feedback. Located games that were causing crashes after code changes. Helped find issues with AMD GPUs.
 
 * [PinkMilkProductions](https://github.com/PinkMilkProductions) - DRG VR developer.
+
+* pvncher
 
 * [webhead](https://www.reddit.com/user/webheadVR)
 
