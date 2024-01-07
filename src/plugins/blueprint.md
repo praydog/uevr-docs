@@ -6,7 +6,13 @@ This should be more familiar to modders, and easier to use than the C++ API. Nor
 
 It should be noted that generating the uproject for interacting with these games is out of UEVR's scope. There are other tools to assist in this, and others may have already generated one somewhere. 
 
+UE4SS can assist in generating projects for blueprints.
+
 Official modding tools by the game developers can work here too, if they provide a working uproject.
+
+[Unreal Engine Modding Discord](https://discord.com/invite/eP72x2Hm)
+
+[UE4SS Discord](https://discord.com/invite/7RjXtuEs)
 
 ## Automatically handled components
 
