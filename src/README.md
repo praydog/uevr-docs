@@ -30,6 +30,8 @@ Click "Open Global Dir" in the frontend. Browse to the corresponding game folder
 
 You can then describe the issue and upload the file for us on the [Issues](https://github.com/praydog/UEVR/issues).
 
+You can read the full instructions when making an issue, choose the [bug report template](https://github.com/praydog/UEVR/blob/master/.github/ISSUE_TEMPLATE/bug_report.md).
+
 ## Getting Started
 
 Before launching, ensure you have installed .NET 6.0. It should tell you where to install it upon first open, but if not, you can [download it from here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
