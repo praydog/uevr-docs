@@ -72,6 +72,25 @@ There are some games that work pretty much perfectly out of the box, and others 
 
 If all fails, someone may have came up with a config for the game or can help you on the [Flat2VR Discord](http://flat2vr.com).
 
+## If there is rotational judder/lag
+
+There's a few reasons for this and fixes for it:
+
+* If using Virtual Desktop, you must use OpenXR to prevent lag when rotating your head, OpenVR simply does not work correctly right now with Virtual Desktop
+    * The `Virtual Desktop fix` must be enabled if it isn't getting enabled (under Runtime)
+* You can also disable` r.OneFrameThreadLag` under `Console/CVars` (advanced view must be enabled)
+* You can also modify the `Frame Delay Compensation` under Debug (advanced view must be enabled) 
+
+## In-Game Menu
+
+Press the **Insert** key or **L3+R3** on a controller to access the in-game menu, which opens by default at startup. With the menu open, hold **RT** for various shortcuts:
+
+- RT + Left Stick: Move the camera left/right/forward/back
+- RT + Right Stick: Move the camera up/down
+- RT + B: Reset camera offset
+- RT + Y: Recenter view
+- RT + X: Reset standing origin
+
 ## Help! What games are Unreal Engine?
 
 Use tools like [Rai Pal](https://github.com/Raicuparta/rai-pal/). 
@@ -111,16 +130,6 @@ Looks normal but temporal effects like TAA will have ghosting/doubling effect. M
 Alternated Frame Rendering. Renders each eye on separate frames in an alternating fashion, with the game world advancing time in between frames. Causes eye desyncs and usually nausea along with it.
 
 Not synchronized. Generally should not be used unless the other two are unusable in some way.
-
-## In-Game Menu
-
-Press the **Insert** key or **L3+R3** on a controller to access the in-game menu, which opens by default at startup. With the menu open, hold **RT** for various shortcuts:
-
-- RT + Left Stick: Move the camera left/right/forward/back
-- RT + Right Stick: Move the camera up/down
-- RT + B: Reset camera offset
-- RT + Y: Recenter view
-- RT + X: Reset standing origin
 
 ## Overview of UEVR usage by Alex
 
