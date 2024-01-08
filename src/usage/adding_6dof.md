@@ -65,3 +65,11 @@ In this example, we'll attach a component(s) to the motion controllers.
 12. Navigate to "Input" on the left side
 13. Change the "Aim Method" to "Left Controller" or "Right Controller" depending on which controller you attached the weapon to
 14. You should now have full 6DoF motion controls for the weapon
+
+## Glossary
+
+### Permanent Change
+
+This means that UEVR will no longer reset the object back to its original position and rotation after rendering is over. This can make projectiles come out of the correct spot with weapons, and make things like colliders work with melee weapons (if they have them).
+
+It is not enabled by default because the user can inadvertently set this option on something that dictates their player position, launching them out of the map.
