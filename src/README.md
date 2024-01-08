@@ -78,7 +78,7 @@ There's a few reasons for this and fixes for it:
 
 * If using Virtual Desktop, you must use OpenXR to prevent lag when rotating your head, OpenVR simply does not work correctly right now with Virtual Desktop
     * The `Virtual Desktop fix` must be enabled if it isn't getting enabled (under Runtime)
-* You can also disable` r.OneFrameThreadLag` under `Console/CVars` (advanced view must be enabled)
+* You can also disable `r.OneFrameThreadLag` under `Console/CVars` (advanced view must be enabled)
 * You can also modify the `Frame Delay Compensation` under Debug (advanced view must be enabled) 
 
 ## In-Game Menu
