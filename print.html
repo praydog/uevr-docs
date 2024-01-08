@@ -207,6 +207,26 @@
 <li>OpenXR Toolkit may also need to be disabled if there is even more crashing or lag</li>
 </ul>
 <p>If all fails, someone may have came up with a config for the game or can help you on the <a href="http://flat2vr.com">Flat2VR Discord</a>.</p>
+<h2 id="if-there-is-rotational-judderlag"><a class="header" href="#if-there-is-rotational-judderlag">If there is rotational judder/lag</a></h2>
+<p>There's a few reasons for this and fixes for it:</p>
+<ul>
+<li>If using Virtual Desktop, you must use OpenXR to prevent lag when rotating your head, OpenVR simply does not work correctly right now with Virtual Desktop
+<ul>
+<li>The <code>Virtual Desktop fix</code> must be enabled if it isn't getting enabled (under Runtime)</li>
+</ul>
+</li>
+<li>You can also disable<code> r.OneFrameThreadLag</code> under <code>Console/CVars</code> (advanced view must be enabled)</li>
+<li>You can also modify the <code>Frame Delay Compensation</code> under Debug (advanced view must be enabled) </li>
+</ul>
+<h2 id="in-game-menu"><a class="header" href="#in-game-menu">In-Game Menu</a></h2>
+<p>Press the <strong>Insert</strong> key or <strong>L3+R3</strong> on a controller to access the in-game menu, which opens by default at startup. With the menu open, hold <strong>RT</strong> for various shortcuts:</p>
+<ul>
+<li>RT + Left Stick: Move the camera left/right/forward/back</li>
+<li>RT + Right Stick: Move the camera up/down</li>
+<li>RT + B: Reset camera offset</li>
+<li>RT + Y: Recenter view</li>
+<li>RT + X: Reset standing origin</li>
+</ul>
 <h2 id="help-what-games-are-unreal-engine"><a class="header" href="#help-what-games-are-unreal-engine">Help! What games are Unreal Engine?</a></h2>
 <p>Use tools like <a href="https://github.com/Raicuparta/rai-pal/">Rai Pal</a>. </p>
 <p>Rai Pal is a tool by <a href="https://github.com/Raicuparta">Raicuparta</a> that can go through your entire library of games and attempt to tell you what engine, and what version of that engine they are using. </p>
@@ -227,15 +247,6 @@
 <h3 id="afr"><a class="header" href="#afr">AFR</a></h3>
 <p>Alternated Frame Rendering. Renders each eye on separate frames in an alternating fashion, with the game world advancing time in between frames. Causes eye desyncs and usually nausea along with it.</p>
 <p>Not synchronized. Generally should not be used unless the other two are unusable in some way.</p>
-<h2 id="in-game-menu"><a class="header" href="#in-game-menu">In-Game Menu</a></h2>
-<p>Press the <strong>Insert</strong> key or <strong>L3+R3</strong> on a controller to access the in-game menu, which opens by default at startup. With the menu open, hold <strong>RT</strong> for various shortcuts:</p>
-<ul>
-<li>RT + Left Stick: Move the camera left/right/forward/back</li>
-<li>RT + Right Stick: Move the camera up/down</li>
-<li>RT + B: Reset camera offset</li>
-<li>RT + Y: Recenter view</li>
-<li>RT + X: Reset standing origin</li>
-</ul>
 <h2 id="overview-of-uevr-usage-by-alex"><a class="header" href="#overview-of-uevr-usage-by-alex">Overview of UEVR usage by Alex</a></h2>
 <p><a href="https://www.youtube.com/watch?v=CW60zLLo2fw&amp;list=PLyE0aREJRIBLMQREfAFXKSQydoI-h4Vfh"><img src="https://i.ytimg.com/vi/G8HHjTjbQFE/hqdefault.jpg" alt="video" /></a></p>
 <p><a href="https://docs.google.com/spreadsheets/d/1ZcjCQwzPOltaRZnpYU5_HPihEDareZq_0Ww1DZQ4USw/edit#gid=0">Getting started spreadsheet by Alex</a></p>
