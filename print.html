@@ -484,6 +484,10 @@
 <li>Change the &quot;Aim Method&quot; to &quot;Left Controller&quot; or &quot;Right Controller&quot; depending on which controller you attached the weapon to</li>
 <li>You should now have full 6DoF motion controls for the weapon</li>
 </ol>
+<h2 id="glossary"><a class="header" href="#glossary">Glossary</a></h2>
+<h3 id="permanent-change"><a class="header" href="#permanent-change">Permanent Change</a></h3>
+<p>This means that UEVR will no longer reset the object back to its original position and rotation after rendering is over. This can make projectiles come out of the correct spot with weapons, and make things like colliders work with melee weapons (if they have them).</p>
+<p>It is not enabled by default because the user can inadvertently set this option on something that dictates their player position, launching them out of the map.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-plugin-development"><a class="header" href="#uevr-plugin-development">UEVR: Plugin Development</a></h1>
 <p>This section covers the basics of developing plugins for UEVR. If you're looking for information on how to use UEVR, check out the <a href="plugins/../usage/overview.html">Usage</a> section.</p>
 <p>If you are unfamiliar with C/C++, you can try the <a href="plugins/blueprint.html">Blueprint API</a>.</p>
