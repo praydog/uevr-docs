@@ -12,7 +12,7 @@ Official modding tools by the game developers can work here too, if they provide
 
 [Unreal Engine Modding Discord](https://discord.com/invite/eP72x2Hm)
 
-[UE4SS Discord](https://discord.com/invite/7RjXtuEs)
+[UE4SS Discord](https://discord.gg/MFvUysppTS)
 
 ## Automatically handled components
 
