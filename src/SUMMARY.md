@@ -9,6 +9,6 @@
 - [Adding 6DoF with UObjectHook](usage/adding_6dof.md)
 
 # Plugin Development
-- [Getting Started](plugins/getting_started.md)
+- [C/C++ API](plugins/getting_started.md)
 - [Blueprint API](plugins/blueprint.md)
 - [Lua API](plugins/lua.md)
