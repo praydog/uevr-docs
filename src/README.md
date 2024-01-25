@@ -2,6 +2,8 @@
 
 Welcome to [UEVR](https://github.com/praydog/UEVR)! This powerful tool will transform your favorite Unreal Engine games into 6DOF VR experiences with minimal effort.
 
+UEVR can be downloaded from [here](https://github.com/praydog/UEVR/releases).
+
 ## Supported Engine Versions
 
 - Unreal Engine 4.8 - 5.3
