@@ -76,3 +76,10 @@ enum ECustomSystemFlags : int32_t {
 ### Head Mounted Display: Get HMDData
 
 Untested.
+
+### Head Mounted Display: Reset Orientation
+
+### Head Mounted Display: Reset Position
+
+### Head Mounted Display: Reset Orientation and Position
+
