@@ -28,13 +28,15 @@ You must correctly set the `Motion Source` name to either `Left` or `Right`. Cas
 
 Tested and confirmed working on 4.27 and 5.0.3
 
-"Load Blueprint Code" in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
+`Load Blueprint Code` in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.
+
+Some functions explicitly require `Load Blueprint Code` to be enabled, not just the aiming options.
 
 For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/)
 
 ### Head Mounted Display: Is Head Mounted Display Enabled
 
-Only tested on < 4.18. Turned off for now on > 4.18 due to some bugs seen. More testing is needed to turn it on past 4.18.
+Always works on < 4.18. >= 4.18, `Load Blueprint Code` must be explicitly enabled for this work.
 
 ### Head Mounted Display: Get Device Pose
 
@@ -42,7 +44,7 @@ This one only works for the HMD for now. Bit of a hacky implementation, but it w
 
 ### Head Mounted Display: Get Orientation And Position
 
-Gets data about the HMD transform.
+Gets data about the HMD transform. `Load Blueprint Code` must be explicitly enabled for this work on >= 4.18.
 
 ### Head Mounted Display: Get Motion Controller Data
 
