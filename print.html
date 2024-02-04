@@ -594,14 +594,15 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <p>You must correctly set the <code>Motion Source</code> name to either <code>Left</code> or <code>Right</code>. Case sensitive. Or modify the <code>Hand</code> property on older UE versions.</p>
 <h2 id="implemented-functions"><a class="header" href="#implemented-functions">Implemented functions</a></h2>
 <p>Tested and confirmed working on 4.27 and 5.0.3</p>
-<p>&quot;Load Blueprint Code&quot; in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.</p>
+<p><code>Load Blueprint Code</code> in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.</p>
+<p>Some functions explicitly require <code>Load Blueprint Code</code> to be enabled, not just the aiming options.</p>
 <p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a></p>
 <h3 id="head-mounted-display-is-head-mounted-display-enabled"><a class="header" href="#head-mounted-display-is-head-mounted-display-enabled">Head Mounted Display: Is Head Mounted Display Enabled</a></h3>
-<p>Only tested on &lt; 4.18. Turned off for now on &gt; 4.18 due to some bugs seen. More testing is needed to turn it on past 4.18.</p>
+<p>Always works on &lt; 4.18. &gt;= 4.18, <code>Load Blueprint Code</code> must be explicitly enabled for this work.</p>
 <h3 id="head-mounted-display-get-device-pose"><a class="header" href="#head-mounted-display-get-device-pose">Head Mounted Display: Get Device Pose</a></h3>
 <p>This one only works for the HMD for now. Bit of a hacky implementation, but it works.</p>
 <h3 id="head-mounted-display-get-orientation-and-position"><a class="header" href="#head-mounted-display-get-orientation-and-position">Head Mounted Display: Get Orientation And Position</a></h3>
-<p>Gets data about the HMD transform.</p>
+<p>Gets data about the HMD transform. <code>Load Blueprint Code</code> must be explicitly enabled for this work on &gt;= 4.18.</p>
 <h3 id="head-mounted-display-get-motion-controller-data"><a class="header" href="#head-mounted-display-get-motion-controller-data">Head Mounted Display: Get Motion Controller Data</a></h3>
 <p>Only works for left and right controller. </p>
 <p><code>Valid</code>, <code>Aim Position</code>, <code>Aim Rotation</code>, <code>Grip Position</code>, <code>Grip Rotation</code> are implemented.</p>
