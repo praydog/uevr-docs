@@ -36,7 +36,7 @@ For more information on these functions, visit the [Unreal Engine documentation]
 
 ### Head Mounted Display: Is Head Mounted Display Enabled
 
-Always works on < 4.18. >= 4.18, `Load Blueprint Code` must be explicitly enabled for this work.
+Always works on < 4.18. >= 4.18, `Load Blueprint Code` must be explicitly enabled for this to work.
 
 ### Head Mounted Display: Get Device Pose
 
@@ -44,7 +44,7 @@ This one only works for the HMD for now. Bit of a hacky implementation, but it w
 
 ### Head Mounted Display: Get Orientation And Position
 
-Gets data about the HMD transform. `Load Blueprint Code` must be explicitly enabled for this work on >= 4.18.
+Gets data about the HMD transform. `Load Blueprint Code` must be explicitly enabled for this to work on >= 4.18.
 
 ### Head Mounted Display: Get Motion Controller Data
 
