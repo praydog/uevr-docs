@@ -8,6 +8,11 @@ UEVR can be downloaded from [here](https://github.com/praydog/UEVR/releases).
 
 - Unreal Engine 4.8 - 5.3
 
+## Supported Graphics APIs
+
+- Direct3D 11
+- Direct3D 12
+
 ## Features
 
 - Full 6DOF support out of the box (HMD movement)
