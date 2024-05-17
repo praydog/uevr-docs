@@ -6,7 +6,7 @@ UEVR can be downloaded from [here](https://github.com/praydog/UEVR/releases).
 
 ## Supported Engine Versions
 
-- Unreal Engine 4.8 - 5.3
+- Unreal Engine 4.8 - 5.4
 
 ## Supported Graphics APIs
 
