@@ -73,6 +73,16 @@ All configurations are stored on a per-game basis in the `%APPDATA%/UnrealVRMod`
 
 ![Configurations Screenshot](images/configurations.png)
 
+### Console commands
+
+Configurations can have console commands that are executed at startup within the `user_script.txt` file. It must be created manually.
+
+Example `user_script.txt` file:
+```
+stat fps
+r.DefaultFeature.AntiAliasing 0
+```
+
 ### Plugins
 
 Plugins can be installed in the `plugins` folder in the game's configuration directory. Simply drop the plugin dll into it.
