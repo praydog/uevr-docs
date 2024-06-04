@@ -188,6 +188,12 @@
 <h2 id="configurations"><a class="header" href="#configurations">Configurations</a></h2>
 <p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UnrealVRMod</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. This directory can be accessed in the frontend GUI by clicking the &quot;Open Global Dir&quot; button.</p>
 <p><img src="images/configurations.png" alt="Configurations Screenshot" /></p>
+<h3 id="console-commands"><a class="header" href="#console-commands">Console commands</a></h3>
+<p>Configurations can have console commands that are executed at startup within the <code>user_script.txt</code> file. It must be created manually.</p>
+<p>Example <code>user_script.txt</code> file:</p>
+<pre><code>stat fps
+r.DefaultFeature.AntiAliasing 0
+</code></pre>
 <h3 id="plugins"><a class="header" href="#plugins">Plugins</a></h3>
 <p>Plugins can be installed in the <code>plugins</code> folder in the game's configuration directory. Simply drop the plugin dll into it.</p>
 <h2 id="troubleshooting--optimization"><a class="header" href="#troubleshooting--optimization">Troubleshooting &amp; Optimization</a></h2>
