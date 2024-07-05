@@ -160,8 +160,3 @@ Saves the configuration.
 
 Reloads the configuration.
 
-[]: # (UEVR_VRData.md)
-[]: # (FConsoleManager.md)
-[]: # (FFieldClass.md)
-[]: # (UObject.md)
-[]: # (IConsoleVariable.md)
