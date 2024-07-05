@@ -642,10 +642,207 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <h3 id="head-mounted-display-reset-position"><a class="header" href="#head-mounted-display-reset-position">Head Mounted Display: Reset Position</a></h3>
 <h3 id="head-mounted-display-reset-orientation-and-position"><a class="header" href="#head-mounted-display-reset-orientation-and-position">Head Mounted Display: Reset Orientation and Position</a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-lua-api"><a class="header" href="#uevr-lua-api">UEVR: Lua API</a></h1>
-<p>UEVR provides a Lua API that can be used to create plugins. This API is a wrapper around the C++ API, and is intended to be used by plugins written in Lua.</p>
-<p>It is intended to be used within UE4SS, but can technically be used in any Lua environment.</p>
-<p>This API is in its infancy, and is subject to change.</p>
+<p>UEVR provides a Lua API that can be used to create plugins.</p>
+<p>Scripts can be loaded under LuaLoader, and are automatically loaded from <code>&lt;game config folder&gt;/scripts/*.lua</code>.</p>
+<p>The Lua API can also be loaded in different environments, like UE4SS. UEVR comes with a LuaVR.dll for this purpose.</p>
 <h2 id="example"><a class="header" href="#example">Example</a></h2>
+<pre><code class="language-lua">print(&quot;Initializing hello_world.lua&quot;)
+
+UEVR_UObjectHook.activate()
+
+local api = uevr.api;
+local uobjects = uevr.types.FUObjectArray.get()
+
+print(&quot;Printing first 5 UObjects&quot;)
+for i=0, 5 do
+    local uobject = uobjects:get_object(i)
+
+    if uobject ~= nil then
+        print(uobject:get_full_name())
+    end
+end
+
+local once = true
+local last_world = nil
+local last_level = nil
+
+uevr.sdk.callbacks.on_post_engine_tick(function(engine, delta)
+
+end)
+
+local spawn_once = true
+
+uevr.sdk.callbacks.on_pre_engine_tick(function(engine, delta)
+    --[[if spawn_once then
+        local cheat_manager_c = api:find_uobject(&quot;Class /Script/Engine.CheatManager&quot;)
+        local cheat_manager = UEVR_UObjectHook.get_first_object_by_class(cheat_manager_c)
+
+        print(tostring(cheat_manager_c))
+
+        cheat_manager:Summon(&quot;Something_C&quot;)
+
+        spawn_once = false
+    end]]
+
+    local game_engine_class = api:find_uobject(&quot;Class /Script/Engine.GameEngine&quot;)
+    local game_engine = UEVR_UObjectHook.get_first_object_by_class(game_engine_class)
+
+    local viewport = game_engine.GameViewport
+    if viewport == nil then
+        print(&quot;Viewport is nil&quot;)
+        return
+    end
+    local world = viewport.World
+
+    if world == nil then
+        print(&quot;World is nil&quot;)
+        return
+    end
+
+    if world ~= last_world then
+        print(&quot;World changed&quot;)
+    end
+
+    last_world = world
+
+    local level = world.PersistentLevel
+
+    if level == nil then
+        print(&quot;Level is nil&quot;)
+        return
+    end
+
+    if level ~= last_level then
+        print(&quot;Level changed&quot;)
+        print(&quot;Level name: &quot; .. level:get_full_name())
+
+        local game_instance = game_engine.GameInstance
+
+        if game_instance == nil then
+            print(&quot;GameInstance is nil&quot;)
+            return
+        end
+
+        local local_players = game_instance.LocalPlayers
+
+        for i in ipairs(local_players) do
+            local player = local_players[i]
+            local player_controller = player.PlayerController
+            local pawn = player_controller.Pawn
+    
+            if pawn ~= nil then
+                print(&quot;Pawn: &quot; .. pawn:get_full_name())
+                --pawn.BaseEyeHeight = 0.0
+                --pawn.bActorEnableCollision = not pawn.bActorEnableCollision
+
+                local actor_component_c = api:find_uobject(&quot;Class /Script/Engine.ActorComponent&quot;);
+                print(&quot;actor_component_c class: &quot; .. tostring(actor_component_c))
+                local test_component = pawn:GetComponentByClass(actor_component_c)
+
+                print(&quot;TestComponent: &quot; .. tostring(test_component))
+
+                local controller = pawn.Controller
+
+                if controller ~= nil then
+                    print(&quot;Controller: &quot; .. controller:get_full_name())
+
+                    local velocity = controller:GetVelocity()
+                    print(&quot;Velocity: &quot; .. tostring(velocity.x) .. &quot;, &quot; .. tostring(velocity.y) .. &quot;, &quot; .. tostring(velocity.z))
+
+                    local test = Vector3d.new(1.337, 1.0, 1.0)
+                    print(&quot;Test: &quot; .. tostring(test.x) .. &quot;, &quot; .. tostring(test.y) .. &quot;, &quot; .. tostring(test.z))
+
+                    controller:SetActorScale3D(Vector3d.new(1.337, 1.0, 1.0))
+
+                    local actor_scale_3d = controller:GetActorScale3D()
+                    print(&quot;ActorScale3D: &quot; .. tostring(actor_scale_3d.x) .. &quot;, &quot; .. tostring(actor_scale_3d.y) .. &quot;, &quot; .. tostring(actor_scale_3d.z))
+
+                    
+                    local control_rotation = controller:GetControlRotation()
+
+                    print(&quot;ControlRotation: &quot; .. tostring(control_rotation.Pitch) .. &quot;, &quot; .. tostring(control_rotation.Yaw) .. &quot;, &quot; .. tostring(control_rotation.Roll))
+                    control_rotation.Pitch = 1.337
+
+                    controller:SetControlRotation(control_rotation)
+                    control_rotation = controller:GetControlRotation()
+
+                    print(&quot;New ControlRotation: &quot; .. tostring(control_rotation.Pitch) .. &quot;, &quot; .. tostring(control_rotation.Yaw) .. &quot;, &quot; .. tostring(control_rotation.Roll))
+                end
+
+                local primary_actor_tick = pawn.PrimaryActorTick
+
+                if primary_actor_tick ~= nil then
+                    print(&quot;PrimaryActorTick: &quot; .. tostring(primary_actor_tick))
+
+                    -- Print various properties, this is testing of StructProperty as PrimaryActorTick is a struct
+                    local tick_interval = primary_actor_tick.TickInterval
+                    print(&quot;TickInterval: &quot; .. tostring(tick_interval))
+
+                    print(&quot;bAllowTickOnDedicatedServer: &quot; .. tostring(primary_actor_tick.bAllowTickOnDedicatedServer))
+                    print(&quot;bCanEverTick: &quot; .. tostring(primary_actor_tick.bCanEverTick))
+                    print(&quot;bStartWithTickEnabled: &quot; .. tostring(primary_actor_tick.bStartWithTickEnabled))
+                    print(&quot;bTickEvenWhenPaused: &quot; .. tostring(primary_actor_tick.bTickEvenWhenPaused))
+                else
+                    print(&quot;PrimaryActorTick is nil&quot;)
+                end
+
+                local control_input_vector = pawn.ControlInputVector
+                pawn.ControlInputVector.x = 1.337
+
+                print(&quot;ControlInputVector: &quot; .. tostring(control_input_vector.x) .. &quot;, &quot; .. tostring(control_input_vector.y) .. &quot;, &quot; .. tostring(control_input_vector.z))
+
+                local is_actor_tick_enabled = pawn:IsActorTickEnabled()
+                print(&quot;IsActorTickEnabled: &quot; .. tostring(is_actor_tick_enabled))
+
+                pawn:SetActorTickEnabled(not is_actor_tick_enabled)
+                is_actor_tick_enabled = pawn:IsActorTickEnabled()
+                print(&quot;New IsActorTickEnabled: &quot; .. tostring(is_actor_tick_enabled))
+
+                pawn:SetActorTickEnabled(not is_actor_tick_enabled) -- resets it back to default
+
+                local life_span = pawn:GetLifeSpan()
+                local og_life_span = life_span
+                print(&quot;LifeSpan: &quot; .. tostring(life_span))
+
+                pawn:SetLifeSpan(10.0)
+                life_span = pawn:GetLifeSpan()
+
+                print(&quot;New LifeSpan: &quot; .. tostring(life_span))
+                pawn:SetLifeSpan(og_life_span) -- resets it back to default
+
+                local net_driver_name = pawn.NetDriverName:to_string()
+
+                print(&quot;NetDriverName: &quot; .. net_driver_name)
+            end
+    
+            if player_controller ~= nil then
+                print(&quot;PlayerController: &quot; .. player_controller:get_full_name())
+            end
+        end
+
+        print(&quot;Local players: &quot; .. tostring(local_players))
+    end
+
+    last_level = level
+
+    if once then
+        print(&quot;executing stat fps&quot;)
+        uevr.api:execute_command(&quot;stat fps&quot;)
+        once = false
+
+        print(&quot;executing stat unit&quot;)
+        uevr.api:execute_command(&quot;stat unit&quot;)
+
+        print(&quot;GameEngine class: &quot; .. game_engine_class:get_full_name())
+        print(&quot;GameEngine object: &quot; .. game_engine:get_full_name())
+    end
+end)
+
+uevr.sdk.callbacks.on_script_reset(function()
+    print(&quot;Resetting hello_world.lua&quot;)
+end)
+</code></pre>
+<h2 id="example-1"><a class="header" href="#example-1">Example</a></h2>
 <pre><code class="language-lua">local LuaVR = require(&quot;LuaVR&quot;)
 
 local function vr_print(text)
