@@ -27,13 +27,13 @@ obj.SomeProperty = 123
 
 ## Functions
 
+### `UEVR_UObject.static_class()`
+
+Returns the [UEVR_UClass*](UClass.md) descriptor for UObject.
+
 ### `obj:get_address()`
 
 Returns the base address of the UObject.
-
-### `obj:static_class()`
-
-Returns a [UEVR_UClass*](UClass.md) object.
 
 
 ### `obj:get_fname()`
