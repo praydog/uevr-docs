@@ -10,7 +10,7 @@ Returns a `TArray<ConsoleObjectElement>` of console objects.
 
 ### `console:find_object(name: string)`
 
-Returns the `ConsoleObjectElement` object with the specified name.
+Returns the [IConsoleObject](IConsoleObject.md) object with the specified name.
 
 ### `console:find_variable(name: string)`
 
