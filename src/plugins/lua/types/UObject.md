@@ -8,11 +8,22 @@ UObject are objects that are part of the Unreal Engine's object system. They are
 
 ### `object:__index(key: string)`
 
-Wrapper for `object:get_property(key)`. Can be used fo call functions on the UObject.
+Wrapper for `object:get_property(key)`. Can be used to call functions on the UObject.
+
+ex:
+```lua
+obj:SomeFunction()
+local asdf = obj.SomeProperty
+```
 
 ### `object:__newindex(key: string, value: any)`
 
 Wrapper for `object:set_property(key, value)`
+
+ex:
+```lua
+obj.SomeProperty = 123
+```
 
 ## Functions
 
