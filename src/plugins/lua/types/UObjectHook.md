@@ -8,40 +8,6 @@ It is also used to add motion controls.
 
 UObjectHook uses all static functions.
 
-    m_lua.new_usertype<uevr::API::UObjectHook>("UEVR_UObjectHook",
-        "activate", &uevr::API::UObjectHook::activate,
-        "exists", &uevr::API::UObjectHook::exists,
-        "is_disabled", &uevr::API::UObjectHook::is_disabled,
-        "set_disabled", &uevr::API::UObjectHook::set_disabled,
-        "get_first_object_by_class", [](sol::this_state s, uevr::API::UClass* c, sol::object allow_default_obj) -> sol::object {
-            bool allow_default = false;
-            if (allow_default_obj.is<bool>()) {
-                allow_default = allow_default_obj.as<bool>();
-            }
-
-            auto result = uevr::API::UObjectHook::get_first_object_by_class(c, allow_default);
-
-            if (result == nullptr) {
-                return sol::make_object(s, sol::lua_nil);
-            }
-
-            if (result->is_a(uevr::API::UClass::static_class())) {
-                return sol::make_object(s, (uevr::API::UClass*)result);
-            }
-
-            return sol::make_object(s, result);
-        },
-        "get_objects_by_class", [](uevr::API::UClass* c, sol::object allow_default_obj) {
-            bool allow_default = false;
-            if (allow_default_obj.is<bool>()) {
-                allow_default = allow_default_obj.as<bool>();
-            }
-            return uevr::API::UObjectHook::get_objects_by_class(c, allow_default);
-        },
-        "get_or_add_motion_controller_state", &uevr::API::UObjectHook::get_or_add_motion_controller_state,
-        "get_motion_controller_state", &uevr::API::UObjectHook::get_motion_controller_state
-    );
-
 ## Functions
 
 ### `UEVR_UObjectHook.activate()`
