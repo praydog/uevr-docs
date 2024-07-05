@@ -48,9 +48,9 @@ Returns the full name of the UObject as a Lua string.
 
 Returns true if the UObject is an instance of the specified class.
 
-### `obj:as_class(class: UClass*)`
+### `obj:as_class()`
 
-Returns the UObject as an instance of the specified class, or nil if it is not an instance of the class.
+Returns the UObject as an instance of [UEVR_UClass](UClass.md), or nil if it is not a class.
 
 ### `obj:as_struct()`
 
