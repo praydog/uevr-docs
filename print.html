@@ -973,9 +973,16 @@ vr_print(&quot;Is Using Controllers: &quot; .. tostring(is_using_controllers))
 <p>UObject are objects that are part of the Unreal Engine's object system. They are backed by a UClass and can be used to represent anything in the game, such as actors, components, and more.</p>
 <h2 id="meta-functions"><a class="header" href="#meta-functions">Meta Functions</a></h2>
 <h3 id="object__indexkey-string"><a class="header" href="#object__indexkey-string"><code>object:__index(key: string)</code></a></h3>
-<p>Wrapper for <code>object:get_property(key)</code>. Can be used fo call functions on the UObject.</p>
+<p>Wrapper for <code>object:get_property(key)</code>. Can be used to call functions on the UObject.</p>
+<p>ex:</p>
+<pre><code class="language-lua">obj:SomeFunction()
+local asdf = obj.SomeProperty
+</code></pre>
 <h3 id="object__newindexkey-string-value-any"><a class="header" href="#object__newindexkey-string-value-any"><code>object:__newindex(key: string, value: any)</code></a></h3>
 <p>Wrapper for <code>object:set_property(key, value)</code></p>
+<p>ex:</p>
+<pre><code class="language-lua">obj.SomeProperty = 123
+</code></pre>
 <h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
 <h3 id="objget_address"><a class="header" href="#objget_address"><code>obj:get_address()</code></a></h3>
 <p>Returns the base address of the UObject.</p>
