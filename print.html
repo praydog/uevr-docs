@@ -945,14 +945,22 @@ vr_print(&quot;Is Using Controllers: &quot; .. tostring(is_using_controllers))
 <h3 id="uevrapisdk"><a class="header" href="#uevrapisdk"><code>uevr.api.sdk</code></a></h3>
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
 <h3 id="uevrapifind_uobjectname-string"><a class="header" href="#uevrapifind_uobjectname-string"><code>uevr.api:find_uobject(name: string)</code></a></h3>
+<p>Searches the <a href="plugins/lua/types/FUObjectArray.html">UEVR_FUObjectArray</a> for an object with the specified name. Returns the object as a <a href="plugins/lua/types/UObject.html">UEVR_UObject*</a> object, or nil if not found.</p>
+<p>Should not be constantly used, unless it is for class objects, or objects that are only created once. Otherwise, use <a href="plugins/lua/types/UClass.html#get_objects_matching">UClass:get_objects_matching</a> instead or the equivalent <a href="plugins/lua/types/UObjectHook.html">UEVR_UObjectHook</a> functions.</p>
 <h3 id="uevrapiget_engine"><a class="header" href="#uevrapiget_engine"><code>uevr.api:get_engine()</code></a></h3>
 <p>Returns the global <code>UGameEngine</code> object.</p>
 <h3 id="uevrapiget_player_controllerindex-number"><a class="header" href="#uevrapiget_player_controllerindex-number"><code>uevr.api:get_player_controller(index: number)</code></a></h3>
+<p>Returns the player controller at the specified index, which is a <a href="plugins/lua/types/UObject.html">UEVR_UObject*</a> object.</p>
 <h3 id="uevrapiget_local_pawnindex-number"><a class="header" href="#uevrapiget_local_pawnindex-number"><code>uevr.api:get_local_pawn(index: number)</code></a></h3>
+<p>Returns the local pawn at the specified index, which is a <a href="plugins/lua/types/UObject.html">UEVR_UObject*</a> object.</p>
 <h3 id="uevrapispawn_objectclass-uclass-outer-uobject"><a class="header" href="#uevrapispawn_objectclass-uclass-outer-uobject"><code>uevr.api:spawn_object(class: UClass*, outer: UObject*)</code></a></h3>
+<p>Attempts to spawn an object of the specified class with the specified outer object. Returns the spawned object as a <a href="plugins/lua/types/UObject.html">UEVR_UObject*</a> object.</p>
 <h3 id="uevrapiexecute_commandcommand-string"><a class="header" href="#uevrapiexecute_commandcommand-string"><code>uevr.api:execute_command(command: string)</code></a></h3>
+<p>Executes the specified console command. Does not operate 1:1 with the native UE console, as it does not pass the command onto the player controller, but should work with most commands.</p>
 <h3 id="uevrapiget_uobject_array"><a class="header" href="#uevrapiget_uobject_array"><code>uevr.api:get_uobject_array()</code></a></h3>
+<p>Returns the <a href="plugins/lua/types/FUObjectArray.html">UEVR_FUObjectArray</a> instance.</p>
 <h3 id="uevrapiget_console_manager"><a class="header" href="#uevrapiget_console_manager"><code>uevr.api:get_console_manager()</code></a></h3>
+<p>Returns the <a href="plugins/lua/types/FConsoleManager.html">FConsoleManager</a> instance.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevrtypes"><a class="header" href="#uevrtypes">uevr.types</a></h1>
 <h2 id="members-1"><a class="header" href="#members-1">Members</a></h2>
 <h3 id="uevrtypesuobject"><a class="header" href="#uevrtypesuobject"><code>uevr.types.UObject</code></a></h3>
@@ -1090,15 +1098,46 @@ local asdf = obj.SomeProperty
 <h3 id="arrget_itemindex-number"><a class="header" href="#arrget_itemindex-number"><code>arr:get_item(index: number)</code></a></h3>
 <p>Returns the <a href="plugins/lua/types/FUObjectItem.html">UEVR_FUObjectItem*</a> object at the specified index.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="fconsolemanager"><a class="header" href="#fconsolemanager">FConsoleManager</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="iconsoleobject"><a class="header" href="#iconsoleobject">IConsoleObject</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="iconsolevariable"><a class="header" href="#iconsolevariable">IConsoleVariable</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="iconsolecommand"><a class="header" href="#iconsolecommand">IConsoleCommand</a></h1>
+<p>Instance can be obtained with <code>uevr.api:get_console_manager()</code>.</p>
+<h2 id="functions-9"><a class="header" href="#functions-9">Functions</a></h2>
+<h3 id="consoleget_console_objects"><a class="header" href="#consoleget_console_objects"><code>console:get_console_objects()</code></a></h3>
+<p>Returns a <code>TArray&lt;ConsoleObjectElement&gt;</code> of console objects.</p>
+<h3 id="consolefind_objectname-string"><a class="header" href="#consolefind_objectname-string"><code>console:find_object(name: string)</code></a></h3>
+<p>Returns the <code>ConsoleObjectElement</code> object with the specified name.</p>
+<h3 id="consolefind_variablename-string"><a class="header" href="#consolefind_variablename-string"><code>console:find_variable(name: string)</code></a></h3>
+<p>Returns the <a href="plugins/lua/types/IConsoleVariable.html">IConsoleVariable</a> object with the specified name.</p>
+<h3 id="consolefind_commandname-string"><a class="header" href="#consolefind_commandname-string"><code>console:find_command(name: string)</code></a></h3>
+<p>Returns the <a href="plugins/lua/types/IConsoleCommand.html">IConsoleCommand</a> object with the specified name.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_iconsoleobject"><a class="header" href="#uevr_iconsoleobject">UEVR_IConsoleObject</a></h1>
+<p><code>IConsoleObject</code> is a base class for console objects.</p>
+<h2 id="functions-10"><a class="header" href="#functions-10">Functions</a></h2>
+<h3 id="objas_command"><a class="header" href="#objas_command"><code>obj:as_command()</code></a></h3>
+<p>Returns the <a href="plugins/lua/types/IConsoleCommand.html">IConsoleCommand</a> object if the console object is a command, or nil if it is not.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_iconsolevariable"><a class="header" href="#uevr_iconsolevariable">UEVR_IConsoleVariable</a></h1>
+<p><code>IConsoleVariable</code> is a class representing a console variable.</p>
+<p>Inherits from <a href="plugins/lua/types/IConsoleObject.html">IConsoleObject</a>.</p>
+<h2 id="functions-11"><a class="header" href="#functions-11">Functions</a></h2>
+<h3 id="varsetvalue-any"><a class="header" href="#varsetvalue-any"><code>var:set(value: any)</code></a></h3>
+<p>Sets the value of the console variable.</p>
+<p><code>value</code> can be a number or a string.</p>
+<h3 id="varset_floatvalue-number"><a class="header" href="#varset_floatvalue-number"><code>var:set_float(value: number)</code></a></h3>
+<h3 id="varset_intvalue-number"><a class="header" href="#varset_intvalue-number"><code>var:set_int(value: number)</code></a></h3>
+<h3 id="varset_exvalue-any-flags-number"><a class="header" href="#varset_exvalue-any-flags-number"><code>var:set_ex(value: any, flags: number)</code></a></h3>
+<h3 id="varget_int"><a class="header" href="#varget_int"><code>var:get_int()</code></a></h3>
+<p>Returns the value of the console variable as an integer.</p>
+<h3 id="varget_float"><a class="header" href="#varget_float"><code>var:get_float()</code></a></h3>
+<p>Returns the value of the console variable as a float.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_iconsolecommand"><a class="header" href="#uevr_iconsolecommand">UEVR_IConsoleCommand</a></h1>
+<p><code>IConsoleCommand</code> is a class representing a console command.</p>
+<p>Inherits from <a href="plugins/lua/types/IConsoleObject.html">IConsoleObject</a>.</p>
+<h2 id="functions-12"><a class="header" href="#functions-12">Functions</a></h2>
+<h3 id="cmdexecuteargs-string"><a class="header" href="#cmdexecuteargs-string"><code>cmd:execute(args: string)</code></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_uobjecthook"><a class="header" href="#uevr_uobjecthook">UEVR_UObjectHook</a></h1>
 <h2 id="what-is-uobjecthook-1"><a class="header" href="#what-is-uobjecthook-1">What is UObjectHook?</a></h2>
 <p>UObjectHook is a UEVR defined class that hooks into the UObject creation and destruction process. It is used to track UObject instances with minimal performance overhead.</p>
 <p>It is also used to add motion controls.</p>
 <p>UObjectHook uses all static functions.</p>
-<h2 id="functions-9"><a class="header" href="#functions-9">Functions</a></h2>
+<h2 id="functions-13"><a class="header" href="#functions-13">Functions</a></h2>
 <h3 id="uevr_uobjecthookactivate"><a class="header" href="#uevr_uobjecthookactivate"><code>UEVR_UObjectHook.activate()</code></a></h3>
 <p>Activates the UObjectHook. Some of the below functions automatically activate the UObjectHook if it is not already active.</p>
 <h3 id="uevr_uobjecthookexistsobj-uobject"><a class="header" href="#uevr_uobjecthookexistsobj-uobject"><code>UEVR_UObjectHook.exists(obj: UObject*)</code></a></h3>
