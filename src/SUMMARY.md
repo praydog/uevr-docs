@@ -14,6 +14,7 @@
 - [Lua API](plugins/lua.md)
 
 # Lua Scripting Reference
+- [params](plugins/lua/params.md)
 - [api](plugins/lua/api.md)
 - [types](plugins/lua/types.md)
     - [UObject](plugins/lua/types/UObject.md)
