@@ -1,5 +1,7 @@
 # UEVR_PluginInitializeParam
 
+Accessed with `uevr.params`.
+
 ## Members
 
 ### `param.uevr_module`
