@@ -206,7 +206,7 @@ uevr.sdk.callbacks.on_script_reset(function()
 end)
 ```
 
-## Example
+## Example (when integrated into an environment like UE4SS)
 
 ```lua
 local LuaVR = require("LuaVR")
