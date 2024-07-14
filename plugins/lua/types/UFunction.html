@@ -143,7 +143,19 @@
                         <h1 id="uevr_ufunction"><a class="header" href="#uevr_ufunction">UEVR_UFunction</a></h1>
 <h2 id="what-is-ufunction"><a class="header" href="#what-is-ufunction">What is UFunction?</a></h2>
 <p>UFunction is a struct that represents a function in Unreal Engine. Functions are usually associated with a UClass and can be called on instances of that class.</p>
+<p>UFunction inherits all the functions from <a href="UStruct.html">UEVR_UStruct</a>.</p>
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="uevr_ufunctionstatic_class"><a class="header" href="#uevr_ufunctionstatic_class"><code>UEVR_UFunction.static_class()</code></a></h3>
+<p>Returns the <a href="UClass.html">UEVR_UClass*</a> descriptor for UFunction.</p>
+<h3 id="functioncallobj-args_ptr"><a class="header" href="#functioncallobj-args_ptr"><code>function:call(obj, args_ptr)</code></a></h3>
+<p>Not implemented correctly. Do not use. Use <code>obj:FuncName(args...)</code> instead.</p>
+<h3 id="functionget_native_function"><a class="header" href="#functionget_native_function"><code>function:get_native_function()</code></a></h3>
+<p>Returns the native function pointer of the UFunction as a <code>void*</code>.</p>
+<h3 id="functionhook_ptrpre-post"><a class="header" href="#functionhook_ptrpre-post"><code>function:hook_ptr(pre, post)</code></a></h3>
+<p>Hooks the UFunction with the specified pre and post function pointers.</p>
+<p>Pre Signature: <code>bool pre(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)</code></p>
+<p>Return <code>false</code> to skip the original function.</p>
+<p>Post Signature: <code>void post(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)</code></p>
 
                     </main>
 
