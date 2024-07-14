@@ -1,4 +1,4 @@
-# FConsoleManager
+# UEVR_FConsoleManager
 
 Instance can be obtained with `uevr.api:get_console_manager()`.
 
