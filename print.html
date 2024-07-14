@@ -1062,9 +1062,9 @@ local asdf = obj.SomeProperty
 <h3 id="functionget_native_function"><a class="header" href="#functionget_native_function"><code>function:get_native_function()</code></a></h3>
 <p>Returns the native function pointer of the UFunction as a <code>void*</code>.</p>
 <h3 id="functionhook_ptrpre-post"><a class="header" href="#functionhook_ptrpre-post"><code>function:hook_ptr(pre, post)</code></a></h3>
-<p>Hooks the UFunction with the specified pre and post function pointers.</p>
+<p>Hooks the UFunction with the specified pre and post function pointers. Functions can be <code>nil</code> if you only want to use one but not the other.</p>
 <p>Pre Signature: <code>bool pre(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)</code></p>
-<p>Return <code>false</code> to skip the original function.</p>
+<p>Return <code>false</code> to skip the original function. Not returning at all is equivalent to returning <code>true</code>.</p>
 <p>Post Signature: <code>void post(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)</code></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_fname"><a class="header" href="#uevr_fname">UEVR_FName</a></h1>
 <h2 id="what-is-fname"><a class="header" href="#what-is-fname">What is FName?</a></h2>
