@@ -22,10 +22,10 @@ Returns the native function pointer of the UFunction as a `void*`.
 
 ### `function:hook_ptr(pre, post)`
 
-Hooks the UFunction with the specified pre and post function pointers.
+Hooks the UFunction with the specified pre and post function pointers. Functions can be `nil` if you only want to use one but not the other.
 
 Pre Signature: `bool pre(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)`
 
-Return `false` to skip the original function.
+Return `false` to skip the original function. Not returning at all is equivalent to returning `true`.
 
 Post Signature: `void post(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)`
