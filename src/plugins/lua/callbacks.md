@@ -7,11 +7,15 @@ Registers a callback to be called when XInput state is requested.
 
 Prototype: `function(retval: uint32, user_index: uint32, state: XINPUT_STATE*)`
 
+[XINPUT_STATE](thirdparty/XINPUT_STATE.md)
+
 ### `uevr.sdk.callbacks.on_xinput_set_state(fn)`
 
 Registers a callback to be called when XInput state is set.
 
 Prototype: `function(user_index: uint32, state: XINPUT_VIBRATION*)`
+
+[XINPUT_VIBRATION](thirdparty/XINPUT_VIBRATION.md)
 
 ### `uevr.sdk.callbacks.on_pre_engine_tick(fn)`
 
