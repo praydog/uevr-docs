@@ -16,6 +16,7 @@
 # Lua Scripting Reference
 - [params](plugins/lua/params.md)
 - [api](plugins/lua/api.md)
+- [callbacks](plugins/lua/callbacks.md)
 - [types](plugins/lua/types.md)
     - [UObject](plugins/lua/types/UObject.md)
     - [UStruct](plugins/lua/types/UStruct.md)
