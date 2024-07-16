@@ -9,3 +9,7 @@ title = "UEVR Documentation"
 site-url = "/uuvr-docs/"
 git-repository-url = "https://github.com/praydog/uuvr-docs"
 edit-url-template = "https://github.com/praydog/uuvr-docs/edit/main/{path}"
+additional-css = ["theme/css/custom.css"]
+
+[preprocessor.python]
+command = "python preprocess.py"
