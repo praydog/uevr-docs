@@ -142,85 +142,86 @@
                     <main>
                         <h1 id="uevr_vrdata"><a class="header" href="#uevr_vrdata">UEVR_VRData</a></h1>
 <p>Accessed with <code>uevr.params.vr</code></p>
+<p>Static functions. Use <code>.</code> operator.</p>
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
-<h3 id="is_runtime_ready"><a class="header" href="#is_runtime_ready"><code>is_runtime_ready()</code></a></h3>
+<h3 id="vris_runtime_ready"><a class="header" href="#vris_runtime_ready"><code>vr.is_runtime_ready()</code></a></h3>
 <p>Returns true if the VR runtime is ready.</p>
-<h3 id="is_openvr"><a class="header" href="#is_openvr"><code>is_openvr()</code></a></h3>
+<h3 id="vris_openvr"><a class="header" href="#vris_openvr"><code>vr.is_openvr()</code></a></h3>
 <p>Returns true if the VR runtime is OpenVR.</p>
-<h3 id="is_openxr"><a class="header" href="#is_openxr"><code>is_openxr()</code></a></h3>
+<h3 id="vris_openxr"><a class="header" href="#vris_openxr"><code>vr.is_openxr()</code></a></h3>
 <p>Returns true if the VR runtime is OpenXR.</p>
-<h3 id="is_hmd_active"><a class="header" href="#is_hmd_active"><code>is_hmd_active()</code></a></h3>
+<h3 id="vris_hmd_active"><a class="header" href="#vris_hmd_active"><code>vr.is_hmd_active()</code></a></h3>
 <p>Returns true if the HMD is active. Usually meaning the headset is on and tracking.</p>
-<h3 id="get_standing_originout-standing_origin-uevr_vector3f"><a class="header" href="#get_standing_originout-standing_origin-uevr_vector3f"><code>get_standing_origin(out standing_origin: UEVR_Vector3f)</code></a></h3>
+<h3 id="vrget_standing_originout-standing_origin-uevr_vector3f"><a class="header" href="#vrget_standing_originout-standing_origin-uevr_vector3f"><code>vr.get_standing_origin(out standing_origin: UEVR_Vector3f)</code></a></h3>
 <p>Returns the standing origin of the HMD.</p>
-<h3 id="get_rotation_offsetout-rotation_offset-uevr_vector3f"><a class="header" href="#get_rotation_offsetout-rotation_offset-uevr_vector3f"><code>get_rotation_offset(out rotation_offset: UEVR_Vector3f)</code></a></h3>
+<h3 id="vrget_rotation_offsetout-rotation_offset-uevr_vector3f"><a class="header" href="#vrget_rotation_offsetout-rotation_offset-uevr_vector3f"><code>vr.get_rotation_offset(out rotation_offset: UEVR_Vector3f)</code></a></h3>
 <p>Returns the rotation offset of the HMD.</p>
-<h3 id="set_standing_originstanding_origin-uevr_vector3f"><a class="header" href="#set_standing_originstanding_origin-uevr_vector3f"><code>set_standing_origin(standing_origin: UEVR_Vector3f)</code></a></h3>
+<h3 id="vrset_standing_originstanding_origin-uevr_vector3f"><a class="header" href="#vrset_standing_originstanding_origin-uevr_vector3f"><code>vr.set_standing_origin(standing_origin: UEVR_Vector3f)</code></a></h3>
 <p>Sets the standing origin of the HMD.</p>
-<h3 id="set_rotation_offsetrotation_offset-uevr_vector3f"><a class="header" href="#set_rotation_offsetrotation_offset-uevr_vector3f"><code>set_rotation_offset(rotation_offset: UEVR_Vector3f)</code></a></h3>
+<h3 id="vrset_rotation_offsetrotation_offset-uevr_vector3f"><a class="header" href="#vrset_rotation_offsetrotation_offset-uevr_vector3f"><code>vr.set_rotation_offset(rotation_offset: UEVR_Vector3f)</code></a></h3>
 <p>Sets the rotation offset of the HMD.</p>
-<h3 id="get_hmd_index"><a class="header" href="#get_hmd_index"><code>get_hmd_index()</code></a></h3>
+<h3 id="vrget_hmd_index"><a class="header" href="#vrget_hmd_index"><code>vr.get_hmd_index()</code></a></h3>
 <p>Returns the index of the HMD.</p>
-<h3 id="get_left_controller_index"><a class="header" href="#get_left_controller_index"><code>get_left_controller_index()</code></a></h3>
+<h3 id="vrget_left_controller_index"><a class="header" href="#vrget_left_controller_index"><code>vr.get_left_controller_index()</code></a></h3>
 <p>Returns the index of the left controller.</p>
-<h3 id="get_right_controller_index"><a class="header" href="#get_right_controller_index"><code>get_right_controller_index()</code></a></h3>
+<h3 id="vrget_right_controller_index"><a class="header" href="#vrget_right_controller_index"><code>vr.get_right_controller_index()</code></a></h3>
 <p>Returns the index of the right controller.</p>
-<h3 id="get_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#get_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>get_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
+<h3 id="vrget_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
 <p>Returns the pose of the specified device.</p>
-<h3 id="get_transformindex-number-out-transform-uevr_transform"><a class="header" href="#get_transformindex-number-out-transform-uevr_transform"><code>get_transform(index: number, out transform: UEVR_Transform)</code></a></h3>
+<h3 id="vrget_transformindex-number-out-transform-uevr_transform"><a class="header" href="#vrget_transformindex-number-out-transform-uevr_transform"><code>vr.get_transform(index: number, out transform: UEVR_Transform)</code></a></h3>
 <p>Returns the transform of the specified device.</p>
-<h3 id="get_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><a class="header" href="#get_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><code>get_eye_offset(index: number, out eye_offset: UEVR_Vector3f)</code></a></h3>
+<h3 id="vrget_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><a class="header" href="#vrget_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><code>vr.get_eye_offset(index: number, out eye_offset: UEVR_Vector3f)</code></a></h3>
 <p>Returns the eye offset of the specified eye.</p>
-<h3 id="get_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><a class="header" href="#get_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><code>get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4f)</code></a></h3>
+<h3 id="vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><a class="header" href="#vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><code>vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4f)</code></a></h3>
 <p>Returns the projection matrix of the specified eye.</p>
-<h3 id="get_left_joystick_source"><a class="header" href="#get_left_joystick_source"><code>get_left_joystick_source()</code></a></h3>
+<h3 id="vrget_left_joystick_source"><a class="header" href="#vrget_left_joystick_source"><code>vr.get_left_joystick_source()</code></a></h3>
 <p>Returns the source handle of the left joystick.</p>
-<h3 id="get_right_joystick_source"><a class="header" href="#get_right_joystick_source"><code>get_right_joystick_source()</code></a></h3>
+<h3 id="vrget_right_joystick_source"><a class="header" href="#vrget_right_joystick_source"><code>vr.get_right_joystick_source()</code></a></h3>
 <p>Returns the source handle of the right joystick.</p>
-<h3 id="get_action_handleaction_name-string"><a class="header" href="#get_action_handleaction_name-string"><code>get_action_handle(action_name: string)</code></a></h3>
+<h3 id="vrget_action_handleaction_name-string"><a class="header" href="#vrget_action_handleaction_name-string"><code>vr.get_action_handle(action_name: string)</code></a></h3>
 <p>Returns the handle of the specified action.</p>
-<h3 id="is_action_activeaction_name-string"><a class="header" href="#is_action_activeaction_name-string"><code>is_action_active(action_name: string)</code></a></h3>
+<h3 id="vris_action_activeaction_name-string"><a class="header" href="#vris_action_activeaction_name-string"><code>vr.is_action_active(action_name: string)</code></a></h3>
 <p>Returns true if the specified action is active.</p>
-<h3 id="get_joystick_axisindex-number-out-axis-uevr_vector2f"><a class="header" href="#get_joystick_axisindex-number-out-axis-uevr_vector2f"><code>get_joystick_axis(index: number, out axis: UEVR_Vector2f)</code></a></h3>
+<h3 id="vrget_joystick_axisindex-number-out-axis-uevr_vector2f"><a class="header" href="#vrget_joystick_axisindex-number-out-axis-uevr_vector2f"><code>vr.get_joystick_axis(index: number, out axis: UEVR_Vector2f)</code></a></h3>
 <p>Returns the axis of the specified joystick.</p>
-<h3 id="trigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><a class="header" href="#trigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><code>trigger_haptic_vibration(seconds_from_now: number, duration: number, frequency: number, amplitude: number, source_handle: number)</code></a></h3>
+<h3 id="vrtrigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><a class="header" href="#vrtrigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><code>vr.trigger_haptic_vibration(seconds_from_now: number, duration: number, frequency: number, amplitude: number, source_handle: number)</code></a></h3>
 <p>Triggers haptic vibration on the specified device.</p>
-<h3 id="is_using_controllers"><a class="header" href="#is_using_controllers"><code>is_using_controllers()</code></a></h3>
+<h3 id="vris_using_controllers"><a class="header" href="#vris_using_controllers"><code>vr.is_using_controllers()</code></a></h3>
 <p>Returns true if the VR system is using controllers within the past 30 seconds.</p>
-<h3 id="get_lowest_xinput_index"><a class="header" href="#get_lowest_xinput_index"><code>get_lowest_xinput_index()</code></a></h3>
-<h3 id="recenter_view"><a class="header" href="#recenter_view"><code>recenter_view()</code></a></h3>
+<h3 id="vrget_lowest_xinput_index"><a class="header" href="#vrget_lowest_xinput_index"><code>vr.get_lowest_xinput_index()</code></a></h3>
+<h3 id="vrrecenter_view"><a class="header" href="#vrrecenter_view"><code>vr.recenter_view()</code></a></h3>
 <p>Recenters the view.</p>
-<h3 id="recenter_horizon"><a class="header" href="#recenter_horizon"><code>recenter_horizon()</code></a></h3>
+<h3 id="vrrecenter_horizon"><a class="header" href="#vrrecenter_horizon"><code>vr.recenter_horizon()</code></a></h3>
 <p>Recenters the horizon.</p>
-<h3 id="get_aim_method"><a class="header" href="#get_aim_method"><code>get_aim_method()</code></a></h3>
+<h3 id="vrget_aim_method"><a class="header" href="#vrget_aim_method"><code>vr.get_aim_method()</code></a></h3>
 <p>Returns the aim method as an integer.</p>
-<h3 id="set_aim_methodaim_method-number"><a class="header" href="#set_aim_methodaim_method-number"><code>set_aim_method(aim_method: number)</code></a></h3>
+<h3 id="vrset_aim_methodaim_method-number"><a class="header" href="#vrset_aim_methodaim_method-number"><code>vr.set_aim_method(aim_method: number)</code></a></h3>
 <p>Sets the aim method.</p>
-<h3 id="is_aim_allowed"><a class="header" href="#is_aim_allowed"><code>is_aim_allowed()</code></a></h3>
+<h3 id="vris_aim_allowed"><a class="header" href="#vris_aim_allowed"><code>vr.is_aim_allowed()</code></a></h3>
 <p>Returns true if aiming is allowed.</p>
-<h3 id="set_aim_allowedaim_allowed-bool"><a class="header" href="#set_aim_allowedaim_allowed-bool"><code>set_aim_allowed(aim_allowed: bool)</code></a></h3>
+<h3 id="vrset_aim_allowedaim_allowed-bool"><a class="header" href="#vrset_aim_allowedaim_allowed-bool"><code>vr.set_aim_allowed(aim_allowed: bool)</code></a></h3>
 <p>Sets whether aiming is allowed.</p>
-<h3 id="get_hmd_width"><a class="header" href="#get_hmd_width"><code>get_hmd_width()</code></a></h3>
+<h3 id="vrget_hmd_width"><a class="header" href="#vrget_hmd_width"><code>vr.get_hmd_width()</code></a></h3>
 <p>Returns the render width of the HMD.</p>
-<h3 id="get_hmd_height"><a class="header" href="#get_hmd_height"><code>get_hmd_height()</code></a></h3>
+<h3 id="vrget_hmd_height"><a class="header" href="#vrget_hmd_height"><code>vr.get_hmd_height()</code></a></h3>
 <p>Returns the render height of the HMD.</p>
-<h3 id="get_ui_width"><a class="header" href="#get_ui_width"><code>get_ui_width()</code></a></h3>
+<h3 id="vrget_ui_width"><a class="header" href="#vrget_ui_width"><code>vr.get_ui_width()</code></a></h3>
 <p>Returns the render width of the UI.</p>
-<h3 id="get_ui_height"><a class="header" href="#get_ui_height"><code>get_ui_height()</code></a></h3>
+<h3 id="vrget_ui_height"><a class="header" href="#vrget_ui_height"><code>vr.get_ui_height()</code></a></h3>
 <p>Returns the render height of the UI.</p>
-<h3 id="is_snap_turn_enabled"><a class="header" href="#is_snap_turn_enabled"><code>is_snap_turn_enabled()</code></a></h3>
+<h3 id="vris_snap_turn_enabled"><a class="header" href="#vris_snap_turn_enabled"><code>vr.is_snap_turn_enabled()</code></a></h3>
 <p>Returns true if snap turning is enabled.</p>
-<h3 id="set_snap_turn_enabledsnap_turn_enabled-bool"><a class="header" href="#set_snap_turn_enabledsnap_turn_enabled-bool"><code>set_snap_turn_enabled(snap_turn_enabled: bool)</code></a></h3>
+<h3 id="vrset_snap_turn_enabledsnap_turn_enabled-bool"><a class="header" href="#vrset_snap_turn_enabledsnap_turn_enabled-bool"><code>vr.set_snap_turn_enabled(snap_turn_enabled: bool)</code></a></h3>
 <p>Sets whether snap turning is enabled.</p>
-<h3 id="set_decoupled_pitch_enableddecoupled_pitch_enabled-bool"><a class="header" href="#set_decoupled_pitch_enableddecoupled_pitch_enabled-bool"><code>set_decoupled_pitch_enabled(decoupled_pitch_enabled: bool)</code></a></h3>
+<h3 id="vrset_decoupled_pitch_enableddecoupled_pitch_enabled-bool"><a class="header" href="#vrset_decoupled_pitch_enableddecoupled_pitch_enabled-bool"><code>vr.set_decoupled_pitch_enabled(decoupled_pitch_enabled: bool)</code></a></h3>
 <p>Sets whether decoupled pitch is enabled.</p>
-<h3 id="set_mod_valuename-string-value-string"><a class="header" href="#set_mod_valuename-string-value-string"><code>set_mod_value(name: string, value: string)</code></a></h3>
+<h3 id="vrset_mod_valuename-string-value-string"><a class="header" href="#vrset_mod_valuename-string-value-string"><code>vr.set_mod_value(name: string, value: string)</code></a></h3>
 <p>Sets the value of the specified mod.</p>
-<h3 id="get_mod_valuename-string"><a class="header" href="#get_mod_valuename-string"><code>get_mod_value(name: string)</code></a></h3>
+<h3 id="vrget_mod_valuename-string"><a class="header" href="#vrget_mod_valuename-string"><code>vr.get_mod_value(name: string)</code></a></h3>
 <p>Returns the value of the specified mod as a Lua string.</p>
-<h3 id="save_config"><a class="header" href="#save_config"><code>save_config()</code></a></h3>
+<h3 id="vrsave_config"><a class="header" href="#vrsave_config"><code>vr.save_config()</code></a></h3>
 <p>Saves the configuration.</p>
-<h3 id="reload_config"><a class="header" href="#reload_config"><code>reload_config()</code></a></h3>
+<h3 id="vrreload_config"><a class="header" href="#vrreload_config"><code>vr.reload_config()</code></a></h3>
 <p>Reloads the configuration.</p>
 
                     </main>
