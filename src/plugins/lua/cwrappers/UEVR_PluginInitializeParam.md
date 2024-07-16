@@ -10,7 +10,7 @@ The HMODULE of UEVR.
 
 ### `params.version`
 
-The version of UEVR.
+The version of UEVR's plugin API.
 
 Returns:
 ```c
