@@ -13,7 +13,7 @@ Prototype: `function(retval: uint32, user_index: uint32, state: XINPUT_STATE*)`
 
 Registers a callback to be called when XInput state is set.
 
-Prototype: `function(user_index: uint32, state: XINPUT_VIBRATION*)`
+Prototype: `function(retval: uint32, user_index: uint32, state: XINPUT_VIBRATION*)`
 
 [XINPUT_VIBRATION](thirdparty/XINPUT_VIBRATION.md)
 
