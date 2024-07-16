@@ -1,5 +1,7 @@
 # UEVR_VRData
 
+Accessed with `uevr.params.vr`
+
 ## Functions
 
 ### `is_runtime_ready()`
