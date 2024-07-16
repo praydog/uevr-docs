@@ -4,11 +4,11 @@ Accessed with `uevr.params`.
 
 ## Members
 
-### `param.uevr_module`
+### `params.uevr_module`
 
 The HMODULE of UEVR.
 
-### `param.version`
+### `params.version`
 
 The version of UEVR.
 
@@ -21,30 +21,30 @@ typedef struct {
 } UEVR_PluginVersion;
 ```
 
-### `param.functions`
+### `params.functions`
 
 Returns [UEVR_PluginFunctions](UEVR_PluginFunctions.md).
 
-### `param.callbacks`
+### `params.callbacks`
 
 Returns [UEVR_PluginCallbacks](UEVR_PluginCallbacks.md).
 
-### `param.renderer`
+### `params.renderer`
 
 Returns [UEVR_RendererData](UEVR_RendererData.md).
 
-### `param.vr`
+### `params.vr`
 
 Returns [UEVR_VRData](UEVR_VRData.md).
 
-### `param.openvr`
+### `params.openvr`
 
 Returns [UEVR_OpenVRData](UEVR_OpenVRData.md).
 
-### `param.openxr`
+### `params.openxr`
 
 Returns [UEVR_OpenXRData](UEVR_OpenXRData.md).
 
-### `param.sdk`
+### `params.sdk`
 
 Returns [UEVR_SDKData](UEVR_SDKData.md).
