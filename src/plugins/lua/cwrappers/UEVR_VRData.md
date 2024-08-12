@@ -78,7 +78,11 @@ Returns the source handle of the right joystick.
 
 Returns the handle of the specified action.
 
-### `vr.is_action_active(action_name: string)`
+### `vr.is_action_active(action_handle: UEVR_ActionHandle, source: UEVR_InputSourceHandle)`
+
+Returns true if the specified action is active.
+
+### `vr.is_action_active_any_joystick(action_handle: UEVR_ActionHandle)`
 
 Returns true if the specified action is active.
 
