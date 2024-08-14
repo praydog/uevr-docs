@@ -31,6 +31,7 @@
     - [IConsoleVariable](plugins/lua/types/IConsoleVariable.md)
     - [IConsoleCommand](plugins/lua/types/IConsoleCommand.md)
     - [UObjectHook](plugins/lua/types/UObjectHook.md)
+    - [MotionControllerState](plugins/lua/types/MotionControllerState.md)
     - [StructObject](plugins/lua/types/StructObject.md)
 - [C Wrapper Types](plugins/lua/c_wrapper_types.md)
     - [UEVR_VRData](plugins/lua/cwrappers/UEVR_VRData.md)
