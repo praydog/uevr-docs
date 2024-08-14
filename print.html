@@ -1212,16 +1212,13 @@ local asdf = obj.SomeProperty
 <p>Returns the motion controller state for the specified UObject. If the state does not exist, returns nil.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_motioncontrollerstate"><a class="header" href="#uevr_motioncontrollerstate">UEVR_MotionControllerState</a></h1>
 <h2 id="functions-15"><a class="header" href="#functions-15">Functions</a></h2>
-<h3 id="stateset_rotation_offsetoffset-variant"><a class="header" href="#stateset_rotation_offsetoffset-variant"><code>state:set_rotation_offset(offset: variant)</code></a></h3>
-<p>Sets the rotation offset of the motion controller state.</p>
-<p><code>offset</code> can be a <code>UEVR_Quaternionf</code>, a <code>Vector4f</code>, or a <code>Vector3d</code>.</p>
-<h3 id="stateset_location_offsetoffset-variant"><a class="header" href="#stateset_location_offsetoffset-variant"><code>state:set_location_offset(offset: variant)</code></a></h3>
-<p>Sets the location offset of the motion controller state.</p>
-<p><code>offset</code> can be a <code>UEVR_Vector3f</code>, a <code>Vector3f</code>, or a <code>Vector3d</code>.</p>
-<h3 id="stateset_handhand-int"><a class="header" href="#stateset_handhand-int"><code>state:set_hand(hand: int)</code></a></h3>
-<p>Sets the hand of the motion controller state.</p>
-<p><code>hand</code> can be <code>0</code> for left hand or <code>1</code> for right hand, or <code>2</code> for the HMD.</p>
-<h3 id="stateset_permanantpermanent-bool"><a class="header" href="#stateset_permanantpermanent-bool"><code>state:set_permanant(permanent: bool)</code></a></h3>
+<h3 id="stateset_rotation_offsetoffset-variant"><a class="header" href="#stateset_rotation_offsetoffset-variant"><code><span class="function-name">state:set_rotation_offset</span><span class="function-args">(offset: variant)</span></code></a></h3>
+<p>Sets the rotation offset of the motion controller state.<br><code>offset</code> can be a <code>UEVR_Quaternionf</code>, a <code>Vector4f</code>, or a <code>Vector3d</code>.</p>
+<h3 id="stateset_location_offsetoffset-variant"><a class="header" href="#stateset_location_offsetoffset-variant"><code><span class="function-name">state:set_location_offset</span><span class="function-args">(offset: variant)</span></code></a></h3>
+<p>Sets the location offset of the motion controller state.<br><code>offset</code> can be a <code>UEVR_Vector3f</code>, a <code>Vector3f</code>, or a <code>Vector3d</code>.</p>
+<h3 id="stateset_handhand-int"><a class="header" href="#stateset_handhand-int"><code><span class="function-name">state:set_hand</span><span class="function-args">(hand: int)</span></code></a></h3>
+<p>Sets the hand of the motion controller state.<br><code>hand</code> can be <code>0</code> for left hand or <code>1</code> for right hand, or <code>2</code> for the HMD.</p>
+<h3 id="stateset_permanantpermanent-bool"><a class="header" href="#stateset_permanantpermanent-bool"><code><span class="function-name">state:set_permanant</span><span class="function-args">(permanent: bool)</span></code></a></h3>
 <p>Sets the permanant flag of the motion controller state. Permanent meaning UObjectHook will not reset the rotation or location at the end of the tick.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="structobject"><a class="header" href="#structobject">StructObject</a></h1>
 <p>StructObject is a custom UEVR Lua type that represents a struct in Unreal Engine. It's for non-UObject based structs which support reflection.</p>
