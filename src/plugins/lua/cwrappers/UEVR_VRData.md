@@ -26,7 +26,7 @@ Returns true if the HMD is active. Usually meaning the headset is on and trackin
 
 Returns the standing origin of the HMD.
 
-### `vr.get_rotation_offset(out rotation_offset: UEVR_Vector3f)`
+### `vr.get_rotation_offset(out rotation_offset: UEVR_Quaternionf)`
 
 Returns the rotation offset of the HMD.
 
@@ -34,7 +34,7 @@ Returns the rotation offset of the HMD.
 
 Sets the standing origin of the HMD.
 
-### `vr.set_rotation_offset(rotation_offset: UEVR_Vector3f)`
+### `vr.set_rotation_offset(rotation_offset: UEVR_Quaternionf)`
 
 Sets the rotation offset of the HMD.
 
