@@ -77,3 +77,9 @@ Registers a callback to be called when the UI is drawn. For ImGui functionality 
 ### `uevr.sdk.callbacks.on_script_reset(fn)`
 
 Registers a callback to be called when the Lua script is reset. Script cleanup should be performed here.
+
+### `uevr.sdk.callbacks.on_lua_event(fn)`
+
+Registers a callback that can be triggered when a C plugin dispatches an event for Lua.
+
+Prototype: `function(event_name: string, event_data: string)`
