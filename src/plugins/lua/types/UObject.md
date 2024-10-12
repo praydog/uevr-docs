@@ -82,4 +82,4 @@ Calls the specified function of the UObject with the specified arguments.
 
 ### `obj:DANGEROUS_call_member_virtual(index: int, rdx, r8, r9)`
 
-Calls a virtual function at the specified index with the MSVC calling convention.
+Calls a virtual function at the specified index with the MSVC x64 calling convention.
