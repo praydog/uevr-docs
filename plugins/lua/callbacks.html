@@ -182,6 +182,9 @@ Prototype: <code>function()</code></p>
 <p>Registers a callback to be called when the UI is drawn. For ImGui functionality that should be constrained to the UEVR window.</p>
 <h3 id="uevrsdkcallbackson_script_resetfn"><a class="header" href="#uevrsdkcallbackson_script_resetfn"><code>uevr.sdk.callbacks.on_script_reset(fn)</code></a></h3>
 <p>Registers a callback to be called when the Lua script is reset. Script cleanup should be performed here.</p>
+<h3 id="uevrsdkcallbackson_lua_eventfn"><a class="header" href="#uevrsdkcallbackson_lua_eventfn"><code>uevr.sdk.callbacks.on_lua_event(fn)</code></a></h3>
+<p>Registers a callback that can be triggered when a C plugin dispatches an event for Lua.</p>
+<p>Prototype: <code>function(event_name: string, event_data: string)</code></p>
 
                     </main>
 
