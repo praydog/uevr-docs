@@ -79,3 +79,7 @@ Sets the value of the specified property of the UObject. Not all properties are 
 ### `obj:call(name: string, args...)`
 
 Calls the specified function of the UObject with the specified arguments.
+
+### `obj:DANGEROUS_call_member_virtual(index: int, rdx, r8, r9)`
+
+Calls a virtual function at the specified index with the MSVC calling convention.
