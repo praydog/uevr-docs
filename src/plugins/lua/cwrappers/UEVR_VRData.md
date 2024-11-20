@@ -2,7 +2,7 @@
 
 Accessed with `uevr.params.vr`
 
-Static functions. Use `.` operator.
+Static functions. Use `.` operator. Exception is `vr:get_mod_value`
 
 ## Functions
 
