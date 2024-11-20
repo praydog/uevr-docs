@@ -1312,8 +1312,9 @@ local asdf = obj.SomeProperty
 <p>Sets whether decoupled pitch is enabled.</p>
 <h3 id="vrset_mod_valuename-string-value-string"><a class="header" href="#vrset_mod_valuename-string-value-string"><code>vr.set_mod_value(name: string, value: string)</code></a></h3>
 <p>Sets the value of the specified mod.</p>
-<h3 id="vrget_mod_valuename-string"><a class="header" href="#vrget_mod_valuename-string"><code>vr.get_mod_value(name: string)</code></a></h3>
+<h3 id="vrget_mod_valuename-string"><a class="header" href="#vrget_mod_valuename-string"><code>vr:get_mod_value(name: string)</code></a></h3>
 <p>Returns the value of the specified mod as a Lua string.</p>
+<p>This is a special function that requires use of <code>:</code> instead of <code>.</code> because it uses a custom function, not the original function.</p>
 <h3 id="vrsave_config"><a class="header" href="#vrsave_config"><code>vr.save_config()</code></a></h3>
 <p>Saves the configuration.</p>
 <h3 id="vrreload_config"><a class="header" href="#vrreload_config"><code>vr.reload_config()</code></a></h3>
