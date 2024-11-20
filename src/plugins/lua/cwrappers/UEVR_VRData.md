@@ -156,9 +156,11 @@ Sets whether decoupled pitch is enabled.
 
 Sets the value of the specified mod.
 
-### `vr.get_mod_value(name: string)`
+### `vr:get_mod_value(name: string)`
 
 Returns the value of the specified mod as a Lua string.
+
+This is a special function that requires use of `:` instead of `.` because it uses a custom function, not the original function.
 
 ### `vr.save_config()`
 
