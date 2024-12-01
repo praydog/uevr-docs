@@ -28,6 +28,10 @@ Returns the local pawn at the specified index, which is a [UEVR_UObject*](types/
 
 Attempts to spawn an object of the specified class with the specified outer object. Returns the spawned object as a [UEVR_UObject*](types/UObject.md) object.
 
+### `uevr.api:add_component_by_class(actor: UObject*, class: UClass*, deferred: bool = false)`
+
+Unified, simplified function that adds a component to an actor, on UE4 and UE5 with default transforms setup. Automatically calls FinishAddComponent if `deferred` is false.
+
 ### `uevr.api:execute_command(command: string)`
 
 Executes the specified console command. Does not operate 1:1 with the native UE console, as it does not pass the command onto the player controller, but should work with most commands.
