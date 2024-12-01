@@ -156,6 +156,8 @@
 <p>Returns the local pawn at the specified index, which is a <a href="types/UObject.html">UEVR_UObject*</a> object.</p>
 <h3 id="uevrapispawn_objectclass-uclass-outer-uobject"><a class="header" href="#uevrapispawn_objectclass-uclass-outer-uobject"><code>uevr.api:spawn_object(class: UClass*, outer: UObject*)</code></a></h3>
 <p>Attempts to spawn an object of the specified class with the specified outer object. Returns the spawned object as a <a href="types/UObject.html">UEVR_UObject*</a> object.</p>
+<h3 id="uevrapiadd_component_by_classactor-uobject-class-uclass-deferred-bool--false"><a class="header" href="#uevrapiadd_component_by_classactor-uobject-class-uclass-deferred-bool--false"><code>uevr.api:add_component_by_class(actor: UObject*, class: UClass*, deferred: bool = false)</code></a></h3>
+<p>Unified, simplified function that adds a component to an actor, on UE4 and UE5 with default transforms setup. Automatically calls FinishAddComponent if <code>deferred</code> is false.</p>
 <h3 id="uevrapiexecute_commandcommand-string"><a class="header" href="#uevrapiexecute_commandcommand-string"><code>uevr.api:execute_command(command: string)</code></a></h3>
 <p>Executes the specified console command. Does not operate 1:1 with the native UE console, as it does not pass the command onto the player controller, but should work with most commands.</p>
 <h3 id="uevrapiget_uobject_array"><a class="header" href="#uevrapiget_uobject_array"><code>uevr.api:get_uobject_array()</code></a></h3>
