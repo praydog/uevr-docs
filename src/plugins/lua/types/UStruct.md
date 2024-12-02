@@ -2,7 +2,7 @@
 
 ## What is UStruct?
 
-UStruct is a struct that represents a struct in Unreal Engine. Objects that can be described by a UStruct (but not a UClass) are usually POD types or simple data structures like FVector.
+UStruct is a type that represents a descriptor for a struct in Unreal Engine. Objects that can be described by a UStruct (but not a UClass) are usually POD types or simple data structures like FVector.
 
 UStruct inherits all the functions from [UEVR_UObject](UObject.md).
 
