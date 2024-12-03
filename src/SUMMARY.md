@@ -36,6 +36,7 @@
 - [C Wrapper Types](plugins/lua/c_wrapper_types.md)
     - [UEVR_VRData](plugins/lua/cwrappers/UEVR_VRData.md)
     - [UEVR_PluginInitializeParam](plugins/lua/cwrappers/UEVR_PluginInitializeParam.md)
+    - [UEVR_PluginFunctions](plugins/lua/cwrappers/UEVR_PluginFunctions.md)
 - [Third Party](plugins/lua/thirdparty.md)
     - [XInput](plugins/lua/thirdparty/XInput.md)
         - [XINPUT_STATE](plugins/lua/thirdparty/XINPUT_STATE.md)
