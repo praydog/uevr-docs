@@ -24,6 +24,8 @@ This means you can make `Motion Controller` components in Blueprint and UEVR wil
 
 You must correctly set the `Motion Source` name to either `Left` or `Right`. Case sensitive. Or modify the `Hand` property on older UE versions.
 
+`Motion Source` can be set to `Head` or `HMD` to track the HMD transform.
+
 ## Implemented functions
 
 Tested and confirmed working on 4.27 and 5.0.3
