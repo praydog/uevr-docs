@@ -24,6 +24,10 @@ Same as `struct:get_super_struct()`.
 
 Returns the [UEVR_UFunction*](UFunction.md) object of the function with the specified name.
 
+### `struct:find_property(name: string)`
+
+Returns the [UEVR_FProperty](FProperty.md) object of the property with the specified name.
+
 ### `struct:get_child_properties()`
 
 Returns the first [UEVR_FProperty*](FProperty.md) object of the struct. Use `property:get_next()` to iterate through the properties.
