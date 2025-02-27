@@ -43,3 +43,7 @@ Returns the [UEVR_FUObjectArray](types/FUObjectArray.md) instance.
 ### `uevr.api:get_console_manager()`
 
 Returns the [FConsoleManager](types/FConsoleManager.md) instance.
+
+### `uevr.api:dispatch_custom_event(event_name: string, event_data: string)`
+
+Dispatches an event that can be listened to on the C/C++ plugin side via `on_custom_event`.
