@@ -967,6 +967,8 @@ vr_print(&quot;Is Using Controllers: &quot; .. tostring(is_using_controllers))
 <p>Returns the <a href="plugins/lua/types/FUObjectArray.html">UEVR_FUObjectArray</a> instance.</p>
 <h3 id="uevrapiget_console_manager"><a class="header" href="#uevrapiget_console_manager"><code>uevr.api:get_console_manager()</code></a></h3>
 <p>Returns the <a href="plugins/lua/types/FConsoleManager.html">FConsoleManager</a> instance.</p>
+<h3 id="uevrapidispatch_custom_eventevent_name-string-event_data-string"><a class="header" href="#uevrapidispatch_custom_eventevent_name-string-event_data-string"><code>uevr.api:dispatch_custom_event(event_name: string, event_data: string)</code></a></h3>
+<p>Dispatches an event that can be listened to on the C/C++ plugin side via <code>on_custom_event</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevrsdkcallbacks"><a class="header" href="#uevrsdkcallbacks">uevr.sdk.callbacks</a></h1>
 <h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
 <h3 id="uevrsdkcallbackson_xinput_get_statefn"><a class="header" href="#uevrsdkcallbackson_xinput_get_statefn"><code>uevr.sdk.callbacks.on_xinput_get_state(fn)</code></a></h3>
