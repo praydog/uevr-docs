@@ -1,0 +1,516 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>imgui - UEVR Documentation</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../theme/css/custom.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="../../../usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded "><a href="../../../usage/vr_controller_bindings.html"><strong aria-hidden="true">2.</strong> VR Controller Bindings</a></li><li class="chapter-item expanded "><a href="../../../usage/adding_6dof.html"><strong aria-hidden="true">3.</strong> Adding 6DoF with UObjectHook</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="../../../plugins/getting_started.html"><strong aria-hidden="true">4.</strong> C/C++ API</a></li><li class="chapter-item expanded "><a href="../../../plugins/blueprint.html"><strong aria-hidden="true">5.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua.html"><strong aria-hidden="true">6.</strong> Lua API</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../../../plugins/lua/params.html"><strong aria-hidden="true">7.</strong> params</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/api.html"><strong aria-hidden="true">8.</strong> api</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/callbacks.html"><strong aria-hidden="true">9.</strong> callbacks</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types.html"><strong aria-hidden="true">10.</strong> types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UObject.html"><strong aria-hidden="true">10.1.</strong> UObject</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UStruct.html"><strong aria-hidden="true">10.2.</strong> UStruct</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UClass.html"><strong aria-hidden="true">10.3.</strong> UClass</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UFunction.html"><strong aria-hidden="true">10.4.</strong> UFunction</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FName.html"><strong aria-hidden="true">10.5.</strong> FName</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FField.html"><strong aria-hidden="true">10.6.</strong> FField</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FFieldClass.html"><strong aria-hidden="true">10.7.</strong> FFieldClass</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FUObjectArray.html"><strong aria-hidden="true">10.8.</strong> FUObjectArray</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FConsoleManager.html"><strong aria-hidden="true">10.9.</strong> FConsoleManager</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/IConsoleObject.html"><strong aria-hidden="true">10.10.</strong> IConsoleObject</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/IConsoleVariable.html"><strong aria-hidden="true">10.11.</strong> IConsoleVariable</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/IConsoleCommand.html"><strong aria-hidden="true">10.12.</strong> IConsoleCommand</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UObjectHook.html"><strong aria-hidden="true">10.13.</strong> UObjectHook</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/MotionControllerState.html"><strong aria-hidden="true">10.14.</strong> MotionControllerState</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/StructObject.html"><strong aria-hidden="true">10.15.</strong> StructObject</a></li></ol></li><li class="chapter-item expanded "><a href="../../../plugins/lua/c_wrapper_types.html"><strong aria-hidden="true">11.</strong> C Wrapper Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/cwrappers/UEVR_VRData.html"><strong aria-hidden="true">11.1.</strong> UEVR_VRData</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/cwrappers/UEVR_PluginInitializeParam.html"><strong aria-hidden="true">11.2.</strong> UEVR_PluginInitializeParam</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/cwrappers/UEVR_PluginFunctions.html"><strong aria-hidden="true">11.3.</strong> UEVR_PluginFunctions</a></li></ol></li><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty.html"><strong aria-hidden="true">12.</strong> Third Party</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XInput.html"><strong aria-hidden="true">12.1.</strong> XInput</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XINPUT_STATE.html"><strong aria-hidden="true">12.1.1.</strong> XINPUT_STATE</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XINPUT_VIBRATION.html"><strong aria-hidden="true">12.1.2.</strong> XINPUT_VIBRATION</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XINPUT_GAMEPAD.html"><strong aria-hidden="true">12.1.3.</strong> XINPUT_GAMEPAD</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings.html"><strong aria-hidden="true">13.</strong> Additional APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings/imgui.html" class="active"><strong aria-hidden="true">13.1.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings/json.html"><strong aria-hidden="true">13.2.</strong> json</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings/fs.html"><strong aria-hidden="true">13.3.</strong> fs</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">UEVR Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/praydog/uuvr-docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/praydog/uuvr-docs/edit/main/src/plugins/lua/additional-bindings/imgui.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="imgui"><a class="header" href="#imgui">imgui</a></h1>
+<p>Bindings for ImGui. Can be used in the <code>uevr.sdk.callbacks.on_draw_ui</code> callback.</p>
+<p>Example:</p>
+<pre><code>local thing = 1
+local things = { &quot;hi&quot;, &quot;hello&quot;, &quot;howdy&quot;, &quot;hola&quot;, &quot;aloha&quot; }
+
+uevr.sdk.callbacks.on_draw_ui(function()
+    if imgui.button(&quot;Whats up&quot;) then 
+        thing = 1
+    end
+
+    local changed, new_thing = imgui.combo(&quot;Greeting&quot;, thing, things) 
+    if changed then thing = new_thing end
+end)
+</code></pre>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<h3 id="imguitablesortspecs"><a class="header" href="#imguitablesortspecs"><code>imgui.TableSortSpecs</code></a></h3>
+<h3 id="imguitablecolumnsortspecs"><a class="header" href="#imguitablecolumnsortspecs"><code>imgui.TableColumnSortSpecs</code></a></h3>
+<h3 id="imguitableflags"><a class="header" href="#imguitableflags"><code>imgui.TableFlags</code></a></h3>
+<h3 id="imguicolumnflagss"><a class="header" href="#imguicolumnflagss"><code>imgui.ColumnFlagss</code></a></h3>
+<h3 id="imguiimguikey"><a class="header" href="#imguiimguikey"><code>imgui.ImGuiKey</code></a></h3>
+<h3 id="imguiimguistylevar"><a class="header" href="#imguiimguistylevar"><code>imgui.ImGuiStyleVar</code></a></h3>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="imguibegin_windowname-open-flags"><a class="header" href="#imguibegin_windowname-open-flags"><code>imgui.begin_window(name, open, flags)</code></a></h3>
+<p>Creates a new window with the title of <code>name</code>.</p>
+<p><code>open</code> is a bool. Can be <code>nil</code>. If not <code>nil</code>, a close button will be shown in the top right of the window.</p>
+<p><code>flags</code> - ImGuiWindowFlags.</p>
+<p><code>begin_window</code> must have a corresponding <code>end_window</code> call.</p>
+<p>This function may only be called in <code>on_frame</code>, not <code>on_draw_ui</code>.</p>
+<p>Returns a bool. Returns <code>false</code> if the user wants to close the window.</p>
+<h3 id="imguiend_window"><a class="header" href="#imguiend_window"><code>imgui.end_window()</code></a></h3>
+<p>Ends the last <code>begin_window</code> call. Required.</p>
+<h3 id="imguibegin_child_windowsize-border-flags"><a class="header" href="#imguibegin_child_windowsize-border-flags"><code>imgui.begin_child_window(size, border, flags)</code></a></h3>
+<p><code>size</code> - Vector2f</p>
+<p><code>border</code> - bool</p>
+<p><code>flags</code> - ImGuiWindowFlags</p>
+<h3 id="imguiend_child_window"><a class="header" href="#imguiend_child_window"><code>imgui.end_child_window()</code></a></h3>
+<h3 id="imguibegin_group"><a class="header" href="#imguibegin_group"><code>imgui.begin_group()</code></a></h3>
+<h3 id="imguiend_group"><a class="header" href="#imguiend_group"><code>imgui.end_group()</code></a></h3>
+<h3 id="imguibegin_rect"><a class="header" href="#imguibegin_rect"><code>imgui.begin_rect()</code></a></h3>
+<h3 id="imguiend_rectadditional_size-rounding"><a class="header" href="#imguiend_rectadditional_size-rounding"><code>imgui.end_rect(additional_size, rounding)</code></a></h3>
+<p>These two methods draw a rectangle around the elements between <code>begin_rect</code> and <code>end_rect</code></p>
+<h3 id="imguibegin_disableddisabledtrue"><a class="header" href="#imguibegin_disableddisabledtrue"><code>imgui.begin_disabled(disabled=true)</code></a></h3>
+<h3 id="imguiend_disabled"><a class="header" href="#imguiend_disabled"><code>imgui.end_disabled()</code></a></h3>
+<p>These two methods will disable and darken elements in between it.</p>
+<h3 id="imguibuttonlabel-size"><a class="header" href="#imguibuttonlabel-size"><code>imgui.button(label, size)</code></a></h3>
+<p>Draws a button with <code>label</code> text, and optional <code>size</code>.</p>
+<p><code>size</code> is a Vector2f or a size 2 array.</p>
+<p>Returns <code>true</code> when the user presses the button.</p>
+<h3 id="imguismall_buttonlabel"><a class="header" href="#imguismall_buttonlabel"><code>imgui.small_button(label)</code></a></h3>
+<h3 id="imguiinvisible_buttonid-size-flags"><a class="header" href="#imguiinvisible_buttonid-size-flags"><code>imgui.invisible_button(id, size, flags)</code></a></h3>
+<p><code>size</code> is a Vector2f or a size 2 array.</p>
+<h3 id="imguiarrow_buttonid-dir"><a class="header" href="#imguiarrow_buttonid-dir"><code>imgui.arrow_button(id, dir)</code></a></h3>
+<p><code>dir</code> is an <code>ImguiDir</code></p>
+<h3 id="imguitexttext"><a class="header" href="#imguitexttext"><code>imgui.text(text)</code></a></h3>
+<p>Draws text.</p>
+<h3 id="imguitext_coloredtext-color"><a class="header" href="#imguitext_coloredtext-color"><code>imgui.text_colored(text, color)</code></a></h3>
+<p>Draws text with color.</p>
+<p><code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicheckboxlabel-value"><a class="header" href="#imguicheckboxlabel-value"><code>imgui.checkbox(label, value)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_floatlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_floatlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_float(label, value, speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float2label-value-vector2f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float2label-value-vector2f-speed-min-max-display_format-optional"><code>imgui.drag_float2(label, value (Vector2f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float3label-value-vector3f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float3label-value-vector3f-speed-min-max-display_format-optional"><code>imgui.drag_float3(label, value (Vector3f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float4label-value-vector4f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float4label-value-vector4f-speed-min-max-display_format-optional"><code>imgui.drag_float4(label, value (Vector4f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_intlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_intlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_int(label, value, speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguislider_floatlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_floatlabel-value-min-max-display_format-optional"><code>imgui.slider_float(label, value, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguislider_intlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_intlabel-value-min-max-display_format-optional"><code>imgui.slider_int(label, value, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguiinput_textlabel-value-flags-optional"><a class="header" href="#imguiinput_textlabel-value-flags-optional"><code>imgui.input_text(label, value, flags (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>, <code>selection_start</code>, <code>selection_end</code></p>
+<h3 id="imguiinput_text_multilinelabel-value-size-flags-optional"><a class="header" href="#imguiinput_text_multilinelabel-value-size-flags-optional"><code>imgui.input_text_multiline(label, value, size, flags (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>, <code>selection_start</code>, <code>selection_end</code></p>
+<h3 id="imguicombolabel-selection-values"><a class="header" href="#imguicombolabel-selection-values"><code>imgui.combo(label, selection, values)</code></a></h3>
+<p>Returns a tuple of <code>changed, value</code>. </p>
+<p><code>changed</code> = true when selection changes. </p>
+<p><code>value</code> is the selection index within <code>values</code> (a table)</p>
+<p><code>values</code> can be a table with any type of keys, as long as the values are strings.</p>
+<h3 id="imguicolor_pickerlabel-color-flags"><a class="header" href="#imguicolor_pickerlabel-color-flags"><code>imgui.color_picker(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ABGR which <code>imgui</code> and <code>draw</code> APIs expect.</p>
+<h3 id="imguicolor_picker_argblabel-color-flags"><a class="header" href="#imguicolor_picker_argblabel-color-flags"><code>imgui.color_picker_argb(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicolor_picker3label-color-vector3f-flags"><a class="header" href="#imguicolor_picker3label-color-vector3f-flags"><code>imgui.color_picker3(label, color (Vector3f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_picker4label-color-vector4f-flags"><a class="header" href="#imguicolor_picker4label-color-vector4f-flags"><code>imgui.color_picker4(label, color (Vector4f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_editlabel-color-flags"><a class="header" href="#imguicolor_editlabel-color-flags"><code>imgui.color_edit(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ABGR which <code>imgui</code> and <code>draw</code> APIs expect.</p>
+<h3 id="imguicolor_edit_argblabel-color-flags"><a class="header" href="#imguicolor_edit_argblabel-color-flags"><code>imgui.color_edit_argb(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicolor_edit3label-color-vector3f-flags"><a class="header" href="#imguicolor_edit3label-color-vector3f-flags"><code>imgui.color_edit3(label, color (Vector3f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_edit4label-color-vector4f-flags"><a class="header" href="#imguicolor_edit4label-color-vector4f-flags"><code>imgui.color_edit4(label, color (Vector4f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<p><code>flags</code> for <code>color_picker/edit</code> APIs: <code>ImGuiColorEditFlags</code></p>
+<h3 id="imguitree_nodelabel"><a class="header" href="#imguitree_nodelabel"><code>imgui.tree_node(label)</code></a></h3>
+<h3 id="imguitree_node_ptr_idid-label"><a class="header" href="#imguitree_node_ptr_idid-label"><code>imgui.tree_node_ptr_id(id, label)</code></a></h3>
+<h3 id="imguitree_node_str_idid-label"><a class="header" href="#imguitree_node_str_idid-label"><code>imgui.tree_node_str_id(id, label)</code></a></h3>
+<h3 id="imguitree_pop"><a class="header" href="#imguitree_pop"><code>imgui.tree_pop()</code></a></h3>
+<p>All of the above <code>tree</code> functions must have a corresponding <code>tree_pop</code>!</p>
+<h3 id="imguisame_line"><a class="header" href="#imguisame_line"><code>imgui.same_line()</code></a></h3>
+<h3 id="imguispacing"><a class="header" href="#imguispacing"><code>imgui.spacing()</code></a></h3>
+<h3 id="imguinew_line"><a class="header" href="#imguinew_line"><code>imgui.new_line()</code></a></h3>
+<h3 id="imguiis_item_hoveredflags"><a class="header" href="#imguiis_item_hoveredflags"><code>imgui.is_item_hovered(flags)</code></a></h3>
+<h3 id="imguiis_item_active"><a class="header" href="#imguiis_item_active"><code>imgui.is_item_active()</code></a></h3>
+<h3 id="imguiis_item_focused"><a class="header" href="#imguiis_item_focused"><code>imgui.is_item_focused()</code></a></h3>
+<h3 id="imguicollapsing_headername"><a class="header" href="#imguicollapsing_headername"><code>imgui.collapsing_header(name)</code></a></h3>
+<h3 id="imguiload_fontfilepath-size-ranges"><a class="header" href="#imguiload_fontfilepath-size-ranges"><code>imgui.load_font(filepath, size, [ranges])</code></a></h3>
+<p>Loads a font file from the <code>reframework/fonts</code> subdirectory at the specified <code>size</code> with optional Unicode <code>ranges</code> (an array of start, end pairs ending with 0). Returns a handle for use with <code>imgui.push_font()</code>. If <code>filepath</code> is nil, it will load the default font at the specified size.</p>
+<h3 id="imguipush_fontfont"><a class="header" href="#imguipush_fontfont"><code>imgui.push_font(font)</code></a></h3>
+<p>Sets the font to be used for the next set of ImGui widgets/draw commands until <code>imgui.pop_font</code> is called.</p>
+<h3 id="imguipop_font"><a class="header" href="#imguipop_font"><code>imgui.pop_font()</code></a></h3>
+<p>Unsets the previously pushed font.</p>
+<h3 id="imguiget_default_font_size"><a class="header" href="#imguiget_default_font_size"><code>imgui.get_default_font_size()</code></a></h3>
+<p>Returns size of the default font for REFramework's UI.</p>
+<h3 id="imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><a class="header" href="#imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><code>imgui.set_next_window_pos(pos (Vector2f or table), condition, pivot (Vector2f or table))</code></a></h3>
+<p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
+<pre><code class="language-cpp">enum ImGuiCond_
+{
+    ImGuiCond_None          = 0,        // No condition (always set the variable), same as _Always
+    ImGuiCond_Always        = 1 &lt;&lt; 0,   // No condition (always set the variable)
+    ImGuiCond_Once          = 1 &lt;&lt; 1,   // Set the variable once per runtime session (only the first call will succeed)
+    ImGuiCond_FirstUseEver  = 1 &lt;&lt; 2,   // Set the variable if the object/window has no persistently saved data (no entry in .ini file)
+    ImGuiCond_Appearing     = 1 &lt;&lt; 3    // Set the variable if the object/window is appearing after being hidden/inactive (or the first time)
+};
+</code></pre>
+<h3 id="imguiset_next_window_sizesize-vector2f-or-table-condition"><a class="header" href="#imguiset_next_window_sizesize-vector2f-or-table-condition"><code>imgui.set_next_window_size(size (Vector2f or table), condition)</code></a></h3>
+<p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
+<h3 id="imguipush_idid"><a class="header" href="#imguipush_idid"><code>imgui.push_id(id)</code></a></h3>
+<p><code>id</code> can be an <code>int</code>, <code>const char*</code>, or <code>void*</code>.</p>
+<h3 id="imguipop_id"><a class="header" href="#imguipop_id"><code>imgui.pop_id()</code></a></h3>
+<h3 id="imguiget_id"><a class="header" href="#imguiget_id"><code>imgui.get_id()</code></a></h3>
+<h3 id="imguiget_mouse"><a class="header" href="#imguiget_mouse"><code>imgui.get_mouse()</code></a></h3>
+<p>Returns a <code>Vector2f</code> corresponding to the user's mouse position in window space.</p>
+<h3 id="imguiprogress_barprogress-size-overlay"><a class="header" href="#imguiprogress_barprogress-size-overlay"><code>imgui.progress_bar(progress, size, overlay)</code></a></h3>
+<p><code>progress</code> is a float between 0 and 1.</p>
+<p><code>size</code> is a <code>Vector2f</code> or a size 2 array.</p>
+<p><code>overlay</code> is a string on top of the progress bar.</p>
+<pre><code class="language-lua">local progress = 0.0
+
+re.on_frame(function()
+    progress = progress + 0.001
+    if progress &gt; 1.0 then 
+        progress = 0.0
+    end
+end)
+
+re.on_draw_ui(function()
+    imgui.progress_bar(progress, Vector2f.new(200, 20), string.format(&quot;Progress: %.1f%%&quot;, progress * 100))
+end)
+</code></pre>
+<h3 id="imguiitem_sizepos-size"><a class="header" href="#imguiitem_sizepos-size"><code>imgui.item_size(pos, size)</code></a></h3>
+<h3 id="imguiitem_addpos-size"><a class="header" href="#imguiitem_addpos-size"><code>imgui.item_add(pos, size)</code></a></h3>
+<p>Adds an item with the specified position and size to the current window.</p>
+<h3 id="imguidraw_list_path_clear"><a class="header" href="#imguidraw_list_path_clear"><code>imgui.draw_list_path_clear()</code></a></h3>
+<p>Clears the current window's draw list path.</p>
+<h3 id="imguidraw_list_path_line_topos"><a class="header" href="#imguidraw_list_path_line_topos"><code>imgui.draw_list_path_line_to(pos)</code></a></h3>
+<p>Adds a line to the current window's draw list path given the specified <code>pos</code></p>
+<ul>
+<li><code>pos</code> is a <code>Vector2f</code> or a size 2 array.</li>
+</ul>
+<h3 id="imguidraw_list_path_strokecolor-closed-thickness"><a class="header" href="#imguidraw_list_path_strokecolor-closed-thickness"><code>imgui.draw_list_path_stroke(color, closed, thickness)</code></a></h3>
+<p>Strokes the current window's draw list path with the specified <code>color</code>, <code>closed</code> state, and <code>thickness</code>.</p>
+<ul>
+<li><code>color</code> is an integer color in the form ARGB.</li>
+<li><code>closed</code> is a bool.</li>
+<li><code>thickness</code> is a float.</li>
+</ul>
+<h3 id="imguiget_key_indeximgui_key"><a class="header" href="#imguiget_key_indeximgui_key"><code>imgui.get_key_index(imgui_key)</code></a></h3>
+<p>Returns the index of the specified <code>imgui_key</code>.</p>
+<h3 id="imguiis_key_downkey"><a class="header" href="#imguiis_key_downkey"><code>imgui.is_key_down(key)</code></a></h3>
+<p>Returns true if the specified <code>key</code> is currently being held down.</p>
+<h3 id="imguiis_key_pressedkey"><a class="header" href="#imguiis_key_pressedkey"><code>imgui.is_key_pressed(key)</code></a></h3>
+<p>Returns true if the specified <code>key</code> was pressed during the current frame.</p>
+<h3 id="imguiis_key_releasedkey"><a class="header" href="#imguiis_key_releasedkey"><code>imgui.is_key_released(key)</code></a></h3>
+<p>Returns true if the specified <code>key</code> was released during the current frame.</p>
+<h3 id="imguiis_mouse_downbutton"><a class="header" href="#imguiis_mouse_downbutton"><code>imgui.is_mouse_down(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> is currently being held down.</p>
+<h3 id="imguiis_mouse_clickedbutton"><a class="header" href="#imguiis_mouse_clickedbutton"><code>imgui.is_mouse_clicked(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> was clicked during the current frame.</p>
+<h3 id="imguiis_mouse_releasedbutton"><a class="header" href="#imguiis_mouse_releasedbutton"><code>imgui.is_mouse_released(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> was released during the current frame.</p>
+<h3 id="imguiis_mouse_double_clickedbutton"><a class="header" href="#imguiis_mouse_double_clickedbutton"><code>imgui.is_mouse_double_clicked(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> was double-clicked during the current frame.</p>
+<h3 id="imguiindentindent_width"><a class="header" href="#imguiindentindent_width"><code>imgui.indent(indent_width)</code></a></h3>
+<p>Indents the current line by <code>indent_width</code> pixels.</p>
+<h3 id="imguiunindentindent_width"><a class="header" href="#imguiunindentindent_width"><code>imgui.unindent(indent_width)</code></a></h3>
+<p>Unindents the current line by <code>indent_width</code> pixels.</p>
+<h3 id="imguibegin_tooltip"><a class="header" href="#imguibegin_tooltip"><code>imgui.begin_tooltip()</code></a></h3>
+<p>Starts a tooltip window that will be drawn at the current cursor position.</p>
+<h3 id="imguiend_tooltip"><a class="header" href="#imguiend_tooltip"><code>imgui.end_tooltip()</code></a></h3>
+<p>Ends the current tooltip window.</p>
+<h3 id="imguiset_tooltiptext"><a class="header" href="#imguiset_tooltiptext"><code>imgui.set_tooltip(text)</code></a></h3>
+<p>Sets the text for the current tooltip window.</p>
+<h3 id="imguiopen_popupstr_id-flags"><a class="header" href="#imguiopen_popupstr_id-flags"><code>imgui.open_popup(str_id, flags)</code></a></h3>
+<p>Opens a popup with the specified str_id and flags.</p>
+<h3 id="imguibegin_popupstr_id-flags"><a class="header" href="#imguibegin_popupstr_id-flags"><code>imgui.begin_popup(str_id, flags)</code></a></h3>
+<p>Begins a new popup with the specified str_id and flags.</p>
+<h3 id="imguibegin_popup_context_itemstr_id-flags"><a class="header" href="#imguibegin_popup_context_itemstr_id-flags"><code>imgui.begin_popup_context_item(str_id, flags)</code></a></h3>
+<p>Begins a new popup with the specified str_id and flags, anchored to the last item.</p>
+<h3 id="imguiend_popup"><a class="header" href="#imguiend_popup"><code>imgui.end_popup()</code></a></h3>
+<p>Ends the current popup window.</p>
+<h3 id="imguiclose_current_popup"><a class="header" href="#imguiclose_current_popup"><code>imgui.close_current_popup()</code></a></h3>
+<p>Closes the current popup window.</p>
+<h3 id="imguiis_popup_openstr_id"><a class="header" href="#imguiis_popup_openstr_id"><code>imgui.is_popup_open(str_id)</code></a></h3>
+<p>Returns true if the popup with the specified str_id is open.</p>
+<h3 id="imguicalc_text_sizetext"><a class="header" href="#imguicalc_text_sizetext"><code>imgui.calc_text_size(text)</code></a></h3>
+<p>Calculates and returns the size of the specified text as a Vector2f.</p>
+<h3 id="imguiget_window_size"><a class="header" href="#imguiget_window_size"><code>imgui.get_window_size()</code></a></h3>
+<p>Returns the size of the current window as a Vector2f.</p>
+<h3 id="imguiget_window_pos"><a class="header" href="#imguiget_window_pos"><code>imgui.get_window_pos()</code></a></h3>
+<p>Returns the position of the current window as a Vector2f.</p>
+<h3 id="imguiset_next_item_openis_open-condition"><a class="header" href="#imguiset_next_item_openis_open-condition"><code>imgui.set_next_item_open(is_open, condition)</code></a></h3>
+<p>Sets the open state of the next collapsing header or tree node to <code>is_open</code> based on the specified <code>condition</code>.</p>
+<h3 id="imguibegin_list_boxlabel-size"><a class="header" href="#imguibegin_list_boxlabel-size"><code>imgui.begin_list_box(label, size)</code></a></h3>
+<p>Begins a new list box with the specified label and size.</p>
+<h3 id="imguiend_list_box"><a class="header" href="#imguiend_list_box"><code>imgui.end_list_box()</code></a></h3>
+<p>Ends the current list box.</p>
+<h3 id="imguibegin_menu_bar"><a class="header" href="#imguibegin_menu_bar"><code>imgui.begin_menu_bar()</code></a></h3>
+<p>Begins a new menu bar.</p>
+<h3 id="imguiend_menu_bar"><a class="header" href="#imguiend_menu_bar"><code>imgui.end_menu_bar()</code></a></h3>
+<p>Ends the current menu bar.</p>
+<h3 id="imguibegin_main_menu_bar"><a class="header" href="#imguibegin_main_menu_bar"><code>imgui.begin_main_menu_bar()</code></a></h3>
+<p>Begins the main menu bar.</p>
+<h3 id="imguiend_main_menu_bar"><a class="header" href="#imguiend_main_menu_bar"><code>imgui.end_main_menu_bar()</code></a></h3>
+<p>Ends the main menu bar.</p>
+<h3 id="imguibegin_menulabel-enabled"><a class="header" href="#imguibegin_menulabel-enabled"><code>imgui.begin_menu(label, enabled)</code></a></h3>
+<p>Begins a new menu with the specified label. The menu will be disabled if enabled is false.</p>
+<h3 id="imguiend_menu"><a class="header" href="#imguiend_menu"><code>imgui.end_menu()</code></a></h3>
+<p>Ends the current menu.</p>
+<h3 id="imguimenu_itemlabel-shortcut-selected-enabled"><a class="header" href="#imguimenu_itemlabel-shortcut-selected-enabled"><code>imgui.menu_item(label, shortcut, selected, enabled)</code></a></h3>
+<p>Adds a menu item with the specified label, shortcut, selected state, and enabled state.</p>
+<h3 id="imguiget_display_size"><a class="header" href="#imguiget_display_size"><code>imgui.get_display_size()</code></a></h3>
+<p>Returns the size of the display as a <code>Vector2f.</code></p>
+<h3 id="imguipush_item_widthitem_width"><a class="header" href="#imguipush_item_widthitem_width"><code>imgui.push_item_width(item_width)</code></a></h3>
+<p>Pushes the width of the next item to <code>item_width</code> pixels.</p>
+<h3 id="imguipop_item_width"><a class="header" href="#imguipop_item_width"><code>imgui.pop_item_width()</code></a></h3>
+<p>Pops the last item width off the stack.</p>
+<h3 id="imguiset_next_item_widthitem_width"><a class="header" href="#imguiset_next_item_widthitem_width"><code>imgui.set_next_item_width(item_width)</code></a></h3>
+<p>Sets the width of the next item to <code>item_width</code> pixels.</p>
+<h3 id="imguicalc_item_width"><a class="header" href="#imguicalc_item_width"><code>imgui.calc_item_width()</code></a></h3>
+<p>Calculates and returns the current item width.</p>
+<h3 id="imguipush_style_colorstyle_color-color"><a class="header" href="#imguipush_style_colorstyle_color-color"><code>imgui.push_style_color(style_color, color)</code></a></h3>
+<p>Pushes a new style color onto the style stack.</p>
+<h3 id="imguipop_style_colorcount"><a class="header" href="#imguipop_style_colorcount"><code>imgui.pop_style_color(count)</code></a></h3>
+<p>Pops count style colors off the style stack.</p>
+<h3 id="imguipush_style_varidx-value"><a class="header" href="#imguipush_style_varidx-value"><code>imgui.push_style_var(idx, value)</code></a></h3>
+<p>Pushes a new style variable onto the style stack.</p>
+<h3 id="imguipop_style_varcount"><a class="header" href="#imguipop_style_varcount"><code>imgui.pop_style_var(count)</code></a></h3>
+<p>Pops count style variables off the style stack.</p>
+<h3 id="imguiget_cursor_pos"><a class="header" href="#imguiget_cursor_pos"><code>imgui.get_cursor_pos()</code></a></h3>
+<p>Returns the current cursor position as a <code>Vector2f</code>.</p>
+<h3 id="imguiset_cursor_pospos"><a class="header" href="#imguiset_cursor_pospos"><code>imgui.set_cursor_pos(pos)</code></a></h3>
+<p>Sets the current cursor position to <code>pos</code>.</p>
+<h3 id="imguiget_cursor_start_pos"><a class="header" href="#imguiget_cursor_start_pos"><code>imgui.get_cursor_start_pos()</code></a></h3>
+<p>Returns the initial cursor position as a <code>Vector2f</code>.</p>
+<h3 id="imguiget_cursor_screen_pos"><a class="header" href="#imguiget_cursor_screen_pos"><code>imgui.get_cursor_screen_pos()</code></a></h3>
+<p>Returns the current cursor position in screen coordinates as a <code>Vector2f</code>.</p>
+<h3 id="imguiset_cursor_screen_pospos"><a class="header" href="#imguiset_cursor_screen_pospos"><code>imgui.set_cursor_screen_pos(pos)</code></a></h3>
+<p>Sets the current cursor position in screen coordinates to <code>pos</code>.</p>
+<h3 id="imguiset_item_default_focus"><a class="header" href="#imguiset_item_default_focus"><code>imgui.set_item_default_focus()</code></a></h3>
+<p>Sets the default focus to the next widget.</p>
+<h2 id="scroll-apis"><a class="header" href="#scroll-apis">Scroll APIs</a></h2>
+<h3 id="imguiget_scroll_x"><a class="header" href="#imguiget_scroll_x"><code>imgui.get_scroll_x()</code></a></h3>
+<p>Returns the horizontal scroll position.</p>
+<h3 id="imguiget_scroll_y"><a class="header" href="#imguiget_scroll_y"><code>imgui.get_scroll_y()</code></a></h3>
+<p>Returns the vertical scroll position.</p>
+<h3 id="imguiset_scroll_xscroll_x"><a class="header" href="#imguiset_scroll_xscroll_x"><code>imgui.set_scroll_x(scroll_x)</code></a></h3>
+<p>Sets the horizontal scroll position to <code>scroll_x</code>.</p>
+<h3 id="imguiset_scroll_yscroll_y"><a class="header" href="#imguiset_scroll_yscroll_y"><code>imgui.set_scroll_y(scroll_y)</code></a></h3>
+<p>Sets the vertical scroll position to <code>scroll_y</code>.</p>
+<h3 id="imguiget_scroll_max_x"><a class="header" href="#imguiget_scroll_max_x"><code>imgui.get_scroll_max_x()</code></a></h3>
+<p>Returns the maximum horizontal scroll position.</p>
+<h3 id="imguiget_scroll_max_y"><a class="header" href="#imguiget_scroll_max_y"><code>imgui.get_scroll_max_y()</code></a></h3>
+<p>Returns the maximum vertical scroll position.</p>
+<h3 id="imguiset_scroll_here_xcenter_x_ratio"><a class="header" href="#imguiset_scroll_here_xcenter_x_ratio"><code>imgui.set_scroll_here_x(center_x_ratio)</code></a></h3>
+<p>Centers the horizontal scroll position.</p>
+<h3 id="imguiset_scroll_here_ycenter_y_ratio"><a class="header" href="#imguiset_scroll_here_ycenter_y_ratio"><code>imgui.set_scroll_here_y(center_y_ratio)</code></a></h3>
+<p>Centers the vertical scroll position.</p>
+<h3 id="imguiset_scroll_from_pos_xlocal_x-center_x_ratio"><a class="header" href="#imguiset_scroll_from_pos_xlocal_x-center_x_ratio"><code>imgui.set_scroll_from_pos_x(local_x, center_x_ratio)</code></a></h3>
+<p>Sets the horizontal scroll position from the specified <code>local_x</code> and <code>center_x_ratio</code>.</p>
+<h3 id="imguiset_scroll_from_pos_ylocal_y-center_y_ratio"><a class="header" href="#imguiset_scroll_from_pos_ylocal_y-center_y_ratio"><code>imgui.set_scroll_from_pos_y(local_y, center_y_ratio)</code></a></h3>
+<p>Sets the vertical scroll position from the specified <code>local_y</code> and <code>center_y_ratio</code>.</p>
+<h2 id="table-api"><a class="header" href="#table-api">Table API</a></h2>
+<h3 id="imguibegin_tablestr_id-column-flags-outer_size-inner_width"><a class="header" href="#imguibegin_tablestr_id-column-flags-outer_size-inner_width"><code>imgui.begin_table(str_id, column, flags, outer_size, inner_width)</code></a></h3>
+<p>Begins a new table with the specified <code>str_id</code>, <code>column</code> count, <code>flags</code>, <code>outer_size</code>, and <code>inner_width</code>.</p>
+<ul>
+<li><code>str_id</code> is a string.</li>
+<li><code>column</code> is an integer.</li>
+<li><code>flags</code> is an optional <code>ImGuiTableFlags</code> enum.</li>
+<li><code>outer_size</code> is a <code>Vector2f</code> or a size 2 array.</li>
+<li><code>inner_width</code> is an optional float.</li>
+</ul>
+<h3 id="imguiend_table"><a class="header" href="#imguiend_table"><code>imgui.end_table()</code></a></h3>
+<p>Ends the current table.</p>
+<h3 id="imguitable_next_rowrow_flags-min_row_height"><a class="header" href="#imguitable_next_rowrow_flags-min_row_height"><code>imgui.table_next_row(row_flags, min_row_height)</code></a></h3>
+<p>Begins a new row in the current table with the specified <code>row_flags</code> and <code>min_row_height</code>.</p>
+<ul>
+<li><code>row_flags</code> is an optional <code>ImGuiTableRowFlags</code> enum.</li>
+<li><code>min_row_height</code> is an optional float.</li>
+</ul>
+<h3 id="imguitable_next_column"><a class="header" href="#imguitable_next_column"><code>imgui.table_next_column()</code></a></h3>
+<p>Advances to the next column in the current table.</p>
+<h3 id="imguitable_set_column_indexcolumn_index"><a class="header" href="#imguitable_set_column_indexcolumn_index"><code>imgui.table_set_column_index(column_index)</code></a></h3>
+<p>Sets the current column index to column_index.</p>
+<h3 id="imguitable_setup_columnlabel-flags-init_width_or_weight-user_id"><a class="header" href="#imguitable_setup_columnlabel-flags-init_width_or_weight-user_id"><code>imgui.table_setup_column(label, flags, init_width_or_weight, user_id)</code></a></h3>
+<p>Sets up a column in the current table with the specified label, flags, init_width_or_weight, and user_id.</p>
+<h3 id="imguitable_setup_scroll_freezecols-rows"><a class="header" href="#imguitable_setup_scroll_freezecols-rows"><code>imgui.table_setup_scroll_freeze(cols, rows)</code></a></h3>
+<p>Sets up a scrolling region in the current table with cols columns and rows rows frozen.</p>
+<h3 id="imguitable_headers_row"><a class="header" href="#imguitable_headers_row"><code>imgui.table_headers_row()</code></a></h3>
+<p>Submits a header row in the current table.</p>
+<h3 id="imguitable_headerlabel"><a class="header" href="#imguitable_headerlabel"><code>imgui.table_header(label)</code></a></h3>
+<p>Submits a header cell with the specified label in the current table.</p>
+<h3 id="imguitable_get_sort_specs"><a class="header" href="#imguitable_get_sort_specs"><code>imgui.table_get_sort_specs()</code></a></h3>
+<p>Returns the sort specifications for the current table.</p>
+<h3 id="imguitable_get_column_count"><a class="header" href="#imguitable_get_column_count"><code>imgui.table_get_column_count()</code></a></h3>
+<p>Returns the number of columns in the current table.</p>
+<h3 id="imguitable_get_column_index"><a class="header" href="#imguitable_get_column_index"><code>imgui.table_get_column_index()</code></a></h3>
+<p>Returns the current column index.</p>
+<h3 id="imguitable_get_row_index"><a class="header" href="#imguitable_get_row_index"><code>imgui.table_get_row_index()</code></a></h3>
+<p>Returns the current row index.</p>
+<h3 id="imguitable_get_column_namecolumn"><a class="header" href="#imguitable_get_column_namecolumn"><code>imgui.table_get_column_name(column)</code></a></h3>
+<p>Returns the name of the specified <code>column</code> in the current table.</p>
+<h3 id="imguitable_get_column_flagscolumn"><a class="header" href="#imguitable_get_column_flagscolumn"><code>imgui.table_get_column_flags(column)</code></a></h3>
+<p>Returns the flags of the specified <code>column</code> in the current table.</p>
+<h3 id="imguitable_set_bg_colortarget-color-column"><a class="header" href="#imguitable_set_bg_colortarget-color-column"><code>imgui.table_set_bg_color(target, color, column)</code></a></h3>
+<p>Sets the background color of the specified <code>target</code> in the current table with the given <code>color</code> and <code>column</code> index.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../plugins/lua/additional-bindings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../../plugins/lua/additional-bindings/json.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../plugins/lua/additional-bindings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../../plugins/lua/additional-bindings/json.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>json - UEVR Documentation</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../theme/css/custom.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Usage</li><li class="chapter-item expanded "><a href="../../../usage/overview.html"><strong aria-hidden="true">1.</strong> Detailed overview</a></li><li class="chapter-item expanded "><a href="../../../usage/vr_controller_bindings.html"><strong aria-hidden="true">2.</strong> VR Controller Bindings</a></li><li class="chapter-item expanded "><a href="../../../usage/adding_6dof.html"><strong aria-hidden="true">3.</strong> Adding 6DoF with UObjectHook</a></li><li class="chapter-item expanded affix "><li class="part-title">Plugin Development</li><li class="chapter-item expanded "><a href="../../../plugins/getting_started.html"><strong aria-hidden="true">4.</strong> C/C++ API</a></li><li class="chapter-item expanded "><a href="../../../plugins/blueprint.html"><strong aria-hidden="true">5.</strong> Blueprint API</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua.html"><strong aria-hidden="true">6.</strong> Lua API</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../../../plugins/lua/params.html"><strong aria-hidden="true">7.</strong> params</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/api.html"><strong aria-hidden="true">8.</strong> api</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/callbacks.html"><strong aria-hidden="true">9.</strong> callbacks</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types.html"><strong aria-hidden="true">10.</strong> types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UObject.html"><strong aria-hidden="true">10.1.</strong> UObject</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UStruct.html"><strong aria-hidden="true">10.2.</strong> UStruct</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UClass.html"><strong aria-hidden="true">10.3.</strong> UClass</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UFunction.html"><strong aria-hidden="true">10.4.</strong> UFunction</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FName.html"><strong aria-hidden="true">10.5.</strong> FName</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FField.html"><strong aria-hidden="true">10.6.</strong> FField</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FFieldClass.html"><strong aria-hidden="true">10.7.</strong> FFieldClass</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FUObjectArray.html"><strong aria-hidden="true">10.8.</strong> FUObjectArray</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/FConsoleManager.html"><strong aria-hidden="true">10.9.</strong> FConsoleManager</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/IConsoleObject.html"><strong aria-hidden="true">10.10.</strong> IConsoleObject</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/IConsoleVariable.html"><strong aria-hidden="true">10.11.</strong> IConsoleVariable</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/IConsoleCommand.html"><strong aria-hidden="true">10.12.</strong> IConsoleCommand</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/UObjectHook.html"><strong aria-hidden="true">10.13.</strong> UObjectHook</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/MotionControllerState.html"><strong aria-hidden="true">10.14.</strong> MotionControllerState</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/types/StructObject.html"><strong aria-hidden="true">10.15.</strong> StructObject</a></li></ol></li><li class="chapter-item expanded "><a href="../../../plugins/lua/c_wrapper_types.html"><strong aria-hidden="true">11.</strong> C Wrapper Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/cwrappers/UEVR_VRData.html"><strong aria-hidden="true">11.1.</strong> UEVR_VRData</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/cwrappers/UEVR_PluginInitializeParam.html"><strong aria-hidden="true">11.2.</strong> UEVR_PluginInitializeParam</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/cwrappers/UEVR_PluginFunctions.html"><strong aria-hidden="true">11.3.</strong> UEVR_PluginFunctions</a></li></ol></li><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty.html"><strong aria-hidden="true">12.</strong> Third Party</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XInput.html"><strong aria-hidden="true">12.1.</strong> XInput</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XINPUT_STATE.html"><strong aria-hidden="true">12.1.1.</strong> XINPUT_STATE</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XINPUT_VIBRATION.html"><strong aria-hidden="true">12.1.2.</strong> XINPUT_VIBRATION</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/thirdparty/XINPUT_GAMEPAD.html"><strong aria-hidden="true">12.1.3.</strong> XINPUT_GAMEPAD</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings.html"><strong aria-hidden="true">13.</strong> Additional APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings/imgui.html"><strong aria-hidden="true">13.1.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings/json.html" class="active"><strong aria-hidden="true">13.2.</strong> json</a></li><li class="chapter-item expanded "><a href="../../../plugins/lua/additional-bindings/fs.html"><strong aria-hidden="true">13.3.</strong> fs</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">UEVR Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/praydog/uuvr-docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/praydog/uuvr-docs/edit/main/src/plugins/lua/additional-bindings/json.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="json"><a class="header" href="#json">json</a></h1>
+<p>Functions for converting Lua values to/from JSON. Useful for saving configuration setting tables, importing data that users are intended to edit externally, and storing large data structures outside your Lua code.</p>
+<p>The <code>indent</code> parameter is an integer specifying the number of spaces to indent with when dumping tables. 0 disables indentation, and -1 also disables line breaks.</p>
+<p>Supports Lua's boolean, number, string, and table (see warning below) types. Other types will be converted to <code>nil</code>, stored as JSON <code>null</code>s. Due to JSON limitations, non-string table keys will be converted to strings (if numbers) or an empty string (if another type), unless the table is a sequence (consecutive integer keys, starting at 1; see the <a href="https://www.lua.org/manual/5.4/manual.html#3.4.7">lua manual</a> for more details). Sequences are stored as JSON arrays.</p>
+<p><strong>WARNING:</strong> Care should be taken when storing non-sequence tables with numeric keys, as those keys will be converted to strings. Extra work must be done to convert those keys back into numbers.</p>
+<p>The following are examples of tables that won't change when converted to and back from JSON:</p>
+<pre><code class="language-lua">{1, 3, 2, &quot;this is a sequence&quot;}
+{foo=&quot;bar&quot;, baz=42}
+{table1={1,2,3}, table2={foo=1,bar=2}}
+</code></pre>
+<p>The following are examples of tables that <strong>will</strong> change when converted to and back from JSON:</p>
+<pre><code class="language-lua">{9, 8, nil, 6, 5} -- Sequence with a &quot;hole&quot;, becomes {[&quot;1&quot;]=9,[&quot;2&quot;]=8,[&quot;4&quot;]=6,[&quot;5&quot;]=5}
+{[0]=0,[1]=1,[2]=2} -- Sequence doesn't start at 1, becomes {[&quot;0&quot;]=0,[&quot;1&quot;]=1,[&quot;2&quot;]=2}
+{&quot;foo&quot;, &quot;bar&quot;, baz=17} -- Becomes {[&quot;1&quot;]=&quot;foo&quot;, [&quot;2&quot;]=&quot;bar&quot;, baz=17}
+local function f() end
+{[f]=&quot;function key&quot;, funcval=f} -- Becomes {[&quot;&quot;]=&quot;function key&quot;}
+</code></pre>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="jsonload_stringjson_str"><a class="header" href="#jsonload_stringjson_str"><code>json.load_string(json_str)</code></a></h3>
+<p>Takes a JSON string and turns it into a Lua value (usually a table). Returns <code>nil</code> on error.</p>
+<h3 id="jsondump_stringvalue-indent"><a class="header" href="#jsondump_stringvalue-indent"><code>json.dump_string(value, [indent])</code></a></h3>
+<p>Takes a Lua value (usually a table) and turns it into a JSON string. Returns an empty string on error. If unspecified, <code>indent</code> will default to -1.</p>
+<h3 id="jsonload_filefilepath"><a class="header" href="#jsonload_filefilepath"><code>json.load_file(filepath)</code></a></h3>
+<p>Loads a JSON file identified by <code>filepath</code> relative to the <code>UnrealVRMod/GameName/data</code> subdirectory and returns it as a Lua value (usually a table). Returns <code>nil</code> if the file does not exist.</p>
+<h3 id="jsondump_filefilepath-value-indent"><a class="header" href="#jsondump_filefilepath-value-indent"><code>json.dump_file(filepath, value, [indent])</code></a></h3>
+<p>Takes a Lua value (usually a table), and turns it into a JSON file identified as <code>filepath</code> relative to the <code>UnrealVRMod/GameName/data</code> subdirectory.  Returns <code>true</code> if the dump was successful, <code>false</code> otherwise. If unspecified, <code>indent</code> will default to 4</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../plugins/lua/additional-bindings/imgui.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../../plugins/lua/additional-bindings/fs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../plugins/lua/additional-bindings/imgui.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../../plugins/lua/additional-bindings/fs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
