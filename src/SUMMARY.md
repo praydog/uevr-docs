@@ -42,3 +42,7 @@
         - [XINPUT_STATE](plugins/lua/thirdparty/XINPUT_STATE.md)
         - [XINPUT_VIBRATION](plugins/lua/thirdparty/XINPUT_VIBRATION.md)
         - [XINPUT_GAMEPAD](plugins/lua/thirdparty/XINPUT_GAMEPAD.md)
+- [Additional APIs]
+    - [imgui](plugins/lua/additional-bindings/imgui.md)
+    - [json](plugins/lua/additional-bindings/json.md)
+    - [fs](plugins/lua/additional-bindings/fs.md)
