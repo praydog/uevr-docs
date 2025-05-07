@@ -1597,14 +1597,14 @@ end)
 <p><code>overlay</code> is a string on top of the progress bar.</p>
 <pre><code class="language-lua">local progress = 0.0
 
-re.on_frame(function()
+uevr.sdk.callbacks.on_frame(function()
     progress = progress + 0.001
     if progress &gt; 1.0 then 
         progress = 0.0
     end
 end)
 
-re.on_draw_ui(function()
+uevr.sdk.callbacks.on_draw_ui(function()
     imgui.progress_bar(progress, Vector2f.new(200, 20), string.format(&quot;Progress: %.1f%%&quot;, progress * 100))
 end)
 </code></pre>
