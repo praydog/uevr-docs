@@ -228,14 +228,14 @@ Returns a `Vector2f` corresponding to the user's mouse position in window space.
 ```lua
 local progress = 0.0
 
-re.on_frame(function()
+uevr.sdk.callbacks.on_frame(function()
     progress = progress + 0.001
     if progress > 1.0 then 
         progress = 0.0
     end
 end)
 
-re.on_draw_ui(function()
+uevr.sdk.callbacks.on_draw_ui(function()
     imgui.progress_bar(progress, Vector2f.new(200, 20), string.format("Progress: %.1f%%", progress * 100))
 end)
 ```
