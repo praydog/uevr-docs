@@ -1049,6 +1049,17 @@ end)
 <pre><code class="language-lua">obj:SomeFunction()
 local asdf = obj.SomeProperty
 </code></pre>
+<p>StructProperty arguments can be passed via table:</p>
+<pre><code class="language-lua">local color = {R = 0.0, G = 0.0, B = 1.0, A = 1.0}
+obj:SomeColorFn(color)
+</code></pre>
+<p>Or via <code>StructObject.new(class)</code>.</p>
+<p>Out arguments can be retrieved by passing an empty table:</p>
+<pre><code class="language-lua">local out = {}
+obj:SomeOutFunction(out)
+
+local result = out.result
+</code></pre>
 <h3 id="object__newindexkey-string-value-any"><a class="header" href="#object__newindexkey-string-value-any"><code>object:__newindex(key: string, value: any)</code></a></h3>
 <p>Wrapper for <code>object:set_property(key, value)</code></p>
 <p>ex:</p>
