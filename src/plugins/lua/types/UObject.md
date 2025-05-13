@@ -16,6 +16,22 @@ obj:SomeFunction()
 local asdf = obj.SomeProperty
 ```
 
+StructProperty arguments can be passed via table:
+```lua
+local color = {R = 0.0, G = 0.0, B = 1.0, A = 1.0}
+obj:SomeColorFn(color)
+```
+
+Or via `StructObject.new(class)`.
+
+Out arguments can be retrieved by passing an empty table:
+```lua
+local out = {}
+obj:SomeOutFunction(out)
+
+local result = out.result
+```
+
 ### `object:__newindex(key: string, value: any)`
 
 Wrapper for `object:set_property(key, value)`
