@@ -1,6 +1,6 @@
 # UEVR_IConsoleVariable
 
-`IConsoleVariable` is a class representing a console variable.
+[IConsoleVariable](IConsoleVariable.md) is a class representing a console variable.
 
 Inherits from [IConsoleObject](IConsoleObject.md).
 

@@ -1,6 +1,6 @@
 # UEVR_IConsoleObject
 
-`IConsoleObject` is a base class for console objects.
+[IConsoleObject](IConsoleObject.md) is a base class for console objects.
 
 ## Functions
 

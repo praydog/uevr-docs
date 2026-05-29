@@ -1,6 +1,6 @@
 # UEVR_IConsoleCommand
 
-`IConsoleCommand` is a class representing a console command.
+[IConsoleCommand](IConsoleCommand.md) is a class representing a console command.
 
 Inherits from [IConsoleObject](IConsoleObject.md).
 
