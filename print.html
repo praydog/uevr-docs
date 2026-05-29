@@ -1637,13 +1637,17 @@ local result = out.result
 <h3 id="paramssdk"><a class="header" href="#paramssdk"><code>params.sdk</code></a></h3>
 <p>Returns <a href="plugins/lua/cwrappers/UEVR_SDKData.html">UEVR_SDKData</a>.</p>
 <h3 id="paramslua"><a class="header" href="#paramslua"><code>params.lua</code></a></h3>
-<p>Returns Lua-specific data and functions.</p>
+<p>Returns <code>UEVR_LuaData</code> with the following members:</p>
+<ul>
+<li><code>get_lua_state()</code> — returns the active <code>lua_State*</code> used by UEVR's main Lua context.</li>
+<li><code>add_additional_bindings(L)</code> — adds json, fs, imgui, and other helper bindings to an external <code>lua_State*</code>.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_pluginfunctions"><a class="header" href="#uevr_pluginfunctions">UEVR_PluginFunctions</a></h1>
 <p>Accessed with <code>uevr.params.functions</code></p>
 <h2 id="members-5"><a class="header" href="#members-5">Members</a></h2>
 <h3 id="functionslog_errormsg"><a class="header" href="#functionslog_errormsg"><code>functions.log_error(msg)</code></a></h3>
 <p>Logs an error message.</p>
-<h3 id="functionslog_warningmsg"><a class="header" href="#functionslog_warningmsg"><code>functions.log_warning(msg)</code></a></h3>
+<h3 id="functionslog_warnmsg"><a class="header" href="#functionslog_warnmsg"><code>functions.log_warn(msg)</code></a></h3>
 <p>Logs a warning message.</p>
 <h3 id="functionslog_infomsg"><a class="header" href="#functionslog_infomsg"><code>functions.log_info(msg)</code></a></h3>
 <p>Logs an info message.</p>
@@ -1709,42 +1713,100 @@ local result = out.result
 <p>The command queue handle.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_sdkdata"><a class="header" href="#uevr_sdkdata">UEVR_SDKData</a></h1>
 <p>Accessed with <code>uevr.params.sdk</code></p>
+<p>Provides access to all engine/game-specific SDK function tables.</p>
 <h2 id="members-8"><a class="header" href="#members-8">Members</a></h2>
 <h3 id="sdkfunctions"><a class="header" href="#sdkfunctions"><code>sdk.functions</code></a></h3>
-<p>Returns <a href="plugins/lua/cwrappers/UEVR_SDKFunctions.html">UEVR_SDKFunctions</a>.</p>
+<p>Returns <code>UEVR_SDKFunctions</code> — high-level SDK helpers such as <code>get_uengine</code>, <code>get_uobject_array</code>, <code>get_player_controller</code>, <code>get_local_pawn</code>, <code>spawn_object</code>, <code>execute_command</code>, <code>execute_command_ex</code>, <code>get_console_manager</code>, <code>set_cvar_int</code>, and <code>add_component_by_class</code>.</p>
 <h3 id="sdkcallbacks"><a class="header" href="#sdkcallbacks"><code>sdk.callbacks</code></a></h3>
-<p>Returns <a href="plugins/lua/cwrappers/UEVR_SDKCallbacks.html">UEVR_SDKCallbacks</a>.</p>
+<p>Returns <code>UEVR_SDKCallbacks</code> — the engine-tick / slate / stereo / viewport callback table (see <a href="plugins/lua/cwrappers/../callbacks.html">callbacks</a>).</p>
 <h3 id="sdkuobject"><a class="header" href="#sdkuobject"><code>sdk.uobject</code></a></h3>
-<p>Returns UObject manipulation functions.</p>
+<p>Returns <code>UEVR_UObjectFunctions</code> — UObject manipulation (<code>get_class</code>, <code>get_outer</code>, <code>is_a</code>, <code>process_event</code>, <code>call_function</code>, <code>get_fname</code>, <code>get_property_data</code>, <code>get_bool_property</code>, <code>set_bool_property</code>).</p>
 <h3 id="sdkuobject_array"><a class="header" href="#sdkuobject_array"><code>sdk.uobject_array</code></a></h3>
-<p>Returns UObject array functions.</p>
+<p>Returns <code>UEVR_UObjectArrayFunctions</code> — global UObject array access. See <a href="plugins/lua/cwrappers/../types/FUObjectArray.html">FUObjectArray</a>.</p>
 <h3 id="sdkffield"><a class="header" href="#sdkffield"><code>sdk.ffield</code></a></h3>
-<p>Returns FField functions.</p>
+<p>Returns <code>UEVR_FFieldFunctions</code>. See <a href="plugins/lua/cwrappers/../types/FField.html">FField</a>.</p>
 <h3 id="sdkfproperty"><a class="header" href="#sdkfproperty"><code>sdk.fproperty</code></a></h3>
-<p>Returns FProperty functions.</p>
+<p>Returns <code>UEVR_FPropertyFunctions</code>. See <a href="plugins/lua/cwrappers/../types/FProperty.html">FProperty</a>.</p>
 <h3 id="sdkustruct"><a class="header" href="#sdkustruct"><code>sdk.ustruct</code></a></h3>
-<p>Returns UStruct functions.</p>
+<p>Returns <code>UEVR_UStructFunctions</code>. See <a href="plugins/lua/cwrappers/../types/UStruct.html">UStruct</a>.</p>
 <h3 id="sdkuclass"><a class="header" href="#sdkuclass"><code>sdk.uclass</code></a></h3>
-<p>Returns UClass functions.</p>
+<p>Returns <code>UEVR_UClassFunctions</code>. See <a href="plugins/lua/cwrappers/../types/UClass.html">UClass</a>.</p>
 <h3 id="sdkufunction"><a class="header" href="#sdkufunction"><code>sdk.ufunction</code></a></h3>
-<p>Returns UFunction functions.</p>
+<p>Returns <code>UEVR_UFunctionFunctions</code>. See <a href="plugins/lua/cwrappers/../types/UFunction.html">UFunction</a>.</p>
 <h3 id="sdkuobject_hook"><a class="header" href="#sdkuobject_hook"><code>sdk.uobject_hook</code></a></h3>
-<p>Returns UObjectHook functions.</p>
+<p>Returns <code>UEVR_UObjectHookFunctions</code>. See <a href="plugins/lua/cwrappers/../types/UObjectHook.html">UObjectHook</a>.</p>
 <h3 id="sdkffield_class"><a class="header" href="#sdkffield_class"><code>sdk.ffield_class</code></a></h3>
-<p>Returns FFieldClass functions.</p>
+<p>Returns <code>UEVR_FFieldClassFunctions</code>. See <a href="plugins/lua/cwrappers/../types/FFieldClass.html">FFieldClass</a>.</p>
 <h3 id="sdkfname"><a class="header" href="#sdkfname"><code>sdk.fname</code></a></h3>
-<p>Returns FName functions.</p>
+<p>Returns <code>UEVR_FNameFunctions</code>. See <a href="plugins/lua/cwrappers/../types/FName.html">FName</a>.</p>
 <h3 id="sdkconsole"><a class="header" href="#sdkconsole"><code>sdk.console</code></a></h3>
-<p>Returns console manipulation functions.</p>
+<p>Returns <code>UEVR_ConsoleFunctions</code> — console manager / variable / command helpers. See <a href="plugins/lua/cwrappers/../types/FConsoleManager.html">FConsoleManager</a>.</p>
+<h3 id="sdkmalloc"><a class="header" href="#sdkmalloc"><code>sdk.malloc</code></a></h3>
+<p>Returns <code>UEVR_FMallocFunctions</code> — engine allocator (<code>get</code>, <code>malloc</code>, <code>realloc</code>, <code>free</code>).</p>
+<h3 id="sdkrender_target_pool_hook"><a class="header" href="#sdkrender_target_pool_hook"><code>sdk.render_target_pool_hook</code></a></h3>
+<p>Returns <code>UEVR_FRenderTargetPoolHookFunctions</code> (<code>activate</code>, <code>get_render_target</code>).</p>
+<h3 id="sdkstereo_hook"><a class="header" href="#sdkstereo_hook"><code>sdk.stereo_hook</code></a></h3>
+<p>Returns <code>UEVR_FFakeStereoRenderingHookFunctions</code> (<code>get_scene_render_target</code>, <code>get_ui_render_target</code>).</p>
+<h3 id="sdkfrhitexture2d"><a class="header" href="#sdkfrhitexture2d"><code>sdk.frhitexture2d</code></a></h3>
+<p>Returns <code>UEVR_FRHITexture2DFunctions</code> (<code>get_native_resource</code>).</p>
+<h3 id="sdkuscriptstruct"><a class="header" href="#sdkuscriptstruct"><code>sdk.uscriptstruct</code></a></h3>
+<p>Returns <code>UEVR_UScriptStructFunctions</code>. See <a href="plugins/lua/cwrappers/../types/UScriptStruct.html">UScriptStruct</a>.</p>
+<h3 id="sdkfarrayproperty"><a class="header" href="#sdkfarrayproperty"><code>sdk.farrayproperty</code></a></h3>
+<p>Returns <code>UEVR_FArrayPropertyFunctions</code> (<code>get_inner</code>).</p>
+<h3 id="sdkfboolproperty"><a class="header" href="#sdkfboolproperty"><code>sdk.fboolproperty</code></a></h3>
+<p>Returns <code>UEVR_FBoolPropertyFunctions</code> (bitfield bool property accessors: <code>get_field_size</code>, <code>get_byte_offset</code>, <code>get_byte_mask</code>, <code>get_field_mask</code>, <code>get_value_from_object</code>, <code>get_value_from_propbase</code>, <code>set_value_in_object</code>, <code>set_value_in_propbase</code>).</p>
+<h3 id="sdkfstructproperty"><a class="header" href="#sdkfstructproperty"><code>sdk.fstructproperty</code></a></h3>
+<p>Returns <code>UEVR_FStructPropertyFunctions</code> (<code>get_struct</code>).</p>
+<h3 id="sdkfenumproperty"><a class="header" href="#sdkfenumproperty"><code>sdk.fenumproperty</code></a></h3>
+<p>Returns <code>UEVR_FEnumPropertyFunctions</code> (<code>get_underlying_prop</code>, <code>get_enum</code>).</p>
+<h3 id="sdkufield"><a class="header" href="#sdkufield"><code>sdk.ufield</code></a></h3>
+<p>Returns <code>UEVR_UFieldFunctions</code>. See <a href="plugins/lua/cwrappers/../types/UField.html">UField</a>.</p>
+<h3 id="sdkgame_viewport_client"><a class="header" href="#sdkgame_viewport_client"><code>sdk.game_viewport_client</code></a></h3>
+<p>Returns <code>UEVR_UGameViewportClientFunctions</code> (<code>exec</code>, <code>exec_ex</code>). See <a href="plugins/lua/cwrappers/../types/UGameViewportClient.html">UGameViewportClient</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_openvrdata"><a class="header" href="#uevr_openvrdata">UEVR_OpenVRData</a></h1>
-<p>Accessed with <code>uevr.params.openvr</code></p>
+<p>Accessed with <code>uevr.params.openvr</code>.</p>
+<p>Provides access to the underlying OpenVR (SteamVR) interfaces. All accessors return opaque handles to the corresponding <code>IVR*</code> interface, or <code>nullptr</code> if the runtime is not OpenVR.</p>
 <h2 id="members-9"><a class="header" href="#members-9">Members</a></h2>
-<h3 id="openvrget_uengine"><a class="header" href="#openvrget_uengine"><code>openvr.get_uengine()</code></a></h3>
-<p>Returns the UEngine instance.</p>
-<h3 id="openvrset_cvar_intmodule_name-name-value"><a class="header" href="#openvrset_cvar_intmodule_name-name-value"><code>openvr.set_cvar_int(module_name, name, value)</code></a></h3>
-<p>Sets an integer console variable.</p>
-<h3 id="openvrget_uobject_array"><a class="header" href="#openvrget_uobject_array"><code>openvr.get_uobject_array()</code></a></h3>
-<p>Returns the global UObject array handle.</p>
+<h3 id="openvrget_vr_system"><a class="header" href="#openvrget_vr_system"><code>openvr.get_vr_system()</code></a></h3>
+<p>Returns the <code>IVRSystem</code> interface handle.</p>
+<h3 id="openvrget_vr_chaperone"><a class="header" href="#openvrget_vr_chaperone"><code>openvr.get_vr_chaperone()</code></a></h3>
+<p>Returns the <code>IVRChaperone</code> interface handle.</p>
+<h3 id="openvrget_vr_chaperone_setup"><a class="header" href="#openvrget_vr_chaperone_setup"><code>openvr.get_vr_chaperone_setup()</code></a></h3>
+<p>Returns the <code>IVRChaperoneSetup</code> interface handle.</p>
+<h3 id="openvrget_vr_compositor"><a class="header" href="#openvrget_vr_compositor"><code>openvr.get_vr_compositor()</code></a></h3>
+<p>Returns the <code>IVRCompositor</code> interface handle.</p>
+<h3 id="openvrget_vr_overlay"><a class="header" href="#openvrget_vr_overlay"><code>openvr.get_vr_overlay()</code></a></h3>
+<p>Returns the <code>IVROverlay</code> interface handle.</p>
+<h3 id="openvrget_vr_overlay_view"><a class="header" href="#openvrget_vr_overlay_view"><code>openvr.get_vr_overlay_view()</code></a></h3>
+<p>Returns the <code>IVROverlayView</code> interface handle.</p>
+<h3 id="openvrget_vr_headset_view"><a class="header" href="#openvrget_vr_headset_view"><code>openvr.get_vr_headset_view()</code></a></h3>
+<p>Returns the <code>IVRHeadsetView</code> interface handle.</p>
+<h3 id="openvrget_vr_screenshots"><a class="header" href="#openvrget_vr_screenshots"><code>openvr.get_vr_screenshots()</code></a></h3>
+<p>Returns the <code>IVRScreenshots</code> interface handle.</p>
+<h3 id="openvrget_vr_render_models"><a class="header" href="#openvrget_vr_render_models"><code>openvr.get_vr_render_models()</code></a></h3>
+<p>Returns the <code>IVRRenderModels</code> interface handle.</p>
+<h3 id="openvrget_vr_applications"><a class="header" href="#openvrget_vr_applications"><code>openvr.get_vr_applications()</code></a></h3>
+<p>Returns the <code>IVRApplications</code> interface handle.</p>
+<h3 id="openvrget_vr_settings"><a class="header" href="#openvrget_vr_settings"><code>openvr.get_vr_settings()</code></a></h3>
+<p>Returns the <code>IVRSettings</code> interface handle.</p>
+<h3 id="openvrget_vr_resources"><a class="header" href="#openvrget_vr_resources"><code>openvr.get_vr_resources()</code></a></h3>
+<p>Returns the <code>IVRResources</code> interface handle.</p>
+<h3 id="openvrget_vr_extended_display"><a class="header" href="#openvrget_vr_extended_display"><code>openvr.get_vr_extended_display()</code></a></h3>
+<p>Returns the <code>IVRExtendedDisplay</code> interface handle.</p>
+<h3 id="openvrget_vr_tracked_camera"><a class="header" href="#openvrget_vr_tracked_camera"><code>openvr.get_vr_tracked_camera()</code></a></h3>
+<p>Returns the <code>IVRTrackedCamera</code> interface handle.</p>
+<h3 id="openvrget_vr_driver_manager"><a class="header" href="#openvrget_vr_driver_manager"><code>openvr.get_vr_driver_manager()</code></a></h3>
+<p>Returns the <code>IVRDriverManager</code> interface handle.</p>
+<h3 id="openvrget_vr_input"><a class="header" href="#openvrget_vr_input"><code>openvr.get_vr_input()</code></a></h3>
+<p>Returns the <code>IVRInput</code> interface handle.</p>
+<h3 id="openvrget_vr_io_buffer"><a class="header" href="#openvrget_vr_io_buffer"><code>openvr.get_vr_io_buffer()</code></a></h3>
+<p>Returns the <code>IVRIOBuffer</code> interface handle.</p>
+<h3 id="openvrget_vr_spatial_anchors"><a class="header" href="#openvrget_vr_spatial_anchors"><code>openvr.get_vr_spatial_anchors()</code></a></h3>
+<p>Returns the <code>IVRSpatialAnchors</code> interface handle.</p>
+<h3 id="openvrget_vr_notifications"><a class="header" href="#openvrget_vr_notifications"><code>openvr.get_vr_notifications()</code></a></h3>
+<p>Returns the <code>IVRNotifications</code> interface handle.</p>
+<h3 id="openvrget_vr_debug"><a class="header" href="#openvrget_vr_debug"><code>openvr.get_vr_debug()</code></a></h3>
+<p>Returns the <code>IVRDebug</code> interface handle.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_openxrdata"><a class="header" href="#uevr_openxrdata">UEVR_OpenXRData</a></h1>
 <p>Accessed with <code>uevr.params.openxr</code></p>
 <h2 id="members-10"><a class="header" href="#members-10">Members</a></h2>

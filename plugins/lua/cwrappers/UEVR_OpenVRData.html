@@ -142,14 +142,49 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="uevr_openvrdata"><a class="header" href="#uevr_openvrdata">UEVR_OpenVRData</a></h1>
-<p>Accessed with <code>uevr.params.openvr</code></p>
+<p>Accessed with <code>uevr.params.openvr</code>.</p>
+<p>Provides access to the underlying OpenVR (SteamVR) interfaces. All accessors return opaque handles to the corresponding <code>IVR*</code> interface, or <code>nullptr</code> if the runtime is not OpenVR.</p>
 <h2 id="members"><a class="header" href="#members">Members</a></h2>
-<h3 id="openvrget_uengine"><a class="header" href="#openvrget_uengine"><code>openvr.get_uengine()</code></a></h3>
-<p>Returns the UEngine instance.</p>
-<h3 id="openvrset_cvar_intmodule_name-name-value"><a class="header" href="#openvrset_cvar_intmodule_name-name-value"><code>openvr.set_cvar_int(module_name, name, value)</code></a></h3>
-<p>Sets an integer console variable.</p>
-<h3 id="openvrget_uobject_array"><a class="header" href="#openvrget_uobject_array"><code>openvr.get_uobject_array()</code></a></h3>
-<p>Returns the global UObject array handle.</p>
+<h3 id="openvrget_vr_system"><a class="header" href="#openvrget_vr_system"><code>openvr.get_vr_system()</code></a></h3>
+<p>Returns the <code>IVRSystem</code> interface handle.</p>
+<h3 id="openvrget_vr_chaperone"><a class="header" href="#openvrget_vr_chaperone"><code>openvr.get_vr_chaperone()</code></a></h3>
+<p>Returns the <code>IVRChaperone</code> interface handle.</p>
+<h3 id="openvrget_vr_chaperone_setup"><a class="header" href="#openvrget_vr_chaperone_setup"><code>openvr.get_vr_chaperone_setup()</code></a></h3>
+<p>Returns the <code>IVRChaperoneSetup</code> interface handle.</p>
+<h3 id="openvrget_vr_compositor"><a class="header" href="#openvrget_vr_compositor"><code>openvr.get_vr_compositor()</code></a></h3>
+<p>Returns the <code>IVRCompositor</code> interface handle.</p>
+<h3 id="openvrget_vr_overlay"><a class="header" href="#openvrget_vr_overlay"><code>openvr.get_vr_overlay()</code></a></h3>
+<p>Returns the <code>IVROverlay</code> interface handle.</p>
+<h3 id="openvrget_vr_overlay_view"><a class="header" href="#openvrget_vr_overlay_view"><code>openvr.get_vr_overlay_view()</code></a></h3>
+<p>Returns the <code>IVROverlayView</code> interface handle.</p>
+<h3 id="openvrget_vr_headset_view"><a class="header" href="#openvrget_vr_headset_view"><code>openvr.get_vr_headset_view()</code></a></h3>
+<p>Returns the <code>IVRHeadsetView</code> interface handle.</p>
+<h3 id="openvrget_vr_screenshots"><a class="header" href="#openvrget_vr_screenshots"><code>openvr.get_vr_screenshots()</code></a></h3>
+<p>Returns the <code>IVRScreenshots</code> interface handle.</p>
+<h3 id="openvrget_vr_render_models"><a class="header" href="#openvrget_vr_render_models"><code>openvr.get_vr_render_models()</code></a></h3>
+<p>Returns the <code>IVRRenderModels</code> interface handle.</p>
+<h3 id="openvrget_vr_applications"><a class="header" href="#openvrget_vr_applications"><code>openvr.get_vr_applications()</code></a></h3>
+<p>Returns the <code>IVRApplications</code> interface handle.</p>
+<h3 id="openvrget_vr_settings"><a class="header" href="#openvrget_vr_settings"><code>openvr.get_vr_settings()</code></a></h3>
+<p>Returns the <code>IVRSettings</code> interface handle.</p>
+<h3 id="openvrget_vr_resources"><a class="header" href="#openvrget_vr_resources"><code>openvr.get_vr_resources()</code></a></h3>
+<p>Returns the <code>IVRResources</code> interface handle.</p>
+<h3 id="openvrget_vr_extended_display"><a class="header" href="#openvrget_vr_extended_display"><code>openvr.get_vr_extended_display()</code></a></h3>
+<p>Returns the <code>IVRExtendedDisplay</code> interface handle.</p>
+<h3 id="openvrget_vr_tracked_camera"><a class="header" href="#openvrget_vr_tracked_camera"><code>openvr.get_vr_tracked_camera()</code></a></h3>
+<p>Returns the <code>IVRTrackedCamera</code> interface handle.</p>
+<h3 id="openvrget_vr_driver_manager"><a class="header" href="#openvrget_vr_driver_manager"><code>openvr.get_vr_driver_manager()</code></a></h3>
+<p>Returns the <code>IVRDriverManager</code> interface handle.</p>
+<h3 id="openvrget_vr_input"><a class="header" href="#openvrget_vr_input"><code>openvr.get_vr_input()</code></a></h3>
+<p>Returns the <code>IVRInput</code> interface handle.</p>
+<h3 id="openvrget_vr_io_buffer"><a class="header" href="#openvrget_vr_io_buffer"><code>openvr.get_vr_io_buffer()</code></a></h3>
+<p>Returns the <code>IVRIOBuffer</code> interface handle.</p>
+<h3 id="openvrget_vr_spatial_anchors"><a class="header" href="#openvrget_vr_spatial_anchors"><code>openvr.get_vr_spatial_anchors()</code></a></h3>
+<p>Returns the <code>IVRSpatialAnchors</code> interface handle.</p>
+<h3 id="openvrget_vr_notifications"><a class="header" href="#openvrget_vr_notifications"><code>openvr.get_vr_notifications()</code></a></h3>
+<p>Returns the <code>IVRNotifications</code> interface handle.</p>
+<h3 id="openvrget_vr_debug"><a class="header" href="#openvrget_vr_debug"><code>openvr.get_vr_debug()</code></a></h3>
+<p>Returns the <code>IVRDebug</code> interface handle.</p>
 
                     </main>
 
