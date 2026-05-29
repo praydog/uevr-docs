@@ -16,7 +16,7 @@ The base C++ plugin header is in `include/uevr/Plugin.hpp`.
 
 ## Plugin Installation
 
-In the frontend, click the "Open Global Dir" button. Locate the corresponding game directory, and place the DLL in the `plugins` folder.
+Place the compiled plugin DLL into the game's persistent configuration directory at `%APPDATA%/UnrealVRMod/<game_exe_name>/plugins/`, or into the global directory at `%APPDATA%/UEVR/plugins/`.
 
 During plugin development, you many want to create a symbolic link from the `plugins` dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UEVR.
 
@@ -71,19 +71,19 @@ public:
         API::get()->log_info("%s %s", "Hello", "info");
     }
 
-    void on_pre_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+    void on_pre_engine_tick(API::UGameEngine* engine, float delta) override {
         PLUGIN_LOG_ONCE("Pre Engine Tick: %f", delta);
     }
 
-    void on_post_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+    void on_post_engine_tick(API::UGameEngine* engine, float delta) override {
         PLUGIN_LOG_ONCE("Post Engine Tick: %f", delta);
     }
 
-    void on_pre_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+    void on_pre_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
         PLUGIN_LOG_ONCE("Pre Slate Draw Window");
     }
 
-    void on_post_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+    void on_post_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
         PLUGIN_LOG_ONCE("Post Slate Draw Window");
     }
 };
@@ -92,4 +92,39 @@ public:
 // The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
 std::unique_ptr<ExamplePlugin> g_plugin{new ExamplePlugin()};
 ```
+
+## Available Virtual Functions
+
+`Plugin.hpp` exposes the following virtual functions that can be overridden:
+
+### Main plugin callbacks
+
+- `void on_dllmain()`
+- `void on_initialize()`
+- `void on_present()`
+- `void on_post_render_vr_framework_dx11(ID3D11DeviceContext* context, ID3D11Texture2D* texture, ID3D11RenderTargetView* rtv)`
+- `void on_post_render_vr_framework_dx12(ID3D12GraphicsCommandList* command_list, ID3D12Resource* rt, D3D12_CPU_DESCRIPTOR_HANDLE* rtv)`
+- `void on_device_reset()`
+- `bool on_message(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)`
+- `void on_xinput_get_state(uint32_t* retval, uint32_t user_index, XINPUT_STATE* state)`
+- `void on_xinput_set_state(uint32_t* retval, uint32_t user_index, XINPUT_VIBRATION* vibration)`
+
+### Game/Engine callbacks
+
+- `void on_pre_engine_tick(API::UGameEngine* engine, float delta)`
+- `void on_post_engine_tick(API::UGameEngine* engine, float delta)`
+- `void on_pre_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info)`
+- `void on_post_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info)`
+- `void on_pre_calculate_stereo_view_offset(UEVR_StereoRenderingDeviceHandle device, int view_index, float world_to_meters, UEVR_Vector3f* position, UEVR_Rotatorf* rotation, bool is_double)`
+- `void on_post_calculate_stereo_view_offset(UEVR_StereoRenderingDeviceHandle device, int view_index, float world_to_meters, UEVR_Vector3f* position, UEVR_Rotatorf* rotation, bool is_double)`
+- `void on_pre_viewport_client_draw(UEVR_UGameViewportClientHandle viewport_client, UEVR_FViewportHandle viewport, UEVR_FCanvasHandle canvas)`
+- `void on_post_viewport_client_draw(UEVR_UGameViewportClientHandle viewport_client, UEVR_FViewportHandle viewport, UEVR_FCanvasHandle canvas)`
+- `void on_custom_event(const char* event_name, const char* event_data)`
+
+### Rendering callbacks
+
+- `void on_frame()`
+- `void on_draw_ui()`
+- `void on_config_load(const utility::Config& cfg, bool set_defaults)`
+- `void on_config_save(utility::Config& cfg)`
 

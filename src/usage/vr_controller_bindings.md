@@ -1,6 +1,6 @@
 # UEVR: Default VR Controller Bindings
 
-UEVR implements (or attempts to implement) 1:1 mappings from a default Xbox controller to a VR controller.
+UEVR uses an action-based input system with generic action names that map to physical buttons depending on the active VR runtime and controller profile. The default bindings attempt to provide a familiar Xbox-like layout.
 
 These can be rebound in a few ways:
 

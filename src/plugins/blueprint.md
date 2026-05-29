@@ -18,7 +18,7 @@ Official modding tools by the game developers can work here too, if they provide
 
 ### Motion Controller components
 ### When UObjectHook is activated
-All `UMotionControllerComponent` ("`Motion Controller`") components will have their location and rotation set correctly to the world transform of the user's motion controllers.
+All `UMotionControllerComponent` (`Motion Controller`) components with `player_index` 0 will have their location and rotation set correctly to the world transform of the user's motion controllers. Components with `player_index > 0` are skipped.
 
 This means you can make `Motion Controller` components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook. You can then do any logic you wish with the Motion Controller transforms, like parenting a weapon mesh to one of them.
 
@@ -34,19 +34,21 @@ Tested and confirmed working on 4.27 and 5.0.3
 
 Some functions explicitly require `Load Blueprint Code` to be enabled, not just the aiming options.
 
-For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/)
+For more information on these functions, visit the [Unreal Engine documentation](https://docs.unrealengine.com/5.0/en-US/BlueprintAPI/Input/HeadMountedDisplay/) (UE 5.x XRTracking nodes).
 
 ### Head Mounted Display: Is Head Mounted Display Enabled
 
-Always works on < 4.18. >= 4.18, `Load Blueprint Code` must be explicitly enabled for this to work.
+Always works on < 4.18. >= 4.18, `Load Blueprint Code` must be explicitly enabled for this to work when using native UFunction hooks.
 
+### Head Mounted Display: Is Head Mounted Display Connected
+
+Returns whether the HMD is currently connected. Implemented via `IHeadMountedDisplay::IsHMDConnected`.
 ### Head Mounted Display: Get Device Pose
 
-This one only works for the HMD for now. Bit of a hacky implementation, but it works.
-
+Backed by `IXRTrackingSystem::GetCurrentPose` (vtable hook). Returns the HMD transform.
 ### Head Mounted Display: Get Orientation And Position
 
-Gets data about the HMD transform. `Load Blueprint Code` must be explicitly enabled for this to work on >= 4.18.
+`Load Blueprint Code` must be explicitly enabled for this to work on >= 4.18 (native hook only).
 
 ### Head Mounted Display: Get Motion Controller Data
 
@@ -79,7 +81,7 @@ enum ECustomSystemFlags : int32_t {
 
 ### Head Mounted Display: Get HMDData
 
-Untested.
+Implemented. Returns HMD data with dynamic property lookup for UE5.
 
 ### Head Mounted Display: Reset Orientation
 

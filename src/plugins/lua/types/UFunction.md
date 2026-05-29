@@ -20,6 +20,14 @@ Not implemented correctly. Do not use. Use `obj:FuncName(args...)` instead.
 
 Returns the native function pointer of the UFunction as a `void*`.
 
+### `function:get_function_flags()`
+
+Returns the function flags as a bitfield.
+
+### `function:set_function_flags(flags)`
+
+Sets the function flags.
+
 ### `function:hook_ptr(pre, post)`
 
 Hooks the UFunction with the specified pre and post function pointers. Functions can be `nil` if you only want to use one but not the other.

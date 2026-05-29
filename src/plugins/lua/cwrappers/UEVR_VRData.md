@@ -54,18 +54,41 @@ Returns the index of the right controller.
 
 Returns the pose of the specified device.
 
-### `vr.get_transform(index: number, out transform: UEVR_Transform)`
+### `vr.get_transform(index: number, out transform: UEVR_Matrix4x4f)`
 
-Returns the transform of the specified device.
+Returns the transform of the specified device as a 4x4 matrix.
 
 ### `vr.get_eye_offset(index: number, out eye_offset: UEVR_Vector3f)`
 
 Returns the eye offset of the specified eye.
 
-### `vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4f)`
+### `vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4x4f)`
 
 Returns the projection matrix of the specified eye.
 
+### `vr.get_grip_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)`
+
+Returns the grip pose of the specified controller.
+
+### `vr.get_aim_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)`
+
+Returns the aim pose of the specified controller.
+
+### `vr.get_grip_transform(index: number, out transform: UEVR_Matrix4x4f)`
+
+Returns the grip transform of the specified controller as a 4x4 matrix.
+
+### `vr.get_aim_transform(index: number, out transform: UEVR_Matrix4x4f)`
+
+Returns the aim transform of the specified controller as a 4x4 matrix.
+
+### `vr.is_decoupled_pitch_enabled()`
+
+Returns true if decoupled pitch is enabled.
+
+### `vr.get_movement_orientation()`
+
+Returns the current movement orientation as an integer flag.
 ### `vr.get_left_joystick_source()`
 
 Returns the source handle of the left joystick.
@@ -94,12 +117,15 @@ Returns the axis of the specified joystick.
 
 Triggers haptic vibration on the specified device.
 
+> **Note:** The C++ wrapper in `API.hpp` swaps `amplitude` and `duration`. The Lua/C API signature above is correct.
+
 ### `vr.is_using_controllers()`
 
 Returns true if the VR system is using controllers within the past 30 seconds.
 
 ### `vr.get_lowest_xinput_index()`
 
+Returns the lowest XInput controller index used by UEVR.
 ### `vr.recenter_view()`
 
 Recenters the view.

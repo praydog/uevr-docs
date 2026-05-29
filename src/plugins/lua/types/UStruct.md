@@ -32,6 +32,10 @@ Returns the [UEVR_FProperty](FProperty.md) object of the property with the speci
 
 Returns the first [UEVR_FProperty*](FProperty.md) object of the struct. Use `property:get_next()` to iterate through the properties.
 
+### `struct:get_children()`
+
+Returns the first [UEVR_UField*](UField.md) child of the struct. Use `field:get_next()` to iterate through all children.
+
 ### `struct:get_properties_size()`
 
 Returns the total byte size of the properties of the struct.

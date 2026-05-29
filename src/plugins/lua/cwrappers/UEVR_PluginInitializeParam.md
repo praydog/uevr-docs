@@ -48,3 +48,7 @@ Returns [UEVR_OpenXRData](UEVR_OpenXRData.md).
 ### `params.sdk`
 
 Returns [UEVR_SDKData](UEVR_SDKData.md).
+
+### `params.lua`
+
+Returns Lua-specific data and functions.

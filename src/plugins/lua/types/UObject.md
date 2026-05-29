@@ -56,6 +56,10 @@ Returns the base address of the UObject.
 
 Returns a [UEVR_FName](FName.md) object.
 
+### `obj:get_short_name()`
+
+Returns the short name of the UObject as a Lua string (without the outer path prefix).
+
 ### `obj:get_full_name()`
 
 Returns the full name of the UObject as a Lua string.

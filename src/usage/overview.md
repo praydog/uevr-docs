@@ -35,7 +35,7 @@ After injection, the rest of the options will populate automatically. You can mo
 
 ## In-Game Menu
 
-The in-game menu offers additional configuration options and shortcuts for adjusting settings on the fly. Access the menu by pressing the **Insert** key or **L3+R3** on a controller.
+The in-game menu offers additional configuration options and shortcuts for adjusting settings on the fly. Access the menu by pressing the configurable **Menu Key** (default: **Insert**) or **L3+R3** on a controller (both are configurable in the UI).
 
 The in-game menu can be accessed either inside the VR headset, or you can use the desktop view to adjust settings without having to put on a headset.
 
@@ -63,13 +63,13 @@ Use the in-game menu to access and modify various CVars for fixing broken shader
 
 ## Depth Buffer Integration
 
-While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, adjust the `VR_EnableDepth` setting.
+While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, set `VR_PassDepthToRuntime` to `true` in the in-game menu or `config.txt`.
 
 ![Depth Buffer Integration Screenshot](images/depth-buffer-integration.png)
 
 ## Configurations
 
-All configurations are stored on a per-game basis in the `%APPDATA%/UnrealVRMod` directory. You can modify settings directly in the UI or through the `config.txt` file. This directory can be accessed in the frontend GUI by clicking the "Open Global Dir" button.
+All configurations are stored on a per-game basis in the `%APPDATA%/UnrealVRMod/<game_executable_name>` directory. You can modify settings directly in the UI or through the `config.txt` file. Plugins can be placed in either the game's `plugins` folder or the global `%APPDATA%/UEVR/plugins` directory.
 
 ![Configurations Screenshot](images/configurations.png)
 
@@ -85,7 +85,7 @@ r.DefaultFeature.AntiAliasing 0
 
 ### Plugins
 
-Plugins can be installed in the `plugins` folder in the game's configuration directory. Simply drop the plugin dll into it.
+Plugins can be installed in the `plugins` folder in the game's per-game configuration directory, or in the global `%APPDATA%/UEVR/plugins` directory. Simply drop the plugin DLL into the desired folder.
 
 ## Troubleshooting & Optimization
 
@@ -101,4 +101,4 @@ Further tweaks can be done by modifying the game's INI files, using UUU, UE4SS, 
 
 ### For those with motion sickness
 
-Enable "Decoupled Pitch" under the VR options. This will stop the camera from rolling or moving vertically.
+Enable "Decoupled Pitch" under the VR options. This flattens the view rotation to keep the horizon level (removes roll), which can help reduce motion sickness.

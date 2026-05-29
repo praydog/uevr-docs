@@ -39,31 +39,35 @@ Prototype: `function(renderer: UEVR_FSlateRHIRendererHandle, viewport_info: UEVR
 
 Registers a callback to be called after the slate window is drawn on the render thread.
 
-Prototype: `function(renderer: UEVR_FSlateRHIRendererHandle, viewport_info: UEVR_FViewportInfoHandle)`
 
+### `uevr.sdk.callbacks.on_early_calculate_stereo_view_offset(fn)`
+
+Registers a callback to be called before VR transformations are applied to the view, before the stereo device calculates the view offset.
+
+Prototype: `function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)`
 ### `uevr.sdk.callbacks.on_pre_calculate_stereo_view_offset(fn)`
 
 Registers a callback to be called before VR transformations are applied to the view.
 
-Prototype: `function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: Vector3f* or Vector3d*, rotation: Quaternionf* or Quaterniond*, is_double: bool)`
+Prototype: `function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)`
 
 ### `uevr.sdk.callbacks.on_post_calculate_stereo_view_offset(fn)`
 
 Registers a callback to be called after VR transformations are applied to the view.
 
-Prototype: `function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: Vector3f* or Vector3d*, rotation: Quaternionf* or Quaterniond*, is_double: bool)`
+Prototype: `function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)`
 
 ### `uevr.sdk.callbacks.on_pre_viewport_client_draw(fn)`  
 
 Registers a callback to be called before the viewport is drawn on the game thread.
 
-Prototype: `function(viewport: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle canvas: UEVR_FCanvasHandle)`
+Prototype: `function(viewport_client: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle, canvas: UEVR_FCanvasHandle)`
 
 ### `uevr.sdk.callbacks.on_post_viewport_client_draw(fn)`
 
 Registers a callback to be called after the viewport is drawn on the game thread.
 
-Prototype: `function(viewport: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle canvas: UEVR_FCanvasHandle)`
+Prototype: `function(viewport_client: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle, canvas: UEVR_FCanvasHandle)`
 
 ### `uevr.sdk.callbacks.on_frame(fn)`
 
