@@ -150,7 +150,7 @@
 <p>The C++ API header is in <code>include/uevr/API.hpp</code>.</p>
 <p>The base C++ plugin header is in <code>include/uevr/Plugin.hpp</code>.</p>
 <h2 id="plugin-installation"><a class="header" href="#plugin-installation">Plugin Installation</a></h2>
-<p>In the frontend, click the &quot;Open Global Dir&quot; button. Locate the corresponding game directory, and place the DLL in the <code>plugins</code> folder.</p>
+<p>Place the compiled plugin DLL into the game's persistent configuration directory at <code>%APPDATA%/UnrealVRMod/&lt;game_exe_name&gt;/plugins/</code>, or into the global directory at <code>%APPDATA%/UEVR/plugins/</code>.</p>
 <p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UEVR.</p>
 <h2 id="plugin-lifecycle"><a class="header" href="#plugin-lifecycle">Plugin Lifecycle</a></h2>
 <p>Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:</p>
@@ -198,19 +198,19 @@ public:
         API::get()-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
     }
 
-    void on_pre_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+    void on_pre_engine_tick(API::UGameEngine* engine, float delta) override {
         PLUGIN_LOG_ONCE(&quot;Pre Engine Tick: %f&quot;, delta);
     }
 
-    void on_post_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+    void on_post_engine_tick(API::UGameEngine* engine, float delta) override {
         PLUGIN_LOG_ONCE(&quot;Post Engine Tick: %f&quot;, delta);
     }
 
-    void on_pre_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+    void on_pre_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
         PLUGIN_LOG_ONCE(&quot;Pre Slate Draw Window&quot;);
     }
 
-    void on_post_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+    void on_post_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
         PLUGIN_LOG_ONCE(&quot;Post Slate Draw Window&quot;);
     }
 };
@@ -219,6 +219,39 @@ public:
 // The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
 std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 </code></pre>
+<h2 id="available-virtual-functions"><a class="header" href="#available-virtual-functions">Available Virtual Functions</a></h2>
+<p><code>Plugin.hpp</code> exposes the following virtual functions that can be overridden:</p>
+<h3 id="main-plugin-callbacks"><a class="header" href="#main-plugin-callbacks">Main plugin callbacks</a></h3>
+<ul>
+<li><code>void on_dllmain()</code></li>
+<li><code>void on_initialize()</code></li>
+<li><code>void on_present()</code></li>
+<li><code>void on_post_render_vr_framework_dx11(ID3D11DeviceContext* context, ID3D11Texture2D* texture, ID3D11RenderTargetView* rtv)</code></li>
+<li><code>void on_post_render_vr_framework_dx12(ID3D12GraphicsCommandList* command_list, ID3D12Resource* rt, D3D12_CPU_DESCRIPTOR_HANDLE* rtv)</code></li>
+<li><code>void on_device_reset()</code></li>
+<li><code>bool on_message(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)</code></li>
+<li><code>void on_xinput_get_state(uint32_t* retval, uint32_t user_index, XINPUT_STATE* state)</code></li>
+<li><code>void on_xinput_set_state(uint32_t* retval, uint32_t user_index, XINPUT_VIBRATION* vibration)</code></li>
+</ul>
+<h3 id="gameengine-callbacks"><a class="header" href="#gameengine-callbacks">Game/Engine callbacks</a></h3>
+<ul>
+<li><code>void on_pre_engine_tick(API::UGameEngine* engine, float delta)</code></li>
+<li><code>void on_post_engine_tick(API::UGameEngine* engine, float delta)</code></li>
+<li><code>void on_pre_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info)</code></li>
+<li><code>void on_post_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info)</code></li>
+<li><code>void on_pre_calculate_stereo_view_offset(UEVR_StereoRenderingDeviceHandle device, int view_index, float world_to_meters, UEVR_Vector3f* position, UEVR_Rotatorf* rotation, bool is_double)</code></li>
+<li><code>void on_post_calculate_stereo_view_offset(UEVR_StereoRenderingDeviceHandle device, int view_index, float world_to_meters, UEVR_Vector3f* position, UEVR_Rotatorf* rotation, bool is_double)</code></li>
+<li><code>void on_pre_viewport_client_draw(UEVR_UGameViewportClientHandle viewport_client, UEVR_FViewportHandle viewport, UEVR_FCanvasHandle canvas)</code></li>
+<li><code>void on_post_viewport_client_draw(UEVR_UGameViewportClientHandle viewport_client, UEVR_FViewportHandle viewport, UEVR_FCanvasHandle canvas)</code></li>
+<li><code>void on_custom_event(const char* event_name, const char* event_data)</code></li>
+</ul>
+<h3 id="rendering-callbacks"><a class="header" href="#rendering-callbacks">Rendering callbacks</a></h3>
+<ul>
+<li><code>void on_frame()</code></li>
+<li><code>void on_draw_ui()</code></li>
+<li><code>void on_config_load(const utility::Config&amp; cfg, bool set_defaults)</code></li>
+<li><code>void on_config_save(utility::Config&amp; cfg)</code></li>
+</ul>
 
                     </main>
 

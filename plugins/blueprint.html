@@ -152,7 +152,7 @@
 <h2 id="automatically-handled-components"><a class="header" href="#automatically-handled-components">Automatically handled components</a></h2>
 <h3 id="motion-controller-components"><a class="header" href="#motion-controller-components">Motion Controller components</a></h3>
 <h3 id="when-uobjecthook-is-activated"><a class="header" href="#when-uobjecthook-is-activated">When UObjectHook is activated</a></h3>
-<p>All <code>UMotionControllerComponent</code> (&quot;<code>Motion Controller</code>&quot;) components will have their location and rotation set correctly to the world transform of the user's motion controllers.</p>
+<p>All <code>UMotionControllerComponent</code> (<code>Motion Controller</code>) components with <code>player_index</code> 0 will have their location and rotation set correctly to the world transform of the user's motion controllers. Components with <code>player_index &gt; 0</code> are skipped.</p>
 <p>This means you can make <code>Motion Controller</code> components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook. You can then do any logic you wish with the Motion Controller transforms, like parenting a weapon mesh to one of them.</p>
 <p>You must correctly set the <code>Motion Source</code> name to either <code>Left</code> or <code>Right</code>. Case sensitive. Or modify the <code>Hand</code> property on older UE versions.</p>
 <p><code>Motion Source</code> can be set to <code>Head</code> or <code>HMD</code> to track the HMD transform.</p>
@@ -160,13 +160,15 @@
 <p>Tested and confirmed working on 4.27 and 5.0.3</p>
 <p><code>Load Blueprint Code</code> in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.</p>
 <p>Some functions explicitly require <code>Load Blueprint Code</code> to be enabled, not just the aiming options.</p>
-<p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a></p>
+<p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/5.0/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a> (UE 5.x XRTracking nodes).</p>
 <h3 id="head-mounted-display-is-head-mounted-display-enabled"><a class="header" href="#head-mounted-display-is-head-mounted-display-enabled">Head Mounted Display: Is Head Mounted Display Enabled</a></h3>
-<p>Always works on &lt; 4.18. &gt;= 4.18, <code>Load Blueprint Code</code> must be explicitly enabled for this to work.</p>
+<p>Always works on &lt; 4.18. &gt;= 4.18, <code>Load Blueprint Code</code> must be explicitly enabled for this to work when using native UFunction hooks.</p>
+<h3 id="head-mounted-display-is-head-mounted-display-connected"><a class="header" href="#head-mounted-display-is-head-mounted-display-connected">Head Mounted Display: Is Head Mounted Display Connected</a></h3>
+<p>Returns whether the HMD is currently connected. Implemented via <code>IHeadMountedDisplay::IsHMDConnected</code>.</p>
 <h3 id="head-mounted-display-get-device-pose"><a class="header" href="#head-mounted-display-get-device-pose">Head Mounted Display: Get Device Pose</a></h3>
-<p>This one only works for the HMD for now. Bit of a hacky implementation, but it works.</p>
+<p>Backed by <code>IXRTrackingSystem::GetCurrentPose</code> (vtable hook). Returns the HMD transform.</p>
 <h3 id="head-mounted-display-get-orientation-and-position"><a class="header" href="#head-mounted-display-get-orientation-and-position">Head Mounted Display: Get Orientation And Position</a></h3>
-<p>Gets data about the HMD transform. <code>Load Blueprint Code</code> must be explicitly enabled for this to work on &gt;= 4.18.</p>
+<p><code>Load Blueprint Code</code> must be explicitly enabled for this to work on &gt;= 4.18 (native hook only).</p>
 <h3 id="head-mounted-display-get-motion-controller-data"><a class="header" href="#head-mounted-display-get-motion-controller-data">Head Mounted Display: Get Motion Controller Data</a></h3>
 <p>Only works for left and right controller. </p>
 <p><code>Valid</code>, <code>Aim Position</code>, <code>Aim Rotation</code>, <code>Grip Position</code>, <code>Grip Rotation</code> are implemented.</p>
@@ -190,7 +192,7 @@
 };
 </code></pre>
 <h3 id="head-mounted-display-get-hmddata"><a class="header" href="#head-mounted-display-get-hmddata">Head Mounted Display: Get HMDData</a></h3>
-<p>Untested.</p>
+<p>Implemented. Returns HMD data with dynamic property lookup for UE5.</p>
 <h3 id="head-mounted-display-reset-orientation"><a class="header" href="#head-mounted-display-reset-orientation">Head Mounted Display: Reset Orientation</a></h3>
 <h3 id="head-mounted-display-reset-position"><a class="header" href="#head-mounted-display-reset-position">Head Mounted Display: Reset Position</a></h3>
 <h3 id="head-mounted-display-reset-orientation-and-position"><a class="header" href="#head-mounted-display-reset-orientation-and-position">Head Mounted Display: Reset Orientation and Position</a></h3>

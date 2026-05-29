@@ -148,6 +148,32 @@
 <p>Constructs a new StructObject from a UEVR_UStruct pointer.</p>
 <h3 id="structobjectnewobject-uevr_uobject"><a class="header" href="#structobjectnewobject-uevr_uobject"><code>StructObject.new(object: UEVR_UObject*)</code></a></h3>
 <p>Constructs a new StructObject from a UEVR_UObject pointer, if the object inherits from UStruct.</p>
+<h3 id="objget_address"><a class="header" href="#objget_address"><code>obj:get_address()</code></a></h3>
+<p>Returns the memory address of the struct as a number.</p>
+<h3 id="objget_struct"><a class="header" href="#objget_struct"><code>obj:get_struct()</code></a></h3>
+<p>Returns the <a href="UStruct.html">UEVR_UStruct</a> descriptor for this struct.</p>
+<h3 id="objget_propertyname-string"><a class="header" href="#objget_propertyname-string"><code>obj:get_property(name: string)</code></a></h3>
+<p>Returns the value of the specified property by name.</p>
+<h3 id="objset_propertyname-string-value-any"><a class="header" href="#objset_propertyname-string-value-any"><code>obj:set_property(name: string, value: any)</code></a></h3>
+<p>Sets the value of the specified property by name.</p>
+<h3 id="objread_qword"><a class="header" href="#objread_qword"><code>obj:read_qword()</code></a></h3>
+<h3 id="objread_dword"><a class="header" href="#objread_dword"><code>obj:read_dword()</code></a></h3>
+<h3 id="objread_word"><a class="header" href="#objread_word"><code>obj:read_word()</code></a></h3>
+<h3 id="objread_byte"><a class="header" href="#objread_byte"><code>obj:read_byte()</code></a></h3>
+<h3 id="objread_float"><a class="header" href="#objread_float"><code>obj:read_float()</code></a></h3>
+<h3 id="objread_double"><a class="header" href="#objread_double"><code>obj:read_double()</code></a></h3>
+<p>Reads a value of the specified type from the struct at the current offset.</p>
+<h3 id="objwrite_qwordvalue"><a class="header" href="#objwrite_qwordvalue"><code>obj:write_qword(value)</code></a></h3>
+<h3 id="objwrite_dwordvalue"><a class="header" href="#objwrite_dwordvalue"><code>obj:write_dword(value)</code></a></h3>
+<h3 id="objwrite_wordvalue"><a class="header" href="#objwrite_wordvalue"><code>obj:write_word(value)</code></a></h3>
+<h3 id="objwrite_bytevalue"><a class="header" href="#objwrite_bytevalue"><code>obj:write_byte(value)</code></a></h3>
+<h3 id="objwrite_floatvalue"><a class="header" href="#objwrite_floatvalue"><code>obj:write_float(value)</code></a></h3>
+<h3 id="objwrite_doublevalue"><a class="header" href="#objwrite_doublevalue"><code>obj:write_double(value)</code></a></h3>
+<p>Writes a value of the specified type to the struct at the current offset.</p>
+<h3 id="objname-metamethod"><a class="header" href="#objname-metamethod"><code>obj[name]</code> (metamethod)</a></h3>
+<p>Equivalent to <code>obj:get_property(name)</code>. Allows table-like access to properties.</p>
+<h3 id="objname--value-metamethod"><a class="header" href="#objname--value-metamethod"><code>obj[name] = value</code> (metamethod)</a></h3>
+<p>Equivalent to <code>obj:set_property(name, value)</code>. Allows table-like assignment to properties.</p>
 
                     </main>
 

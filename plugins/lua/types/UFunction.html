@@ -152,6 +152,10 @@
 <p>Not implemented correctly. Do not use. Use <code>obj:FuncName(args...)</code> instead.</p>
 <h3 id="functionget_native_function"><a class="header" href="#functionget_native_function"><code>function:get_native_function()</code></a></h3>
 <p>Returns the native function pointer of the UFunction as a <code>void*</code>.</p>
+<h3 id="functionget_function_flags"><a class="header" href="#functionget_function_flags"><code>function:get_function_flags()</code></a></h3>
+<p>Returns the function flags as a bitfield.</p>
+<h3 id="functionset_function_flagsflags"><a class="header" href="#functionset_function_flagsflags"><code>function:set_function_flags(flags)</code></a></h3>
+<p>Sets the function flags.</p>
 <h3 id="functionhook_ptrpre-post"><a class="header" href="#functionhook_ptrpre-post"><code>function:hook_ptr(pre, post)</code></a></h3>
 <p>Hooks the UFunction with the specified pre and post function pointers. Functions can be <code>nil</code> if you only want to use one but not the other.</p>
 <p>Pre Signature: <code>bool pre(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)</code></p>

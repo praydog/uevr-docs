@@ -141,7 +141,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="uevr_plugininitializeparam"><a class="header" href="#uevr_plugininitializeparam">UEVR_PluginInitializeParam</a></h1>
+                        <h1 id="uevr_pluginfunctions"><a class="header" href="#uevr_pluginfunctions">UEVR_PluginFunctions</a></h1>
 <p>Accessed with <code>uevr.params.functions</code></p>
 <h2 id="members"><a class="header" href="#members">Members</a></h2>
 <h3 id="functionslog_errormsg"><a class="header" href="#functionslog_errormsg"><code>functions.log_error(msg)</code></a></h3>
@@ -168,6 +168,18 @@
 <p>Returns the number of commits past the last tag.</p>
 <h3 id="functionsget_total_commits"><a class="header" href="#functionsget_total_commits"><code>functions.get_total_commits()</code></a></h3>
 <p>Returns the total number of commits to UEVR.</p>
+<h3 id="functionsremove_callbackcb"><a class="header" href="#functionsremove_callbackcb"><code>functions.remove_callback(cb)</code></a></h3>
+<p>Removes a previously registered callback.</p>
+<h3 id="functionsget_persistent_dir"><a class="header" href="#functionsget_persistent_dir"><code>functions.get_persistent_dir()</code></a></h3>
+<p>Returns the path to the persistent configuration directory for the current game.</p>
+<h3 id="functionsregister_inline_hooktarget-dst-original"><a class="header" href="#functionsregister_inline_hooktarget-dst-original"><code>functions.register_inline_hook(target, dst, original)</code></a></h3>
+<p>Registers an inline hook. <code>target</code> is the address to hook, <code>dst</code> is the destination function, <code>original</code> is an output pointer for the original function.</p>
+<h3 id="functionsunregister_inline_hookhook_id"><a class="header" href="#functionsunregister_inline_hookhook_id"><code>functions.unregister_inline_hook(hook_id)</code></a></h3>
+<p>Unregisters an inline hook by its ID.</p>
+<h3 id="functionsdispatch_lua_eventevent_name-event_data"><a class="header" href="#functionsdispatch_lua_eventevent_name-event_data"><code>functions.dispatch_lua_event(event_name, event_data)</code></a></h3>
+<p>Dispatches a Lua event to all script contexts.</p>
+<h3 id="functionsdispatch_custom_eventevent_name-event_data"><a class="header" href="#functionsdispatch_custom_eventevent_name-event_data"><code>functions.dispatch_custom_event(event_name, event_data)</code></a></h3>
+<p>Dispatches a custom event for plugins to listen to via <code>on_custom_event</code>.</p>
 
                     </main>
 

@@ -142,6 +142,136 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="c-wrapper-types"><a class="header" href="#c-wrapper-types">C Wrapper Types</a></h1>
+<p>These are C++ wrapper classes provided by <code>include/uevr/API.hpp</code>. They wrap the C API handles and provide a more ergonomic interface.</p>
+<h2 id="uobject"><a class="header" href="#uobject">UObject</a></h2>
+<p>Base class for all Unreal Engine objects.</p>
+<h3 id="methods"><a class="header" href="#methods">Methods</a></h3>
+<ul>
+<li><code>UClass* get_class() const</code></li>
+<li><code>UObject* get_outer() const</code></li>
+<li><code>bool is_a(UClass* klass) const</code></li>
+<li><code>void process_event(UFunction* function, void* params)</code></li>
+<li><code>void call_function(std::wstring_view name, void* params)</code></li>
+<li><code>FName* get_fname() const</code></li>
+<li><code>std::wstring get_full_name() const</code></li>
+<li><code>template&lt;typename T&gt; T* get_property_data(std::wstring_view name) const</code></li>
+<li><code>bool get_bool_property(std::wstring_view name) const</code></li>
+<li><code>void set_bool_property(std::wstring_view name, bool value)</code></li>
+<li><code>template&lt;typename T&gt; T* dcast()</code></li>
+</ul>
+<h2 id="ufield--uobject"><a class="header" href="#ufield--uobject">UField : UObject</a></h2>
+<p>Base class for fields (types, functions, properties).</p>
+<h2 id="ustruct--ufield"><a class="header" href="#ustruct--ufield">UStruct : UField</a></h2>
+<p>Represents a struct type.</p>
+<h3 id="methods-1"><a class="header" href="#methods-1">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>UStruct* get_super_struct() const</code></li>
+<li><code>UStruct* get_super() const</code></li>
+<li><code>UFunction* find_function(std::wstring_view name) const</code></li>
+<li><code>FProperty* find_property(std::wstring_view name) const</code></li>
+<li><code>FField* get_child_properties() const</code></li>
+<li><code>UField* get_children() const</code></li>
+<li><code>int32_t get_properties_size() const</code></li>
+<li><code>int32_t get_min_alignment() const</code></li>
+</ul>
+<h2 id="uclass--ustruct"><a class="header" href="#uclass--ustruct">UClass : UStruct</a></h2>
+<p>Represents a class type.</p>
+<h3 id="methods-2"><a class="header" href="#methods-2">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>UObject* get_class_default_object() const</code></li>
+<li><code>std::vector&lt;UObject*&gt; get_objects_matching(bool allow_default = false) const</code></li>
+<li><code>UObject* get_first_object_matching(bool allow_default = false) const</code></li>
+</ul>
+<h2 id="ufunction--ustruct"><a class="header" href="#ufunction--ustruct">UFunction : UStruct</a></h2>
+<p>Represents a function.</p>
+<h3 id="methods-3"><a class="header" href="#methods-3">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>void call(UObject* obj, void* params)</code></li>
+<li><code>void* get_native_function() const</code></li>
+<li><code>uint32_t get_function_flags() const</code></li>
+<li><code>void set_function_flags(uint32_t flags)</code></li>
+<li><code>bool hook_ptr(UEVR_UFunction_CPPPreNative pre, UEVR_UFunction_CPPPostNative post)</code></li>
+</ul>
+<h2 id="uscriptstruct--ustruct"><a class="header" href="#uscriptstruct--ustruct">UScriptStruct : UStruct</a></h2>
+<p>Represents a script struct (POD type).</p>
+<h3 id="methods-4"><a class="header" href="#methods-4">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>StructOps* get_struct_ops() const</code></li>
+<li><code>int32_t get_struct_size() const</code></li>
+</ul>
+<h2 id="ffield"><a class="header" href="#ffield">FField</a></h2>
+<p>Wrapper for both UField and FField.</p>
+<h3 id="methods-5"><a class="header" href="#methods-5">Methods</a></h3>
+<ul>
+<li><code>FField* get_next() const</code></li>
+<li><code>FName* get_fname() const</code></li>
+<li><code>FFieldClass* get_class() const</code></li>
+</ul>
+<h2 id="fproperty--ffield"><a class="header" href="#fproperty--ffield">FProperty : FField</a></h2>
+<p>Represents a property.</p>
+<h3 id="methods-6"><a class="header" href="#methods-6">Methods</a></h3>
+<ul>
+<li><code>int32_t get_offset() const</code></li>
+<li><code>uint64_t get_property_flags() const</code></li>
+<li><code>bool is_param() const</code></li>
+<li><code>bool is_out_param() const</code></li>
+<li><code>bool is_return_param() const</code></li>
+<li><code>bool is_reference_param() const</code></li>
+<li><code>bool is_pod() const</code></li>
+</ul>
+<h2 id="ffieldclass"><a class="header" href="#ffieldclass">FFieldClass</a></h2>
+<p>Represents a field class.</p>
+<h3 id="methods-7"><a class="header" href="#methods-7">Methods</a></h3>
+<ul>
+<li><code>FName* get_fname() const</code></li>
+<li><code>std::wstring get_name() const</code></li>
+</ul>
+<h2 id="fname"><a class="header" href="#fname">FName</a></h2>
+<p>Represents a name.</p>
+<h3 id="methods-8"><a class="header" href="#methods-8">Methods</a></h3>
+<ul>
+<li><code>FName(std::wstring_view name, EFindName find_type = EFindName::Add)</code></li>
+<li><code>std::wstring to_string() const</code></li>
+</ul>
+<h2 id="fuobjectarray"><a class="header" href="#fuobjectarray">FUObjectArray</a></h2>
+<p>Global UObject array.</p>
+<h3 id="methods-9"><a class="header" href="#methods-9">Methods</a></h3>
+<ul>
+<li><code>static FUObjectArray* get()</code></li>
+<li><code>static bool is_chunked()</code></li>
+<li><code>static bool is_inlined()</code></li>
+<li><code>static size_t get_objects_offset()</code></li>
+<li><code>static size_t get_item_distance()</code></li>
+<li><code>int32_t get_object_count() const</code></li>
+<li><code>void* get_objects_ptr() const</code></li>
+<li><code>UObject* get_object(int32_t index) const</code></li>
+</ul>
+<h3 id="fuobjectitem"><a class="header" href="#fuobjectitem">FUObjectItem</a></h3>
+<pre><code class="language-cpp">struct FUObjectItem {
+    API::UObject* object;
+    int32_t flags;
+    int32_t cluster_index;
+    int32_t serial_number;
+};
+</code></pre>
+<h2 id="tarray"><a class="header" href="#tarray">TArray<T></a></h2>
+<p>A dynamic array.</p>
+<h3 id="members"><a class="header" href="#members">Members</a></h3>
+<ul>
+<li><code>T* data</code></li>
+<li><code>int32_t count</code></li>
+<li><code>int32_t capacity</code></li>
+</ul>
+<h3 id="methods-10"><a class="header" href="#methods-10">Methods</a></h3>
+<ul>
+<li><code>T* begin()</code></li>
+<li><code>T* end()</code></li>
+<li><code>bool empty() const</code></li>
+</ul>
 
                     </main>
 

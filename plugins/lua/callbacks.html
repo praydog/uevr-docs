@@ -162,19 +162,21 @@
 <p>Prototype: <code>function(renderer: UEVR_FSlateRHIRendererHandle, viewport_info: UEVR_FViewportInfoHandle)</code></p>
 <h3 id="uevrsdkcallbackson_post_slate_draw_window_render_threadfn"><a class="header" href="#uevrsdkcallbackson_post_slate_draw_window_render_threadfn"><code>uevr.sdk.callbacks.on_post_slate_draw_window_render_thread(fn)</code></a></h3>
 <p>Registers a callback to be called after the slate window is drawn on the render thread.</p>
-<p>Prototype: <code>function(renderer: UEVR_FSlateRHIRendererHandle, viewport_info: UEVR_FViewportInfoHandle)</code></p>
+<h3 id="uevrsdkcallbackson_early_calculate_stereo_view_offsetfn"><a class="header" href="#uevrsdkcallbackson_early_calculate_stereo_view_offsetfn"><code>uevr.sdk.callbacks.on_early_calculate_stereo_view_offset(fn)</code></a></h3>
+<p>Registers a callback to be called before VR transformations are applied to the view, before the stereo device calculates the view offset.</p>
+<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)</code></p>
 <h3 id="uevrsdkcallbackson_pre_calculate_stereo_view_offsetfn"><a class="header" href="#uevrsdkcallbackson_pre_calculate_stereo_view_offsetfn"><code>uevr.sdk.callbacks.on_pre_calculate_stereo_view_offset(fn)</code></a></h3>
 <p>Registers a callback to be called before VR transformations are applied to the view.</p>
-<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: Vector3f* or Vector3d*, rotation: Quaternionf* or Quaterniond*, is_double: bool)</code></p>
+<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)</code></p>
 <h3 id="uevrsdkcallbackson_post_calculate_stereo_view_offsetfn"><a class="header" href="#uevrsdkcallbackson_post_calculate_stereo_view_offsetfn"><code>uevr.sdk.callbacks.on_post_calculate_stereo_view_offset(fn)</code></a></h3>
 <p>Registers a callback to be called after VR transformations are applied to the view.</p>
-<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: Vector3f* or Vector3d*, rotation: Quaternionf* or Quaterniond*, is_double: bool)</code></p>
+<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)</code></p>
 <h3 id="uevrsdkcallbackson_pre_viewport_client_drawfn"><a class="header" href="#uevrsdkcallbackson_pre_viewport_client_drawfn"><code>uevr.sdk.callbacks.on_pre_viewport_client_draw(fn)</code></a></h3>
 <p>Registers a callback to be called before the viewport is drawn on the game thread.</p>
-<p>Prototype: <code>function(viewport: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle canvas: UEVR_FCanvasHandle)</code></p>
+<p>Prototype: <code>function(viewport_client: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle, canvas: UEVR_FCanvasHandle)</code></p>
 <h3 id="uevrsdkcallbackson_post_viewport_client_drawfn"><a class="header" href="#uevrsdkcallbackson_post_viewport_client_drawfn"><code>uevr.sdk.callbacks.on_post_viewport_client_draw(fn)</code></a></h3>
 <p>Registers a callback to be called after the viewport is drawn on the game thread.</p>
-<p>Prototype: <code>function(viewport: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle canvas: UEVR_FCanvasHandle)</code></p>
+<p>Prototype: <code>function(viewport_client: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle, canvas: UEVR_FCanvasHandle)</code></p>
 <h3 id="uevrsdkcallbackson_framefn"><a class="header" href="#uevrsdkcallbackson_framefn"><code>uevr.sdk.callbacks.on_frame(fn)</code></a></h3>
 <p>Registers a callback to be called every frame. For ImGui functionality.
 Prototype: <code>function()</code></p>

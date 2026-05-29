@@ -342,7 +342,7 @@
 <p>After injection, the rest of the options will populate automatically. You can modify these settings in the in-game menu or through the <code>config.txt</code> file.</p>
 <p><img src="usage/images/pre-injection-settings.png" alt="Pre-Injection Settings Screenshot" /></p>
 <h2 id="in-game-menu-1"><a class="header" href="#in-game-menu-1">In-Game Menu</a></h2>
-<p>The in-game menu offers additional configuration options and shortcuts for adjusting settings on the fly. Access the menu by pressing the <strong>Insert</strong> key or <strong>L3+R3</strong> on a controller.</p>
+<p>The in-game menu offers additional configuration options and shortcuts for adjusting settings on the fly. Access the menu by pressing the configurable <strong>Menu Key</strong> (default: <strong>Insert</strong>) or <strong>L3+R3</strong> on a controller (both are configurable in the UI).</p>
 <p>The in-game menu can be accessed either inside the VR headset, or you can use the desktop view to adjust settings without having to put on a headset.</p>
 <p>As of recent updates, the menu can be controlled as well by pointing your motion controller at it to emulate a mouse.</p>
 <p><img src="usage/images/in-game-menu-1.png" alt="In-Game Menu Screenshot 1" /></p>
@@ -360,10 +360,10 @@
 <p><img src="usage/images/cvars.png" alt="CVars Screenshot" /></p>
 <p>Use the in-game menu to access and modify various CVars for fixing broken shaders and effects. The tool offers a range of options for addressing common rendering issues.</p>
 <h2 id="depth-buffer-integration"><a class="header" href="#depth-buffer-integration">Depth Buffer Integration</a></h2>
-<p>While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, adjust the <code>VR_EnableDepth</code> setting.</p>
+<p>While depth buffer integration is disabled by default, enabling it can greatly improve latency on Oculus headsets when using OpenXR with the native Oculus OpenXR runtime. To enable depth buffer integration, set <code>VR_PassDepthToRuntime</code> to <code>true</code> in the in-game menu or <code>config.txt</code>.</p>
 <p><img src="usage/images/depth-buffer-integration.png" alt="Depth Buffer Integration Screenshot" /></p>
 <h2 id="configurations"><a class="header" href="#configurations">Configurations</a></h2>
-<p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UnrealVRMod</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. This directory can be accessed in the frontend GUI by clicking the &quot;Open Global Dir&quot; button.</p>
+<p>All configurations are stored on a per-game basis in the <code>%APPDATA%/UnrealVRMod/&lt;game_executable_name&gt;</code> directory. You can modify settings directly in the UI or through the <code>config.txt</code> file. Plugins can be placed in either the game's <code>plugins</code> folder or the global <code>%APPDATA%/UEVR/plugins</code> directory.</p>
 <p><img src="usage/images/configurations.png" alt="Configurations Screenshot" /></p>
 <h3 id="console-commands"><a class="header" href="#console-commands">Console commands</a></h3>
 <p>Configurations can have console commands that are executed at startup within the <code>user_script.txt</code> file. It must be created manually.</p>
@@ -372,7 +372,7 @@
 r.DefaultFeature.AntiAliasing 0
 </code></pre>
 <h3 id="plugins"><a class="header" href="#plugins">Plugins</a></h3>
-<p>Plugins can be installed in the <code>plugins</code> folder in the game's configuration directory. Simply drop the plugin dll into it.</p>
+<p>Plugins can be installed in the <code>plugins</code> folder in the game's per-game configuration directory, or in the global <code>%APPDATA%/UEVR/plugins</code> directory. Simply drop the plugin DLL into the desired folder.</p>
 <h2 id="troubleshooting--optimization"><a class="header" href="#troubleshooting--optimization">Troubleshooting &amp; Optimization</a></h2>
 <h3 id="optimal-performance-and-compatibility"><a class="header" href="#optimal-performance-and-compatibility">Optimal performance and compatibility</a></h3>
 <ul>
@@ -384,9 +384,9 @@ r.DefaultFeature.AntiAliasing 0
 </ul>
 <p>Further tweaks can be done by modifying the game's INI files, using UUU, UE4SS, or other external tools. Various tweaks that have been made for the normal version of the games can be applied to the VR version as well.</p>
 <h3 id="for-those-with-motion-sickness"><a class="header" href="#for-those-with-motion-sickness">For those with motion sickness</a></h3>
-<p>Enable &quot;Decoupled Pitch&quot; under the VR options. This will stop the camera from rolling or moving vertically.</p>
+<p>Enable &quot;Decoupled Pitch&quot; under the VR options. This flattens the view rotation to keep the horizon level (removes roll), which can help reduce motion sickness.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-default-vr-controller-bindings"><a class="header" href="#uevr-default-vr-controller-bindings">UEVR: Default VR Controller Bindings</a></h1>
-<p>UEVR implements (or attempts to implement) 1:1 mappings from a default Xbox controller to a VR controller.</p>
+<p>UEVR uses an action-based input system with generic action names that map to physical buttons depending on the active VR runtime and controller profile. The default bindings attempt to provide a familiar Xbox-like layout.</p>
 <p>These can be rebound in a few ways:</p>
 <ol>
 <li>If using OpenXR, you can modify the bindings under Runtime</li>
@@ -521,7 +521,7 @@ r.DefaultFeature.AntiAliasing 0
 <p>The C++ API header is in <code>include/uevr/API.hpp</code>.</p>
 <p>The base C++ plugin header is in <code>include/uevr/Plugin.hpp</code>.</p>
 <h2 id="plugin-installation"><a class="header" href="#plugin-installation">Plugin Installation</a></h2>
-<p>In the frontend, click the &quot;Open Global Dir&quot; button. Locate the corresponding game directory, and place the DLL in the <code>plugins</code> folder.</p>
+<p>Place the compiled plugin DLL into the game's persistent configuration directory at <code>%APPDATA%/UnrealVRMod/&lt;game_exe_name&gt;/plugins/</code>, or into the global directory at <code>%APPDATA%/UEVR/plugins/</code>.</p>
 <p>During plugin development, you many want to create a symbolic link from the <code>plugins</code> dir to your project's DLL output directory. This way, you can build the plugin and have it automatically load into UEVR.</p>
 <h2 id="plugin-lifecycle"><a class="header" href="#plugin-lifecycle">Plugin Lifecycle</a></h2>
 <p>Plugins are loaded and unloaded at runtime. The plugin lifecycle is as follows:</p>
@@ -569,19 +569,19 @@ public:
         API::get()-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
     }
 
-    void on_pre_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+    void on_pre_engine_tick(API::UGameEngine* engine, float delta) override {
         PLUGIN_LOG_ONCE(&quot;Pre Engine Tick: %f&quot;, delta);
     }
 
-    void on_post_engine_tick(UEVR_UGameEngineHandle engine, float delta) override {
+    void on_post_engine_tick(API::UGameEngine* engine, float delta) override {
         PLUGIN_LOG_ONCE(&quot;Post Engine Tick: %f&quot;, delta);
     }
 
-    void on_pre_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+    void on_pre_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
         PLUGIN_LOG_ONCE(&quot;Pre Slate Draw Window&quot;);
     }
 
-    void on_post_slate_draw_window(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
+    void on_post_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info) override {
         PLUGIN_LOG_ONCE(&quot;Post Slate Draw Window&quot;);
     }
 };
@@ -590,6 +590,39 @@ public:
 // The fact that it's using std::unique_ptr is not important, as long as the constructor is called in some way.
 std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 </code></pre>
+<h2 id="available-virtual-functions"><a class="header" href="#available-virtual-functions">Available Virtual Functions</a></h2>
+<p><code>Plugin.hpp</code> exposes the following virtual functions that can be overridden:</p>
+<h3 id="main-plugin-callbacks"><a class="header" href="#main-plugin-callbacks">Main plugin callbacks</a></h3>
+<ul>
+<li><code>void on_dllmain()</code></li>
+<li><code>void on_initialize()</code></li>
+<li><code>void on_present()</code></li>
+<li><code>void on_post_render_vr_framework_dx11(ID3D11DeviceContext* context, ID3D11Texture2D* texture, ID3D11RenderTargetView* rtv)</code></li>
+<li><code>void on_post_render_vr_framework_dx12(ID3D12GraphicsCommandList* command_list, ID3D12Resource* rt, D3D12_CPU_DESCRIPTOR_HANDLE* rtv)</code></li>
+<li><code>void on_device_reset()</code></li>
+<li><code>bool on_message(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)</code></li>
+<li><code>void on_xinput_get_state(uint32_t* retval, uint32_t user_index, XINPUT_STATE* state)</code></li>
+<li><code>void on_xinput_set_state(uint32_t* retval, uint32_t user_index, XINPUT_VIBRATION* vibration)</code></li>
+</ul>
+<h3 id="gameengine-callbacks"><a class="header" href="#gameengine-callbacks">Game/Engine callbacks</a></h3>
+<ul>
+<li><code>void on_pre_engine_tick(API::UGameEngine* engine, float delta)</code></li>
+<li><code>void on_post_engine_tick(API::UGameEngine* engine, float delta)</code></li>
+<li><code>void on_pre_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info)</code></li>
+<li><code>void on_post_slate_draw_window_render_thread(UEVR_FSlateRHIRendererHandle renderer, UEVR_FViewportInfoHandle viewport_info)</code></li>
+<li><code>void on_pre_calculate_stereo_view_offset(UEVR_StereoRenderingDeviceHandle device, int view_index, float world_to_meters, UEVR_Vector3f* position, UEVR_Rotatorf* rotation, bool is_double)</code></li>
+<li><code>void on_post_calculate_stereo_view_offset(UEVR_StereoRenderingDeviceHandle device, int view_index, float world_to_meters, UEVR_Vector3f* position, UEVR_Rotatorf* rotation, bool is_double)</code></li>
+<li><code>void on_pre_viewport_client_draw(UEVR_UGameViewportClientHandle viewport_client, UEVR_FViewportHandle viewport, UEVR_FCanvasHandle canvas)</code></li>
+<li><code>void on_post_viewport_client_draw(UEVR_UGameViewportClientHandle viewport_client, UEVR_FViewportHandle viewport, UEVR_FCanvasHandle canvas)</code></li>
+<li><code>void on_custom_event(const char* event_name, const char* event_data)</code></li>
+</ul>
+<h3 id="rendering-callbacks"><a class="header" href="#rendering-callbacks">Rendering callbacks</a></h3>
+<ul>
+<li><code>void on_frame()</code></li>
+<li><code>void on_draw_ui()</code></li>
+<li><code>void on_config_load(const utility::Config&amp; cfg, bool set_defaults)</code></li>
+<li><code>void on_config_save(utility::Config&amp; cfg)</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr-blueprint-api"><a class="header" href="#uevr-blueprint-api">UEVR: Blueprint API</a></h1>
 <p>UEVR implements some functions within the Unreal Engine's existing VR Blueprint API. These functions would usually do nothing because the VR plugins are not present. UEVR implements these functions so modders can easily access HMD and controller data without having to write a C++ plugin.</p>
 <p>This should be more familiar to modders, and easier to use than the C++ API. Normal game developers should feel right at home as well.</p>
@@ -601,7 +634,7 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <h2 id="automatically-handled-components"><a class="header" href="#automatically-handled-components">Automatically handled components</a></h2>
 <h3 id="motion-controller-components"><a class="header" href="#motion-controller-components">Motion Controller components</a></h3>
 <h3 id="when-uobjecthook-is-activated"><a class="header" href="#when-uobjecthook-is-activated">When UObjectHook is activated</a></h3>
-<p>All <code>UMotionControllerComponent</code> (&quot;<code>Motion Controller</code>&quot;) components will have their location and rotation set correctly to the world transform of the user's motion controllers.</p>
+<p>All <code>UMotionControllerComponent</code> (<code>Motion Controller</code>) components with <code>player_index</code> 0 will have their location and rotation set correctly to the world transform of the user's motion controllers. Components with <code>player_index &gt; 0</code> are skipped.</p>
 <p>This means you can make <code>Motion Controller</code> components in Blueprint and UEVR will handle it for you, as long as you enable UObjectHook. You can then do any logic you wish with the Motion Controller transforms, like parenting a weapon mesh to one of them.</p>
 <p>You must correctly set the <code>Motion Source</code> name to either <code>Left</code> or <code>Right</code>. Case sensitive. Or modify the <code>Hand</code> property on older UE versions.</p>
 <p><code>Motion Source</code> can be set to <code>Head</code> or <code>HMD</code> to track the HMD transform.</p>
@@ -609,13 +642,15 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 <p>Tested and confirmed working on 4.27 and 5.0.3</p>
 <p><code>Load Blueprint Code</code> in the UEVR menu must be turned on or one of the head/controller aiming options must be enabled for these to work.</p>
 <p>Some functions explicitly require <code>Load Blueprint Code</code> to be enabled, not just the aiming options.</p>
-<p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/4.27/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a></p>
+<p>For more information on these functions, visit the <a href="https://docs.unrealengine.com/5.0/en-US/BlueprintAPI/Input/HeadMountedDisplay/">Unreal Engine documentation</a> (UE 5.x XRTracking nodes).</p>
 <h3 id="head-mounted-display-is-head-mounted-display-enabled"><a class="header" href="#head-mounted-display-is-head-mounted-display-enabled">Head Mounted Display: Is Head Mounted Display Enabled</a></h3>
-<p>Always works on &lt; 4.18. &gt;= 4.18, <code>Load Blueprint Code</code> must be explicitly enabled for this to work.</p>
+<p>Always works on &lt; 4.18. &gt;= 4.18, <code>Load Blueprint Code</code> must be explicitly enabled for this to work when using native UFunction hooks.</p>
+<h3 id="head-mounted-display-is-head-mounted-display-connected"><a class="header" href="#head-mounted-display-is-head-mounted-display-connected">Head Mounted Display: Is Head Mounted Display Connected</a></h3>
+<p>Returns whether the HMD is currently connected. Implemented via <code>IHeadMountedDisplay::IsHMDConnected</code>.</p>
 <h3 id="head-mounted-display-get-device-pose"><a class="header" href="#head-mounted-display-get-device-pose">Head Mounted Display: Get Device Pose</a></h3>
-<p>This one only works for the HMD for now. Bit of a hacky implementation, but it works.</p>
+<p>Backed by <code>IXRTrackingSystem::GetCurrentPose</code> (vtable hook). Returns the HMD transform.</p>
 <h3 id="head-mounted-display-get-orientation-and-position"><a class="header" href="#head-mounted-display-get-orientation-and-position">Head Mounted Display: Get Orientation And Position</a></h3>
-<p>Gets data about the HMD transform. <code>Load Blueprint Code</code> must be explicitly enabled for this to work on &gt;= 4.18.</p>
+<p><code>Load Blueprint Code</code> must be explicitly enabled for this to work on &gt;= 4.18 (native hook only).</p>
 <h3 id="head-mounted-display-get-motion-controller-data"><a class="header" href="#head-mounted-display-get-motion-controller-data">Head Mounted Display: Get Motion Controller Data</a></h3>
 <p>Only works for left and right controller. </p>
 <p><code>Valid</code>, <code>Aim Position</code>, <code>Aim Rotation</code>, <code>Grip Position</code>, <code>Grip Rotation</code> are implemented.</p>
@@ -639,7 +674,7 @@ std::unique_ptr&lt;ExamplePlugin&gt; g_plugin{new ExamplePlugin()};
 };
 </code></pre>
 <h3 id="head-mounted-display-get-hmddata"><a class="header" href="#head-mounted-display-get-hmddata">Head Mounted Display: Get HMDData</a></h3>
-<p>Untested.</p>
+<p>Implemented. Returns HMD data with dynamic property lookup for UE5.</p>
 <h3 id="head-mounted-display-reset-orientation"><a class="header" href="#head-mounted-display-reset-orientation">Head Mounted Display: Reset Orientation</a></h3>
 <h3 id="head-mounted-display-reset-position"><a class="header" href="#head-mounted-display-reset-position">Head Mounted Display: Reset Position</a></h3>
 <h3 id="head-mounted-display-reset-orientation-and-position"><a class="header" href="#head-mounted-display-reset-orientation-and-position">Head Mounted Display: Reset Orientation and Position</a></h3>
@@ -990,19 +1025,21 @@ vr_print(&quot;Is Using Controllers: &quot; .. tostring(is_using_controllers))
 <p>Prototype: <code>function(renderer: UEVR_FSlateRHIRendererHandle, viewport_info: UEVR_FViewportInfoHandle)</code></p>
 <h3 id="uevrsdkcallbackson_post_slate_draw_window_render_threadfn"><a class="header" href="#uevrsdkcallbackson_post_slate_draw_window_render_threadfn"><code>uevr.sdk.callbacks.on_post_slate_draw_window_render_thread(fn)</code></a></h3>
 <p>Registers a callback to be called after the slate window is drawn on the render thread.</p>
-<p>Prototype: <code>function(renderer: UEVR_FSlateRHIRendererHandle, viewport_info: UEVR_FViewportInfoHandle)</code></p>
+<h3 id="uevrsdkcallbackson_early_calculate_stereo_view_offsetfn"><a class="header" href="#uevrsdkcallbackson_early_calculate_stereo_view_offsetfn"><code>uevr.sdk.callbacks.on_early_calculate_stereo_view_offset(fn)</code></a></h3>
+<p>Registers a callback to be called before VR transformations are applied to the view, before the stereo device calculates the view offset.</p>
+<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)</code></p>
 <h3 id="uevrsdkcallbackson_pre_calculate_stereo_view_offsetfn"><a class="header" href="#uevrsdkcallbackson_pre_calculate_stereo_view_offsetfn"><code>uevr.sdk.callbacks.on_pre_calculate_stereo_view_offset(fn)</code></a></h3>
 <p>Registers a callback to be called before VR transformations are applied to the view.</p>
-<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: Vector3f* or Vector3d*, rotation: Quaternionf* or Quaterniond*, is_double: bool)</code></p>
+<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)</code></p>
 <h3 id="uevrsdkcallbackson_post_calculate_stereo_view_offsetfn"><a class="header" href="#uevrsdkcallbackson_post_calculate_stereo_view_offsetfn"><code>uevr.sdk.callbacks.on_post_calculate_stereo_view_offset(fn)</code></a></h3>
 <p>Registers a callback to be called after VR transformations are applied to the view.</p>
-<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: Vector3f* or Vector3d*, rotation: Quaternionf* or Quaterniond*, is_double: bool)</code></p>
+<p>Prototype: <code>function(device: UEVR_StereoRenderingDeviceHandle, view_index: int, world_to_meters: float, position: UEVR_Vector3f*, rotation: UEVR_Rotatorf*, is_double: bool)</code></p>
 <h3 id="uevrsdkcallbackson_pre_viewport_client_drawfn"><a class="header" href="#uevrsdkcallbackson_pre_viewport_client_drawfn"><code>uevr.sdk.callbacks.on_pre_viewport_client_draw(fn)</code></a></h3>
 <p>Registers a callback to be called before the viewport is drawn on the game thread.</p>
-<p>Prototype: <code>function(viewport: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle canvas: UEVR_FCanvasHandle)</code></p>
+<p>Prototype: <code>function(viewport_client: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle, canvas: UEVR_FCanvasHandle)</code></p>
 <h3 id="uevrsdkcallbackson_post_viewport_client_drawfn"><a class="header" href="#uevrsdkcallbackson_post_viewport_client_drawfn"><code>uevr.sdk.callbacks.on_post_viewport_client_draw(fn)</code></a></h3>
 <p>Registers a callback to be called after the viewport is drawn on the game thread.</p>
-<p>Prototype: <code>function(viewport: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle canvas: UEVR_FCanvasHandle)</code></p>
+<p>Prototype: <code>function(viewport_client: UEVR_FViewportClientHandle, viewport: UEVR_FViewportHandle, canvas: UEVR_FCanvasHandle)</code></p>
 <h3 id="uevrsdkcallbackson_framefn"><a class="header" href="#uevrsdkcallbackson_framefn"><code>uevr.sdk.callbacks.on_frame(fn)</code></a></h3>
 <p>Registers a callback to be called every frame. For ImGui functionality.
 Prototype: <code>function()</code></p>
@@ -1072,6 +1109,8 @@ local result = out.result
 <p>Returns the base address of the UObject.</p>
 <h3 id="objget_fname"><a class="header" href="#objget_fname"><code>obj:get_fname()</code></a></h3>
 <p>Returns a <a href="plugins/lua/types/FName.html">UEVR_FName</a> object.</p>
+<h3 id="objget_short_name"><a class="header" href="#objget_short_name"><code>obj:get_short_name()</code></a></h3>
+<p>Returns the short name of the UObject as a Lua string (without the outer path prefix).</p>
 <h3 id="objget_full_name"><a class="header" href="#objget_full_name"><code>obj:get_full_name()</code></a></h3>
 <p>Returns the full name of the UObject as a Lua string.</p>
 <h3 id="objis_aclass-uclass"><a class="header" href="#objis_aclass-uclass"><code>obj:is_a(class: UClass*)</code></a></h3>
@@ -1111,6 +1150,8 @@ local result = out.result
 <p>Returns the <a href="plugins/lua/types/FProperty.html">UEVR_FProperty</a> object of the property with the specified name.</p>
 <h3 id="structget_child_properties"><a class="header" href="#structget_child_properties"><code>struct:get_child_properties()</code></a></h3>
 <p>Returns the first <a href="plugins/lua/types/FProperty.html">UEVR_FProperty*</a> object of the struct. Use <code>property:get_next()</code> to iterate through the properties.</p>
+<h3 id="structget_children"><a class="header" href="#structget_children"><code>struct:get_children()</code></a></h3>
+<p>Returns the first <a href="plugins/lua/types/UField.html">UEVR_UField*</a> child of the struct. Use <code>field:get_next()</code> to iterate through all children.</p>
 <h3 id="structget_properties_size"><a class="header" href="#structget_properties_size"><code>struct:get_properties_size()</code></a></h3>
 <p>Returns the total byte size of the properties of the struct.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_uclass"><a class="header" href="#uevr_uclass">UEVR_UClass</a></h1>
@@ -1137,6 +1178,10 @@ local result = out.result
 <p>Not implemented correctly. Do not use. Use <code>obj:FuncName(args...)</code> instead.</p>
 <h3 id="functionget_native_function"><a class="header" href="#functionget_native_function"><code>function:get_native_function()</code></a></h3>
 <p>Returns the native function pointer of the UFunction as a <code>void*</code>.</p>
+<h3 id="functionget_function_flags"><a class="header" href="#functionget_function_flags"><code>function:get_function_flags()</code></a></h3>
+<p>Returns the function flags as a bitfield.</p>
+<h3 id="functionset_function_flagsflags"><a class="header" href="#functionset_function_flagsflags"><code>function:set_function_flags(flags)</code></a></h3>
+<p>Sets the function flags.</p>
 <h3 id="functionhook_ptrpre-post"><a class="header" href="#functionhook_ptrpre-post"><code>function:hook_ptr(pre, post)</code></a></h3>
 <p>Hooks the UFunction with the specified pre and post function pointers. Functions can be <code>nil</code> if you only want to use one but not the other.</p>
 <p>Pre Signature: <code>bool pre(fn: UFunction*, obj: UObject*, locals: StructObject*, result: void*)</code></p>
@@ -1261,7 +1306,163 @@ local result = out.result
 <p>Constructs a new StructObject from a UEVR_UStruct pointer.</p>
 <h3 id="structobjectnewobject-uevr_uobject"><a class="header" href="#structobjectnewobject-uevr_uobject"><code>StructObject.new(object: UEVR_UObject*)</code></a></h3>
 <p>Constructs a new StructObject from a UEVR_UObject pointer, if the object inherits from UStruct.</p>
+<h3 id="objget_address-1"><a class="header" href="#objget_address-1"><code>obj:get_address()</code></a></h3>
+<p>Returns the memory address of the struct as a number.</p>
+<h3 id="objget_struct"><a class="header" href="#objget_struct"><code>obj:get_struct()</code></a></h3>
+<p>Returns the <a href="plugins/lua/types/UStruct.html">UEVR_UStruct</a> descriptor for this struct.</p>
+<h3 id="objget_propertyname-string-1"><a class="header" href="#objget_propertyname-string-1"><code>obj:get_property(name: string)</code></a></h3>
+<p>Returns the value of the specified property by name.</p>
+<h3 id="objset_propertyname-string-value-any-1"><a class="header" href="#objset_propertyname-string-value-any-1"><code>obj:set_property(name: string, value: any)</code></a></h3>
+<p>Sets the value of the specified property by name.</p>
+<h3 id="objread_qword"><a class="header" href="#objread_qword"><code>obj:read_qword()</code></a></h3>
+<h3 id="objread_dword"><a class="header" href="#objread_dword"><code>obj:read_dword()</code></a></h3>
+<h3 id="objread_word"><a class="header" href="#objread_word"><code>obj:read_word()</code></a></h3>
+<h3 id="objread_byte"><a class="header" href="#objread_byte"><code>obj:read_byte()</code></a></h3>
+<h3 id="objread_float"><a class="header" href="#objread_float"><code>obj:read_float()</code></a></h3>
+<h3 id="objread_double"><a class="header" href="#objread_double"><code>obj:read_double()</code></a></h3>
+<p>Reads a value of the specified type from the struct at the current offset.</p>
+<h3 id="objwrite_qwordvalue"><a class="header" href="#objwrite_qwordvalue"><code>obj:write_qword(value)</code></a></h3>
+<h3 id="objwrite_dwordvalue"><a class="header" href="#objwrite_dwordvalue"><code>obj:write_dword(value)</code></a></h3>
+<h3 id="objwrite_wordvalue"><a class="header" href="#objwrite_wordvalue"><code>obj:write_word(value)</code></a></h3>
+<h3 id="objwrite_bytevalue"><a class="header" href="#objwrite_bytevalue"><code>obj:write_byte(value)</code></a></h3>
+<h3 id="objwrite_floatvalue"><a class="header" href="#objwrite_floatvalue"><code>obj:write_float(value)</code></a></h3>
+<h3 id="objwrite_doublevalue"><a class="header" href="#objwrite_doublevalue"><code>obj:write_double(value)</code></a></h3>
+<p>Writes a value of the specified type to the struct at the current offset.</p>
+<h3 id="objname-metamethod"><a class="header" href="#objname-metamethod"><code>obj[name]</code> (metamethod)</a></h3>
+<p>Equivalent to <code>obj:get_property(name)</code>. Allows table-like access to properties.</p>
+<h3 id="objname--value-metamethod"><a class="header" href="#objname--value-metamethod"><code>obj[name] = value</code> (metamethod)</a></h3>
+<p>Equivalent to <code>obj:set_property(name, value)</code>. Allows table-like assignment to properties.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="c-wrapper-types"><a class="header" href="#c-wrapper-types">C Wrapper Types</a></h1>
+<p>These are C++ wrapper classes provided by <code>include/uevr/API.hpp</code>. They wrap the C API handles and provide a more ergonomic interface.</p>
+<h2 id="uobject"><a class="header" href="#uobject">UObject</a></h2>
+<p>Base class for all Unreal Engine objects.</p>
+<h3 id="methods-1"><a class="header" href="#methods-1">Methods</a></h3>
+<ul>
+<li><code>UClass* get_class() const</code></li>
+<li><code>UObject* get_outer() const</code></li>
+<li><code>bool is_a(UClass* klass) const</code></li>
+<li><code>void process_event(UFunction* function, void* params)</code></li>
+<li><code>void call_function(std::wstring_view name, void* params)</code></li>
+<li><code>FName* get_fname() const</code></li>
+<li><code>std::wstring get_full_name() const</code></li>
+<li><code>template&lt;typename T&gt; T* get_property_data(std::wstring_view name) const</code></li>
+<li><code>bool get_bool_property(std::wstring_view name) const</code></li>
+<li><code>void set_bool_property(std::wstring_view name, bool value)</code></li>
+<li><code>template&lt;typename T&gt; T* dcast()</code></li>
+</ul>
+<h2 id="ufield--uobject"><a class="header" href="#ufield--uobject">UField : UObject</a></h2>
+<p>Base class for fields (types, functions, properties).</p>
+<h2 id="ustruct--ufield"><a class="header" href="#ustruct--ufield">UStruct : UField</a></h2>
+<p>Represents a struct type.</p>
+<h3 id="methods-2"><a class="header" href="#methods-2">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>UStruct* get_super_struct() const</code></li>
+<li><code>UStruct* get_super() const</code></li>
+<li><code>UFunction* find_function(std::wstring_view name) const</code></li>
+<li><code>FProperty* find_property(std::wstring_view name) const</code></li>
+<li><code>FField* get_child_properties() const</code></li>
+<li><code>UField* get_children() const</code></li>
+<li><code>int32_t get_properties_size() const</code></li>
+<li><code>int32_t get_min_alignment() const</code></li>
+</ul>
+<h2 id="uclass--ustruct"><a class="header" href="#uclass--ustruct">UClass : UStruct</a></h2>
+<p>Represents a class type.</p>
+<h3 id="methods-3"><a class="header" href="#methods-3">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>UObject* get_class_default_object() const</code></li>
+<li><code>std::vector&lt;UObject*&gt; get_objects_matching(bool allow_default = false) const</code></li>
+<li><code>UObject* get_first_object_matching(bool allow_default = false) const</code></li>
+</ul>
+<h2 id="ufunction--ustruct"><a class="header" href="#ufunction--ustruct">UFunction : UStruct</a></h2>
+<p>Represents a function.</p>
+<h3 id="methods-4"><a class="header" href="#methods-4">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>void call(UObject* obj, void* params)</code></li>
+<li><code>void* get_native_function() const</code></li>
+<li><code>uint32_t get_function_flags() const</code></li>
+<li><code>void set_function_flags(uint32_t flags)</code></li>
+<li><code>bool hook_ptr(UEVR_UFunction_CPPPreNative pre, UEVR_UFunction_CPPPostNative post)</code></li>
+</ul>
+<h2 id="uscriptstruct--ustruct"><a class="header" href="#uscriptstruct--ustruct">UScriptStruct : UStruct</a></h2>
+<p>Represents a script struct (POD type).</p>
+<h3 id="methods-5"><a class="header" href="#methods-5">Methods</a></h3>
+<ul>
+<li><code>static UClass* static_class()</code></li>
+<li><code>StructOps* get_struct_ops() const</code></li>
+<li><code>int32_t get_struct_size() const</code></li>
+</ul>
+<h2 id="ffield"><a class="header" href="#ffield">FField</a></h2>
+<p>Wrapper for both UField and FField.</p>
+<h3 id="methods-6"><a class="header" href="#methods-6">Methods</a></h3>
+<ul>
+<li><code>FField* get_next() const</code></li>
+<li><code>FName* get_fname() const</code></li>
+<li><code>FFieldClass* get_class() const</code></li>
+</ul>
+<h2 id="fproperty--ffield"><a class="header" href="#fproperty--ffield">FProperty : FField</a></h2>
+<p>Represents a property.</p>
+<h3 id="methods-7"><a class="header" href="#methods-7">Methods</a></h3>
+<ul>
+<li><code>int32_t get_offset() const</code></li>
+<li><code>uint64_t get_property_flags() const</code></li>
+<li><code>bool is_param() const</code></li>
+<li><code>bool is_out_param() const</code></li>
+<li><code>bool is_return_param() const</code></li>
+<li><code>bool is_reference_param() const</code></li>
+<li><code>bool is_pod() const</code></li>
+</ul>
+<h2 id="ffieldclass"><a class="header" href="#ffieldclass">FFieldClass</a></h2>
+<p>Represents a field class.</p>
+<h3 id="methods-8"><a class="header" href="#methods-8">Methods</a></h3>
+<ul>
+<li><code>FName* get_fname() const</code></li>
+<li><code>std::wstring get_name() const</code></li>
+</ul>
+<h2 id="fname"><a class="header" href="#fname">FName</a></h2>
+<p>Represents a name.</p>
+<h3 id="methods-9"><a class="header" href="#methods-9">Methods</a></h3>
+<ul>
+<li><code>FName(std::wstring_view name, EFindName find_type = EFindName::Add)</code></li>
+<li><code>std::wstring to_string() const</code></li>
+</ul>
+<h2 id="fuobjectarray"><a class="header" href="#fuobjectarray">FUObjectArray</a></h2>
+<p>Global UObject array.</p>
+<h3 id="methods-10"><a class="header" href="#methods-10">Methods</a></h3>
+<ul>
+<li><code>static FUObjectArray* get()</code></li>
+<li><code>static bool is_chunked()</code></li>
+<li><code>static bool is_inlined()</code></li>
+<li><code>static size_t get_objects_offset()</code></li>
+<li><code>static size_t get_item_distance()</code></li>
+<li><code>int32_t get_object_count() const</code></li>
+<li><code>void* get_objects_ptr() const</code></li>
+<li><code>UObject* get_object(int32_t index) const</code></li>
+</ul>
+<h3 id="fuobjectitem"><a class="header" href="#fuobjectitem">FUObjectItem</a></h3>
+<pre><code class="language-cpp">struct FUObjectItem {
+    API::UObject* object;
+    int32_t flags;
+    int32_t cluster_index;
+    int32_t serial_number;
+};
+</code></pre>
+<h2 id="tarray"><a class="header" href="#tarray">TArray<T></a></h2>
+<p>A dynamic array.</p>
+<h3 id="members-2"><a class="header" href="#members-2">Members</a></h3>
+<ul>
+<li><code>T* data</code></li>
+<li><code>int32_t count</code></li>
+<li><code>int32_t capacity</code></li>
+</ul>
+<h3 id="methods-11"><a class="header" href="#methods-11">Methods</a></h3>
+<ul>
+<li><code>T* begin()</code></li>
+<li><code>T* end()</code></li>
+<li><code>bool empty() const</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_vrdata"><a class="header" href="#uevr_vrdata">UEVR_VRData</a></h1>
 <p>Accessed with <code>uevr.params.vr</code></p>
 <p>Static functions. Use <code>.</code> operator. Exception is <code>vr:get_mod_value</code></p>
@@ -1290,12 +1491,24 @@ local result = out.result
 <p>Returns the index of the right controller.</p>
 <h3 id="vrget_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
 <p>Returns the pose of the specified device.</p>
-<h3 id="vrget_transformindex-number-out-transform-uevr_transform"><a class="header" href="#vrget_transformindex-number-out-transform-uevr_transform"><code>vr.get_transform(index: number, out transform: UEVR_Transform)</code></a></h3>
-<p>Returns the transform of the specified device.</p>
+<h3 id="vrget_transformindex-number-out-transform-uevr_matrix4x4f"><a class="header" href="#vrget_transformindex-number-out-transform-uevr_matrix4x4f"><code>vr.get_transform(index: number, out transform: UEVR_Matrix4x4f)</code></a></h3>
+<p>Returns the transform of the specified device as a 4x4 matrix.</p>
 <h3 id="vrget_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><a class="header" href="#vrget_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><code>vr.get_eye_offset(index: number, out eye_offset: UEVR_Vector3f)</code></a></h3>
 <p>Returns the eye offset of the specified eye.</p>
-<h3 id="vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><a class="header" href="#vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><code>vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4f)</code></a></h3>
+<h3 id="vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4x4f"><a class="header" href="#vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4x4f"><code>vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4x4f)</code></a></h3>
 <p>Returns the projection matrix of the specified eye.</p>
+<h3 id="vrget_grip_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_grip_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_grip_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
+<p>Returns the grip pose of the specified controller.</p>
+<h3 id="vrget_aim_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_aim_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_aim_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
+<p>Returns the aim pose of the specified controller.</p>
+<h3 id="vrget_grip_transformindex-number-out-transform-uevr_matrix4x4f"><a class="header" href="#vrget_grip_transformindex-number-out-transform-uevr_matrix4x4f"><code>vr.get_grip_transform(index: number, out transform: UEVR_Matrix4x4f)</code></a></h3>
+<p>Returns the grip transform of the specified controller as a 4x4 matrix.</p>
+<h3 id="vrget_aim_transformindex-number-out-transform-uevr_matrix4x4f"><a class="header" href="#vrget_aim_transformindex-number-out-transform-uevr_matrix4x4f"><code>vr.get_aim_transform(index: number, out transform: UEVR_Matrix4x4f)</code></a></h3>
+<p>Returns the aim transform of the specified controller as a 4x4 matrix.</p>
+<h3 id="vris_decoupled_pitch_enabled"><a class="header" href="#vris_decoupled_pitch_enabled"><code>vr.is_decoupled_pitch_enabled()</code></a></h3>
+<p>Returns true if decoupled pitch is enabled.</p>
+<h3 id="vrget_movement_orientation"><a class="header" href="#vrget_movement_orientation"><code>vr.get_movement_orientation()</code></a></h3>
+<p>Returns the current movement orientation as an integer flag.</p>
 <h3 id="vrget_left_joystick_source"><a class="header" href="#vrget_left_joystick_source"><code>vr.get_left_joystick_source()</code></a></h3>
 <p>Returns the source handle of the left joystick.</p>
 <h3 id="vrget_right_joystick_source"><a class="header" href="#vrget_right_joystick_source"><code>vr.get_right_joystick_source()</code></a></h3>
@@ -1310,9 +1523,13 @@ local result = out.result
 <p>Returns the axis of the specified joystick.</p>
 <h3 id="vrtrigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><a class="header" href="#vrtrigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><code>vr.trigger_haptic_vibration(seconds_from_now: number, duration: number, frequency: number, amplitude: number, source_handle: number)</code></a></h3>
 <p>Triggers haptic vibration on the specified device.</p>
+<blockquote>
+<p><strong>Note:</strong> The C++ wrapper in <code>API.hpp</code> swaps <code>amplitude</code> and <code>duration</code>. The Lua/C API signature above is correct.</p>
+</blockquote>
 <h3 id="vris_using_controllers"><a class="header" href="#vris_using_controllers"><code>vr.is_using_controllers()</code></a></h3>
 <p>Returns true if the VR system is using controllers within the past 30 seconds.</p>
 <h3 id="vrget_lowest_xinput_index"><a class="header" href="#vrget_lowest_xinput_index"><code>vr.get_lowest_xinput_index()</code></a></h3>
+<p>Returns the lowest XInput controller index used by UEVR.</p>
 <h3 id="vrrecenter_view"><a class="header" href="#vrrecenter_view"><code>vr.recenter_view()</code></a></h3>
 <p>Recenters the view.</p>
 <h3 id="vrrecenter_horizon"><a class="header" href="#vrrecenter_horizon"><code>vr.recenter_horizon()</code></a></h3>
@@ -1350,7 +1567,7 @@ local result = out.result
 <p>Reloads the configuration.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_plugininitializeparam"><a class="header" href="#uevr_plugininitializeparam">UEVR_PluginInitializeParam</a></h1>
 <p>Accessed with <code>uevr.params</code>.</p>
-<h2 id="members-2"><a class="header" href="#members-2">Members</a></h2>
+<h2 id="members-3"><a class="header" href="#members-3">Members</a></h2>
 <h3 id="paramsuevr_module"><a class="header" href="#paramsuevr_module"><code>params.uevr_module</code></a></h3>
 <p>The HMODULE of UEVR.</p>
 <h3 id="paramsversion"><a class="header" href="#paramsversion"><code>params.version</code></a></h3>
@@ -1376,9 +1593,11 @@ local result = out.result
 <p>Returns <a href="plugins/lua/cwrappers/UEVR_OpenXRData.html">UEVR_OpenXRData</a>.</p>
 <h3 id="paramssdk"><a class="header" href="#paramssdk"><code>params.sdk</code></a></h3>
 <p>Returns <a href="plugins/lua/cwrappers/UEVR_SDKData.html">UEVR_SDKData</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_plugininitializeparam-1"><a class="header" href="#uevr_plugininitializeparam-1">UEVR_PluginInitializeParam</a></h1>
+<h3 id="paramslua"><a class="header" href="#paramslua"><code>params.lua</code></a></h3>
+<p>Returns Lua-specific data and functions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uevr_pluginfunctions"><a class="header" href="#uevr_pluginfunctions">UEVR_PluginFunctions</a></h1>
 <p>Accessed with <code>uevr.params.functions</code></p>
-<h2 id="members-3"><a class="header" href="#members-3">Members</a></h2>
+<h2 id="members-4"><a class="header" href="#members-4">Members</a></h2>
 <h3 id="functionslog_errormsg"><a class="header" href="#functionslog_errormsg"><code>functions.log_error(msg)</code></a></h3>
 <p>Logs an error message.</p>
 <h3 id="functionslog_warningmsg"><a class="header" href="#functionslog_warningmsg"><code>functions.log_warning(msg)</code></a></h3>
@@ -1403,6 +1622,18 @@ local result = out.result
 <p>Returns the number of commits past the last tag.</p>
 <h3 id="functionsget_total_commits"><a class="header" href="#functionsget_total_commits"><code>functions.get_total_commits()</code></a></h3>
 <p>Returns the total number of commits to UEVR.</p>
+<h3 id="functionsremove_callbackcb"><a class="header" href="#functionsremove_callbackcb"><code>functions.remove_callback(cb)</code></a></h3>
+<p>Removes a previously registered callback.</p>
+<h3 id="functionsget_persistent_dir"><a class="header" href="#functionsget_persistent_dir"><code>functions.get_persistent_dir()</code></a></h3>
+<p>Returns the path to the persistent configuration directory for the current game.</p>
+<h3 id="functionsregister_inline_hooktarget-dst-original"><a class="header" href="#functionsregister_inline_hooktarget-dst-original"><code>functions.register_inline_hook(target, dst, original)</code></a></h3>
+<p>Registers an inline hook. <code>target</code> is the address to hook, <code>dst</code> is the destination function, <code>original</code> is an output pointer for the original function.</p>
+<h3 id="functionsunregister_inline_hookhook_id"><a class="header" href="#functionsunregister_inline_hookhook_id"><code>functions.unregister_inline_hook(hook_id)</code></a></h3>
+<p>Unregisters an inline hook by its ID.</p>
+<h3 id="functionsdispatch_lua_eventevent_name-event_data"><a class="header" href="#functionsdispatch_lua_eventevent_name-event_data"><code>functions.dispatch_lua_event(event_name, event_data)</code></a></h3>
+<p>Dispatches a Lua event to all script contexts.</p>
+<h3 id="functionsdispatch_custom_eventevent_name-event_data"><a class="header" href="#functionsdispatch_custom_eventevent_name-event_data"><code>functions.dispatch_custom_event(event_name, event_data)</code></a></h3>
+<p>Dispatches a custom event for plugins to listen to via <code>on_custom_event</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="third-party"><a class="header" href="#third-party">Third Party</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xinput"><a class="header" href="#xinput">XInput</a></h1>
 <h2 id="globals"><a class="header" href="#globals">Globals</a></h2>
@@ -1484,7 +1715,7 @@ end)
 <h3 id="imguicolumnflags"><a class="header" href="#imguicolumnflags"><code>imgui.ColumnFlags</code></a></h3>
 <h3 id="imguiimguikey"><a class="header" href="#imguiimguikey"><code>imgui.ImGuiKey</code></a></h3>
 <h3 id="imguiimguistylevar"><a class="header" href="#imguiimguistylevar"><code>imgui.ImGuiStyleVar</code></a></h3>
-<h2 id="methods-1"><a class="header" href="#methods-1">Methods</a></h2>
+<h2 id="methods-12"><a class="header" href="#methods-12">Methods</a></h2>
 <h3 id="imguibegin_windowname-open-flags"><a class="header" href="#imguibegin_windowname-open-flags"><code>imgui.begin_window(name, open, flags)</code></a></h3>
 <p>Creates a new window with the title of <code>name</code>.</p>
 <p><code>open</code> is a bool. Can be <code>nil</code>. If not <code>nil</code>, a close button will be shown in the top right of the window.</p>
@@ -1812,7 +2043,7 @@ end)
 local function f() end
 {[f]=&quot;function key&quot;, funcval=f} -- Becomes {[&quot;&quot;]=&quot;function key&quot;}
 </code></pre>
-<h2 id="methods-2"><a class="header" href="#methods-2">Methods</a></h2>
+<h2 id="methods-13"><a class="header" href="#methods-13">Methods</a></h2>
 <h3 id="jsonload_stringjson_str"><a class="header" href="#jsonload_stringjson_str"><code>json.load_string(json_str)</code></a></h3>
 <p>Takes a JSON string and turns it into a Lua value (usually a table). Returns <code>nil</code> on error.</p>
 <h3 id="jsondump_stringvalue-indent"><a class="header" href="#jsondump_stringvalue-indent"><code>json.dump_string(value, [indent])</code></a></h3>
@@ -1825,7 +2056,7 @@ local function f() end
 <p>This is the filesystem API. this API focuses specifically on the <code>UnrealVRMod/GameName/data</code> subdirectory.</p>
 <p>In newer builds of UEVR, the <code>io</code> API is fully supported, but it can only access the <code>UnrealVRMod/GameName/data</code> directory and the stdout/in/err streams. <code>io.popen</code> is also removed.</p>
 <p>The <code>io</code> APIs have access to the <code>scripts</code> directory via the <code>$scripts</code> token passed at the start of the filepath string for any of the functions.</p>
-<h2 id="methods-3"><a class="header" href="#methods-3">Methods</a></h2>
+<h2 id="methods-14"><a class="header" href="#methods-14">Methods</a></h2>
 <h3 id="fsglobfilter"><a class="header" href="#fsglobfilter"><code>fs.glob(filter)</code></a></h3>
 <p>Returns a table of file paths that match the <code>filter</code>. <code>filter</code> should be a regex string for the files you wish to match.</p>
 <h4 id="example-2"><a class="header" href="#example-2">Example</a></h4>

@@ -169,12 +169,24 @@
 <p>Returns the index of the right controller.</p>
 <h3 id="vrget_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
 <p>Returns the pose of the specified device.</p>
-<h3 id="vrget_transformindex-number-out-transform-uevr_transform"><a class="header" href="#vrget_transformindex-number-out-transform-uevr_transform"><code>vr.get_transform(index: number, out transform: UEVR_Transform)</code></a></h3>
-<p>Returns the transform of the specified device.</p>
+<h3 id="vrget_transformindex-number-out-transform-uevr_matrix4x4f"><a class="header" href="#vrget_transformindex-number-out-transform-uevr_matrix4x4f"><code>vr.get_transform(index: number, out transform: UEVR_Matrix4x4f)</code></a></h3>
+<p>Returns the transform of the specified device as a 4x4 matrix.</p>
 <h3 id="vrget_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><a class="header" href="#vrget_eye_offsetindex-number-out-eye_offset-uevr_vector3f"><code>vr.get_eye_offset(index: number, out eye_offset: UEVR_Vector3f)</code></a></h3>
 <p>Returns the eye offset of the specified eye.</p>
-<h3 id="vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><a class="header" href="#vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4f"><code>vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4f)</code></a></h3>
+<h3 id="vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4x4f"><a class="header" href="#vrget_ue_projection_matrixindex-number-out-projection_matrix-uevr_matrix4x4f"><code>vr.get_ue_projection_matrix(index: number, out projection_matrix: UEVR_Matrix4x4f)</code></a></h3>
 <p>Returns the projection matrix of the specified eye.</p>
+<h3 id="vrget_grip_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_grip_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_grip_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
+<p>Returns the grip pose of the specified controller.</p>
+<h3 id="vrget_aim_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><a class="header" href="#vrget_aim_poseindex-number-out-position-uevr_vector3f-out-rotation-uevr_quaternionf"><code>vr.get_aim_pose(index: number, out position: UEVR_Vector3f, out rotation: UEVR_Quaternionf)</code></a></h3>
+<p>Returns the aim pose of the specified controller.</p>
+<h3 id="vrget_grip_transformindex-number-out-transform-uevr_matrix4x4f"><a class="header" href="#vrget_grip_transformindex-number-out-transform-uevr_matrix4x4f"><code>vr.get_grip_transform(index: number, out transform: UEVR_Matrix4x4f)</code></a></h3>
+<p>Returns the grip transform of the specified controller as a 4x4 matrix.</p>
+<h3 id="vrget_aim_transformindex-number-out-transform-uevr_matrix4x4f"><a class="header" href="#vrget_aim_transformindex-number-out-transform-uevr_matrix4x4f"><code>vr.get_aim_transform(index: number, out transform: UEVR_Matrix4x4f)</code></a></h3>
+<p>Returns the aim transform of the specified controller as a 4x4 matrix.</p>
+<h3 id="vris_decoupled_pitch_enabled"><a class="header" href="#vris_decoupled_pitch_enabled"><code>vr.is_decoupled_pitch_enabled()</code></a></h3>
+<p>Returns true if decoupled pitch is enabled.</p>
+<h3 id="vrget_movement_orientation"><a class="header" href="#vrget_movement_orientation"><code>vr.get_movement_orientation()</code></a></h3>
+<p>Returns the current movement orientation as an integer flag.</p>
 <h3 id="vrget_left_joystick_source"><a class="header" href="#vrget_left_joystick_source"><code>vr.get_left_joystick_source()</code></a></h3>
 <p>Returns the source handle of the left joystick.</p>
 <h3 id="vrget_right_joystick_source"><a class="header" href="#vrget_right_joystick_source"><code>vr.get_right_joystick_source()</code></a></h3>
@@ -189,9 +201,13 @@
 <p>Returns the axis of the specified joystick.</p>
 <h3 id="vrtrigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><a class="header" href="#vrtrigger_haptic_vibrationseconds_from_now-number-duration-number-frequency-number-amplitude-number-source_handle-number"><code>vr.trigger_haptic_vibration(seconds_from_now: number, duration: number, frequency: number, amplitude: number, source_handle: number)</code></a></h3>
 <p>Triggers haptic vibration on the specified device.</p>
+<blockquote>
+<p><strong>Note:</strong> The C++ wrapper in <code>API.hpp</code> swaps <code>amplitude</code> and <code>duration</code>. The Lua/C API signature above is correct.</p>
+</blockquote>
 <h3 id="vris_using_controllers"><a class="header" href="#vris_using_controllers"><code>vr.is_using_controllers()</code></a></h3>
 <p>Returns true if the VR system is using controllers within the past 30 seconds.</p>
 <h3 id="vrget_lowest_xinput_index"><a class="header" href="#vrget_lowest_xinput_index"><code>vr.get_lowest_xinput_index()</code></a></h3>
+<p>Returns the lowest XInput controller index used by UEVR.</p>
 <h3 id="vrrecenter_view"><a class="header" href="#vrrecenter_view"><code>vr.recenter_view()</code></a></h3>
 <p>Recenters the view.</p>
 <h3 id="vrrecenter_horizon"><a class="header" href="#vrrecenter_horizon"><code>vr.recenter_horizon()</code></a></h3>
