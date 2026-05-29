@@ -8,7 +8,7 @@ Accessed with `uevr.params.functions`
 
 Logs an error message.
 
-### `functions.log_warning(msg)`
+### `functions.log_warn(msg)`
 
 Logs a warning message.
 

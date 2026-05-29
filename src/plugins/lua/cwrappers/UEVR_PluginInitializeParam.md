@@ -51,4 +51,7 @@ Returns [UEVR_SDKData](UEVR_SDKData.md).
 
 ### `params.lua`
 
-Returns Lua-specific data and functions.
+Returns `UEVR_LuaData` with the following members:
+
+- `get_lua_state()` — returns the active `lua_State*` used by UEVR's main Lua context.
+- `add_additional_bindings(L)` — adds json, fs, imgui, and other helper bindings to an external `lua_State*`.
